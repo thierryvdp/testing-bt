@@ -2,6 +2,7 @@ package test.url.main;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -67,10 +68,32 @@ public class UrlCon {
 		String basicAuth = "Basic " + new String(Base64.encode(userpass.getBytes()));
 		conn.setRequestProperty ("Authorization", basicAuth);
 		conn.setDoOutput(true);
+		conn.setRequestProperty ("ContentType", "application/json-rpc");
+		
+//		webRequest.ContentType = "application/json-rpc";
+//		webRequest.Method = "POST";
+
+		String method="getwork";
+		String paramString=null;
+        String jsonParam = (paramString != null) ? "\"" + paramString + "\"" : "";
+        String request = "{\"id\": 0, \"method\": \"" + method + "\", \"params\": [" + jsonParam + "]}";
+
+        // serialize json for the request
+//        byte[] byteArray = Encoding.UTF8.GetBytes(request);
+//        webRequest.ContentLength = byteArray.Length;
+//        using (Stream dataStream = webRequest.GetRequestStream())
+//            dataStream.Write(byteArray, 0, byteArray.Length);
+//
+//        string reply = "";
+//        using (WebResponse webResponse = webRequest.GetResponse())
+//        using (Stream str = webResponse.GetResponseStream())
+//        using (StreamReader reader = new StreamReader(str))
+//        reply = reader.ReadToEnd();
+
 
 		/** recuperation de la reponse au post **/
-//		OutputStreamWriter postStreamWriter = new OutputStreamWriter(conn.getOutputStream());
-//		postStreamWriter.write(postDocument.asXML());
+		OutputStreamWriter postStreamWriter = new OutputStreamWriter(conn.getOutputStream());
+		postStreamWriter.write(request);
 //		postStreamWriter.flush();
 		InputStream responseStream=conn.getInputStream();
 		printOutStream(responseStream);
