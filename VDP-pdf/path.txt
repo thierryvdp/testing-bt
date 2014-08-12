@@ -1,0 +1,7 @@
+pathOfficiel=C:\\Users\\thierry\\Google Drive\\Maison\\facture
+pathModif=C:\\Users\\thierry\\Google Drive\\Maison\\facture
+pathBack=C:\\Users\\thierry\\Google Drive\\Maison\\facture
+last=124
+
+
+
