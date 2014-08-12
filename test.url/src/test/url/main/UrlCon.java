@@ -3,9 +3,13 @@ package test.url.main;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.sun.xml.internal.messaging.saaj.util.Base64;
 
@@ -15,6 +19,25 @@ public class UrlCon {
 
 	public static void main(String[] args) {
 		try {
+			// bitseed.xf2.org : reseau p2p reel			
+			// sinon https://en.bitcoin.it/wiki/Testnet reseau de test
+			
+			/** nslookup peers **/
+			List<String> peers = lookup("bitseed.xf2.org");
+			for(String peer:peers) {
+				System.out.println(peer);
+			}
+			
+			/**
+			 * Talking to peers
+Once I had the address of a working peer, the next step was to send my transaction into the peer-to-peer network.[8] Using the peer-to-peer protocol is pretty straightforward. I opened a TCP connection to an arbitrary peer on port 8333, started sending messages, and received messages in turn. The Bitcoin peer-to-peer protocol is pretty forgiving; peers would keep communicating even if I totally messed up requests.
+Important note: as a few people pointed out, if you want to experiment you should use the Bitcoin Testnet, which lets you experiment with "fake" bitcoins, since it's easy to lose your valuable bitcoins if you mess up on the real network. (For example, if you forget the change address in a transaction, excess bitcoins will go to the miners as a fee.) But I figured I would use the real Bitcoin network and risk my $1.00 worth of bitcoins.
+The protocol consists of about 24 different message types. Each message is a fairly straightforward binary blob containing an ASCII command name and a binary payload appropriate to the command. The protocol is well-documented on the Bitcoin wiki.
+The first step when connecting to a peer is to establish the connection by exchanging version messages. First I send a version message with my protocol version number[21], address, and a few other things. The peer sends its version message back. After this, nodes are supposed to acknowledge the version message with averack message. (As I mentioned, the protocol is forgiving - everything works fine even if I skip the verack.)
+Generating the version message isn't totally trivial since it has a bunch of fields, but it can be created with a few lines of Python. makeMessage below builds an arbitrary peer-to-peer message from the magic number, command name, and payload. getVersionMessage creates the payload for a version message by packing together the various fields.
+
+			 * 
+			 */
 
 			String protocol= "http:";
 			String address = "eu.eclipsemc.com";
@@ -22,7 +45,7 @@ public class UrlCon {
 			String usr     = args[0];
 			String pwd     = args[1];
 
-			connecte2(protocol, address, port, usr, pwd);
+//			connecte2(protocol, address, port, usr, pwd);
 //			connecte2(protocol, address, port, usr, pwd);
 
 		} catch (Exception e) {
@@ -102,5 +125,30 @@ public class UrlCon {
 //		SAXReader saxReader = new SAXReader();
 //		responseDocument = saxReader.read(responseStream);
 	}
+	
+
+	  private static List<String> lookup(String s) {
+
+		    InetAddress[] ipAds;
+		    List<String> gatheredIps=new ArrayList<String>();
+
+		    // get the bytes of the IP address
+		    try {
+		      ipAds = InetAddress.getAllByName(s);
+		      for(InetAddress ad:ipAds) {
+		    	  byte[] address = ad.getAddress();
+					      // Print the IP address
+		    	  		  String ip="";
+					      for (int i = 0; i < address.length; i++) {
+					        int unsignedByte = address[i] < 0 ? address[i] + 256 : address[i];
+					        ip+=unsignedByte + ".";
+					      }
+					      gatheredIps.add(ip.substring(0, ip.length()-1));
+		      }
+		    } catch (UnknownHostException ue) {
+		      System.out.println("Cannot find host " + s);
+		    }
+		    return gatheredIps;
+		  }
 
 }
