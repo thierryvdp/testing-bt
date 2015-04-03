@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<!-- REVERSE DE TOUTES LES TABLES -->
+
+  <table-filter package="irl.server.data"       match-name="User"/>
+  <table-filter package="irl.server.data"       match-name="Email"/>
+
+<!-- EXCLUDE DES VUES -->
+
+<!-- RENOMMER des Relations many-to-one -->
+
+<table name="Email">
+	<foreign-key constraint-name="User_ibfk_1">
+		<many-to-one property="user" />
+		<set exclude="true" />
+	</foreign-key>
+</table>
+
+</hibernate-reverse-engineering>

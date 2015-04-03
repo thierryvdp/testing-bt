@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 f?vr. 2009 20:54:53 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="irl.server.data.Email" table="Email">
+        <id name="emailId" type="java.lang.Long">
+            <column name="EmailId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="irl.server.data.User" fetch="select">
+            <column name="UserId" not-null="true" />
+        </many-to-one>
+        <property name="email" type="string">
+            <column name="Email" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

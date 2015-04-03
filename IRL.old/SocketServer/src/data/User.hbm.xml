@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 21 d?c. 2008 15:17:05 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="data.User" table="User">
+        <id name="userId" type="java.lang.Long">
+            <column name="UserId" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="30" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LastName" length="30" />
+        </property>
+        <property name="address1" type="string">
+            <column name="Address1" length="30" />
+        </property>
+        <property name="address2" type="string">
+            <column name="Address2" length="30" />
+        </property>
+        <property name="postalCode" type="string">
+            <column name="PostalCode" length="10" />
+        </property>
+        <property name="town" type="string">
+            <column name="Town" length="30" />
+        </property>
+        <property name="country" type="string">
+            <column name="Country" length="30" />
+        </property>
+        <property name="fixedPhone" type="string">
+            <column name="FixedPhone" length="30" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="MobilePhone" length="30" />
+        </property>
+        <set name="emails" inverse="true">
+            <key>
+                <column name="UserId" not-null="true" />
+            </key>
+            <one-to-many class="data.Email" />
+        </set>
+    </class>
+</hibernate-mapping>
