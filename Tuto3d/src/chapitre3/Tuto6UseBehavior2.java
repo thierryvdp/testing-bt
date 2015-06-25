@@ -5,12 +5,12 @@ ecrit par:Roswell
 email:philgauthier_@hotmail.com
 
 Maintenant que vous connaissez les bases de l'interection, nous pouvons passer 
-à un exemple plus conséquent: le contrôle complet de la rotation 
-de notre porte grâce au pavé numérique. 
-Pour cela, il y a très peu de modification à faire au fichier 
-      box.java. Il suffit juste de spécifier que le TG que l'on va manipuler
-      sera disponible non seulement en écriture, mais également 
-      en lecture pour à tout instant pouvoir récuperer l'orientation 
+ï¿½ un exemple plus consï¿½quent: le contrï¿½le complet de la rotation 
+de notre porte grï¿½ce au pavï¿½ numï¿½rique. 
+Pour cela, il y a trï¿½s peu de modification ï¿½ faire au fichier 
+      box.java. Il suffit juste de spï¿½cifier que le TG que l'on va manipuler
+      sera disponible non seulement en ï¿½criture, mais ï¿½galement 
+      en lecture pour ï¿½ tout instant pouvoir rï¿½cuperer l'orientation 
       de la porte et la modifier.
 */
 
@@ -51,11 +51,11 @@ public class Tuto6UseBehavior2 extends Frame implements WindowListener
 	
 	public BranchGroup createSceneGraph()
 	{
-		//on crée le Bg principal
+		//on crÃ©e le Bg principal
 		BranchGroup objRoot=new BranchGroup();
 		
 		//------------ debut creation des apparences ---------------
-			// on crée une apparence de couleur orange
+			// on crÃ©e une apparence de couleur orange
 			Appearance app_orang = new Appearance();
 			ColoringAttributes orang=new ColoringAttributes();
 			orang.setColor(0.8f,0.4f,0.2f);
@@ -64,8 +64,8 @@ public class Tuto6UseBehavior2 extends Frame implements WindowListener
 			
 		//------------ fin creation des apparences -----------------
 
-		//------------ début de creation d'une porte ---------------			
-			// on crée le TG qui servira à la rotation du behavior2
+		//------------ dÃ©but de creation d'une porte ---------------			
+			// on crÃ©e le TG qui servira a la rotation du behavior2
         	TransformGroup TG=new TransformGroup();
         	TG.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         	TG.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
@@ -74,18 +74,18 @@ public class Tuto6UseBehavior2 extends Frame implements WindowListener
 			// soit sur le flanc gauche de la porte et ainsi 
 			// simuler son ouverture
 			Transform3D rayon3D=new Transform3D();
-			// on déplace la porte de 20cm a droite car elle en fait 40
-			// et est centrée à l'origine
+			// on dÃ©place la porte de 20cm a droite car elle en fait 40
+			// et est centrÃ©e a l'origine
 			rayon3D.setTranslation(new Vector3f(0.2f,0.0f,0f));
 			TransformGroup rayon = new TransformGroup(rayon3D);
 			TG.addChild(rayon);
-			// la porte fait 40cm de large, 80cm de haut, 10cm d'épaisseur
+			// la porte fait 40cm de large, 80cm de haut, 10cm d'ï¿½paisseur
 			rayon.addChild(new Box(0.2f, 0.4f,0.05f,app_orang));
 			
 			objRoot.addChild(TG);
 		//------------ fin de creation d'une porte -----------------
 			
-		//------- début de ajout de l'interaction ------------------	
+		//------- dÃ©but de ajout de l'interaction ------------------	
 			Tuto5Behavior1 behav=new Tuto5Behavior1(TG);
 			behav.setSchedulingBounds(new BoundingSphere());
 			TG.addChild(behav);

@@ -1,24 +1,24 @@
 package chapitre3;
 
 /*
-écrit par:Roswell
+ï¿½crit par:Roswell
 email:philgauthier_@hotmail.com
 
-Maintenant que nous savons construire un comportement assez évolué, nous pouvons construire
-un comportement nous permettant de déplacer la caméra dans notre monde virtuel. 
-L'essentiel du travail est ici de récupérer le TG de la caméra. Pour cela, 
-il convient de modifier légerement la méthode qui construit la scene pour lui ajouter 
-en argument l'univers dans lequel on travaille car c'est lui qui contient la camera et le TG associé.
-Jusqu'à présent nous éludions la classe "simpleUniverse" du schéma d'organisation 
-car il ne servait peu dans la construction de notre monde et nous le configérions pas 
-( nous ommettons encore certains éléments de SimpleUniverse). 
-On obtient la caméra grâce à la méthode "getViewingPlatform()" 
-de l'univers utilisé, puis on récupère le TG de la caméra 
-grâce à la méthode "getViewPlatformTransform()". 
-Pour que vous puissiez aller partout dans votre monde, il faut également 
-que vous définissiez une zone d'influence le couvrant complètement, 
-c'est pour cela que nous n'utilisons plus le constructeur par défaut. 
-La classe de comportement ne nécessite que peu de transformation 
+Maintenant que nous savons construire un comportement assez ï¿½voluï¿½, nous pouvons construire
+un comportement nous permettant de dï¿½placer la camï¿½ra dans notre monde virtuel. 
+L'essentiel du travail est ici de rï¿½cupï¿½rer le TG de la camï¿½ra. Pour cela, 
+il convient de modifier lï¿½gerement la mï¿½thode qui construit la scene pour lui ajouter 
+en argument l'univers dans lequel on travaille car c'est lui qui contient la camera et le TG associï¿½.
+Jusqu'ï¿½ prï¿½sent nous ï¿½ludions la classe "simpleUniverse" du schï¿½ma d'organisation 
+car il ne servait peu dans la construction de notre monde et nous le configï¿½rions pas 
+( nous ommettons encore certains ï¿½lï¿½ments de SimpleUniverse). 
+On obtient la camï¿½ra grï¿½ce ï¿½ la mï¿½thode "getViewingPlatform()" 
+de l'univers utilisï¿½, puis on rï¿½cupï¿½re le TG de la camï¿½ra 
+grï¿½ce ï¿½ la mï¿½thode "getViewPlatformTransform()". 
+Pour que vous puissiez aller partout dans votre monde, il faut ï¿½galement 
+que vous dï¿½finissiez une zone d'influence le couvrant complï¿½tement, 
+c'est pour cela que nous n'utilisons plus le constructeur par dï¿½faut. 
+La classe de comportement ne nï¿½cessite que peu de transformation 
 il faut juste remplacer certaines des rotations en translations.
 
 */
@@ -46,7 +46,7 @@ public class Tuto7world extends Frame implements WindowListener
 {	    
 	public Tuto7world()
 	{
-        super("- navigation : contrôle de la caméra -");
+        super("- navigation : contrï¿½le de la camï¿½ra -");
         this.addWindowListener(this);
         setLayout(new BorderLayout());
         Canvas3D canvas3D = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
@@ -55,8 +55,8 @@ public class Tuto7world extends Frame implements WindowListener
         SimpleUniverse simpleU = new SimpleUniverse(canvas3D);
         simpleU.getViewingPlatform().setNominalViewingTransform();
         
-        // on a modifié le constructeur pour inclure l'univers et pouvoir ainsi accéder
-		// à la caméra et interagir avec elle
+        // on a modifiÃ© le constructeur pour inclure l'univers et pouvoir ainsi accÃ©der
+		// a la camÃ©ra et interagir avec elle
         BranchGroup scene = createSceneGraph(simpleU);
         scene.compile();
         simpleU.addBranchGraph(scene);        
@@ -64,11 +64,11 @@ public class Tuto7world extends Frame implements WindowListener
 	
 	public BranchGroup createSceneGraph(SimpleUniverse simpleU)
 	{
-		//on crée le Bg principal
+		//on crÃ©e le Bg principal
 		BranchGroup objRoot=new BranchGroup();
 		
 		//------------ debut creation des apparences ---------------
-			// on crée une apparence de couleur orange
+			// on crÃ©e une apparence de couleur orange
 			Appearance app_orang = new Appearance();
 			ColoringAttributes orang=new ColoringAttributes();
 			orang.setColor(0.8f,0.4f,0.2f);
@@ -77,7 +77,7 @@ public class Tuto7world extends Frame implements WindowListener
 			
 		//------------ fin creation des apparences -----------------
 
-		//------------ début de creation d'une box -----------------			
+		//------------ dÃ©but de creation d'une box -----------------			
         	TransformGroup TG=new TransformGroup();
         		
 			Transform3D rayon3D=new Transform3D();
@@ -90,18 +90,18 @@ public class Tuto7world extends Frame implements WindowListener
 			objRoot.addChild(TG);
 		//------------ fin de creation d'une box -------------------
 			
-		//------- début de ajout de l'interaction ------------------
-			// On récupere le TG de la caméra
+		//------- dÃ©but de ajout de l'interaction ------------------
+			// On rÃ©cupere le TG de la camÃ©ra
 			TransformGroup view=simpleU.getViewingPlatform().getViewPlatformTransform();
 
-			// l'interaction aura lieu avec le TG de la caméra (lien par référence) 
+			// l'interaction aura lieu avec le TG de la camÃ©ra (lien par rÃ©fÃ©rence) 
 			Tuto7MouseBehavior behav=new Tuto7MouseBehavior(view);
 
-			// On définit une zone d'influence très grande pour que l'interaction soit active sur une très grande zone
+			// On dÃ©finit une zone d'influence trÃ©s grande pour que l'interaction soit active sur une trÃ©s grande zone
 			BoundingSphere influPartout=new BoundingSphere(new Point3d(),1000.0);
 			behav.setSchedulingBounds(influPartout);
 
-			// lien d'héritage
+			// lien d'hÃ©ritage
 			objRoot.addChild(behav);
 		//------- fin de ajout de l'interaction --------------------
 		

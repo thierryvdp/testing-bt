@@ -1,23 +1,23 @@
 package chapitre3;
 
 /*
-écrit par:Roswell
+ï¿½crit par:Roswell
 email:philgauthier_@hotmail.com
 
 Nous allons maintenant vous permettre d'interagir avec votre environnement 
-  grâce à la classe " Behavior" . C'est grace à elle 
-  que vous allez pouvoir faire correspondre des évenements à des 
-  action^s dans votre monde 3d. Il est pratique de définir vos interactions 
-  dans une classe dérivant de " Behavior" . Cette nouvelle classe 
-  doit au moins avoir un constructeur contenant le TG à modifier, une méthode 
-  d'initialistion : " initialisatize"  définissant les évenements 
-  à détecter, et enfin une méthode " processStimulus"  
-  decrivant les actions déclanchées par les stimulus.
+  grï¿½ce ï¿½ la classe " Behavior" . C'est grace ï¿½ elle 
+  que vous allez pouvoir faire correspondre des ï¿½venements ï¿½ des 
+  action^s dans votre monde 3d. Il est pratique de dï¿½finir vos interactions 
+  dans une classe dï¿½rivant de " Behavior" . Cette nouvelle classe 
+  doit au moins avoir un constructeur contenant le TG ï¿½ modifier, une mï¿½thode 
+  d'initialistion : " initialisatize"  dï¿½finissant les ï¿½venements 
+  ï¿½ dï¿½tecter, et enfin une mï¿½thode " processStimulus"  
+  decrivant les actions dï¿½clanchï¿½es par les stimulus.
 Nous allons commencer par constuire une classe qui lors de la touche du clavier 
-  fera tourner un objet " box" . L'évènement à détecter est donc 
-  " KeyEvent.KEY_PRESSED" . On utilise la méthode " wakeupOn()"  
-  héritée de la classe " Behavior"  avec un évènement pour 
-  spécifier quel évènement doit être détecté 
+  fera tourner un objet " box" . L'ï¿½vï¿½nement ï¿½ dï¿½tecter est donc 
+  " KeyEvent.KEY_PRESSED" . On utilise la mï¿½thode " wakeupOn()"  
+  hï¿½ritï¿½e de la classe " Behavior"  avec un ï¿½vï¿½nement pour 
+  spï¿½cifier quel ï¿½vï¿½nement doit ï¿½tre dï¿½tectï¿½ 
   par notre classe.  
 */
 
@@ -45,13 +45,13 @@ public class Tuto5Behavior1 extends Behavior
 		this.targetTG = targetTG;
 	}
 
-	// on définit les évenements à détecter
+	// on dÃ©finit les Ã©venements Ã  dÃ©tecter
 	public void initialize()
 	{
 		this.wakeupOn(new WakeupOnAWTEvent(KeyEvent.KEY_PRESSED));
 	}
 
-	// on définit les actions en réponse
+	// on dÃ©finit les actions en rÃ©ponse
 	public void processStimulus(Enumeration criteria)
 	{
 		// actions :rotation autour de l'axe Y

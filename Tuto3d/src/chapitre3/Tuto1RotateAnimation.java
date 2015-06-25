@@ -4,31 +4,31 @@ package chapitre3;
 ecrit par:Roswell
 email:philgauthier_@hotmail.com
 
-Tout d'abord, de manire gnrale, lorsque 
-    vous construisez chacun de vos TG vous devez spcifier s'il va ou non 
-    bouger dans votre monde. Si c'est le cas vous devez lui en donner la capacit 
-    avec la mthode "setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE)". 
-    Puis vous avez besoin d'un fonction du temps, c'est lˆ qu'intervient 
-    la classe Alpha dont les paramtres du constructeur utiliss 
-    sont le nombre de tours avant l'arrt de la rotation, et la vitesse 
-    de rotation. Ici nous voulons que le cube tourne indfiniment, il faut 
-    alors mettre -1 et nous rglons la vitesse de rotation ˆ 4000 
-    qui est une frquence (augmenter ce nombre pour ralentir la rotation).<br>
-    Nous allons faire connaissance avec l'animation la plus simple ˆ mettre 
+Tout d'abord, de maniï¿½re gï¿½nï¿½rale, lorsque 
+    vous construisez chacun de vos TG vous devez spï¿½cifier s'il va ou non 
+    bouger dans votre monde. Si c'est le cas vous devez lui en donner la capacitï¿½ 
+    avec la mï¿½thode "setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE)". 
+    Puis vous avez besoin d'un fonction du temps, c'est lï¿½ qu'intervient 
+    la classe Alpha dont les paramï¿½tres du constructeur utilisï¿½s 
+    sont le nombre de tours avant l'arrï¿½t de la rotation, et la vitesse 
+    de rotation. Ici nous voulons que le cube tourne indï¿½finiment, il faut 
+    alors mettre -1 et nous rï¿½glons la vitesse de rotation ï¿½ 4000 
+    qui est une frï¿½quence (augmenter ce nombre pour ralentir la rotation).<br>
+    Nous allons faire connaissance avec l'animation la plus simple ï¿½ mettre 
     en oeuvre: la rotation.
 Pour faire varier la rotation du TG en fonction du Alpha que 
-    nous avons dfini, il convient d'utiliser la classe "RotationInterpolator" 
-    qui lie ( par rfrence) l'Apha ˆ notre TG (d'o&ugrave; 
-    les arguments du constructeur ) et dfinit l'axe ainsi que les angles 
-    maximun et minimum de la rotation. Par dfaut, la rotation se fait 
+    nous avons dï¿½fini, il convient d'utiliser la classe "RotationInterpolator" 
+    qui lie ( par rï¿½fï¿½rence) l'Apha ï¿½ notre TG (d'o&ugrave; 
+    les arguments du constructeur ) et dï¿½finit l'axe ainsi que les angles 
+    maximun et minimum de la rotation. Par dï¿½faut, la rotation se fait 
     autour de l'axe Y, l'angle minimal est 0, l'angle maximal est 2PI. Ensuite 
-    il faut dfinir une zone d'infuence de cet &quot;interpolator&quot; 
-    pour notre TG au delˆ de laquelle la rotation n'agira plus. Cette zone 
-    d'influence correspond ˆ la classe "BoundingSphere" 
-    dfinie par dfaut par le contructeur par une sphre 
-    de rayon 1 (donc suffisant pour notre cube de 0.5). La mthode "setSchedulingBounds()" 
+    il faut dï¿½finir une zone d'infuence de cet &quot;interpolator&quot; 
+    pour notre TG au delï¿½ de laquelle la rotation n'agira plus. Cette zone 
+    d'influence correspond ï¿½ la classe "BoundingSphere" 
+    dï¿½finie par dï¿½faut par le contructeur par une sphï¿½re 
+    de rayon 1 (donc suffisant pour notre cube de 0.5). La mï¿½thode "setSchedulingBounds()" 
     permet de lier cette zone avec l'interpolator. Enfin il faut lier parentalement 
-    le TG ˆ l'interpolator comme d'habitude.
+    le TG ï¿½ l'interpolator comme d'habitude.
   
 */
 
@@ -65,33 +65,33 @@ public class Tuto1RotateAnimation extends Frame implements WindowListener
         simpleU.addBranchGraph(scene);
     }
 	
-	// cre un regroupement d'objets contenant un objet cube qui tourne 
+	// crÃ©e un regroupement d'objets contenant un objet cube qui tourne 
 	// grace au Transforme groupe objSpin
 	public BranchGroup createSceneGraph()
 	{
-		//on cre le Bg principal
+		//on crÃ©e le Bg principal
 		BranchGroup objRoot=new BranchGroup();
 		
-		// on cre la rotation
+		// on crÃ©e la rotation
 			TransformGroup objSpin=new TransformGroup();
 		
 			// permet de modifier l'objet pendant l'execution
 			objSpin.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		
-			// on cre un fonction de rotation au cours du temps
+			// on crÃ©e un fonction de rotation au cours du temps
 			Alpha rotationAlpha=new Alpha(-1,4000);
 		
-			// on cre un comportement qui va appliquer la rotation a l'objet voulu
+			// on crÃ©e un comportement qui va appliquer la rotation a l'objet voulu
 			RotationInterpolator rotator=new RotationInterpolator(rotationAlpha,objSpin);
 		
-			// on dfinisst la zone sur laquelle va s'appliquer la rotation
+			// on dÃ©finisst la zone sur laquelle va s'appliquer la rotation
 			BoundingSphere bounds=new BoundingSphere();
 			rotator.setSchedulingBounds(bounds);
 			objSpin.addChild(rotator);
 		
 		objRoot.addChild(objSpin);
 		
-		// on cre un cube
+		// on crï¿½e un cube
 		objSpin.addChild(new ColorCube(0.5));// de rayon 50 cm
 
 		return objRoot;

@@ -4,13 +4,13 @@ ecrit par:Roswell
 email:philgauthier_@hotmail.com
 
 Nous allons maintenant voir un exemple de mouvement plus complexe qui sera en 
-  fait composé de 3 TG, l'un associé à un interpolator de 
-  type "PositionPathInterpolator", et l'autre à un "RotationInterpolator", 
-  le dernier servant à définir un rayon de rotation pour notre cube. Le 
-  mouvement sera composé d'une rotation globale appliquée à 
-  un vecteur servant de rayon, enfin un mouvement d'oscillation sera associé 
-  au cube. Le plus simple pour comprendre est de regarder le schéma d'organisation 
-  générale. 
+  fait composÔøΩ de 3 TG, l'un associÔøΩ ÔøΩ un interpolator de 
+  type "PositionPathInterpolator", et l'autre ÔøΩ un "RotationInterpolator", 
+  le dernier servant ÔøΩ dÔøΩfinir un rayon de rotation pour notre cube. Le 
+  mouvement sera composÔøΩ d'une rotation globale appliquÔøΩe ÔøΩ 
+  un vecteur servant de rayon, enfin un mouvement d'oscillation sera associÔøΩ 
+  au cube. Le plus simple pour comprendre est de regarder le schÔøΩma d'organisation 
+  gÔøΩnÔøΩrale. 
   
 */
 
@@ -38,7 +38,7 @@ public class Tuto4MouvementAnimation extends Frame implements WindowListener
 {	    
 	public Tuto4MouvementAnimation()
 	{
-        super("- mouvement de rotation sinusoïdale -");
+        super("- mouvement de rotation sinusoÔøΩdale -");
         this.addWindowListener(this);
         setLayout(new BorderLayout());
         Canvas3D canvas3D = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
@@ -51,73 +51,73 @@ public class Tuto4MouvementAnimation extends Frame implements WindowListener
         simpleU.addBranchGraph(scene);
     }
 	
-	// crée un regroupement d'objets contenant un objet cube qui va décrire un cercle sur le 
+	// cr√©e un regroupement d'objets contenant un objet cube qui va d√©crire un cercle sur le 
 	// plan izo-y et un mouvement oscillatoire sur le plan izo-teta dans le repere cylindrique
 	// pour ceux qui connaissent
 	public BranchGroup createSceneGraph()
 	{
-		//on crée le Bg principal
+		//on cr√©e le Bg principal
 		BranchGroup objRoot=new BranchGroup();
 		
-		// -----------début de création de la rotation-------------------------
+		// -----------d√©but de cr√©ation de la rotation-------------------------
 			TransformGroup objSpin=new TransformGroup();
 		
 			// permet de modifier l'objet pendant l'execution
 			objSpin.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 		
-			// on crée un fonction de rotation au cours du temps
+			// on cr√©e un fonction de rotation au cours du temps
 			Alpha rotationAlpha=new Alpha(-1,4000);
 		
-			// on crée un comportement qui va appliquer la rotation à l'objet voulu
+			// on cr√©e un comportement qui va appliquer la rotation √† l'objet voulu
 			RotationInterpolator rotator=new RotationInterpolator(rotationAlpha,objSpin);
 		
-			// on définit la zone sur laquelle va s'appliquer la rotation
+			// on d√©finit la zone sur laquelle va s'appliquer la rotation
 			BoundingSphere bounds=new BoundingSphere();
 			rotator.setSchedulingBounds(bounds);
 			objSpin.addChild(rotator);
 			
 			objRoot.addChild(objSpin);		
-		// -----------fin de création de la rotation---------------------------
+		// -----------fin de cr√©ation de la rotation---------------------------
 		
-		// -----------début de création du rayon-------------------------------
+		// -----------d√©but de cr√©ation du rayon-------------------------------
 			Transform3D rayonT=new Transform3D();
 			rayonT.set(new Vector3f(0.5f, 0.0f, 0.0f));
 			TransformGroup rayon=new TransformGroup(rayonT);
 			objSpin.addChild(rayon);
-		// -----------fin de création du rayon---------------------------------
+		// -----------fin de cr√©ation du rayon---------------------------------
 		
-		// -----------début de création d'oscillation verticale----------------
+		// -----------d√©but de cr√©ation d'oscillation verticale----------------
 			Transform3D oscilT=new Transform3D();
 			TransformGroup oscil=new TransformGroup();
 
 			// permet de modifier l'objet pendant l'execution
 			oscil.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
 
-			// on crée un fonction de rotation au cours du temps
+			// on cr√©e un fonction de rotation au cours du temps
 			Alpha transAlpha=new Alpha(-1,2000);
 
-			// on crée notre chemin: une matrice de 3 Point3f: point de départ, point d'arrivée, 
-			// puis retour au point de départ pour permettre de boucler
+			// on cr√©e notre chemin: une matrice de 3 Point3f: point de d√©part, point d'arriv√©e, 
+			// puis retour au point de d√©part pour permettre de boucler
 			Point3f[] chemin=new Point3f[3];
 			chemin[0]=new Point3f(0.0f,0.05f,0.0f);
 			chemin[1]=new Point3f(0.0f,-0.05f,0.0f);
 			chemin[2]=new Point3f(0.0f,0.05f,0.0f);
 
-			// on crée une matrice de float qui sert a faire correspondre 
-			// à chaque point dans l'espace un point dans l'échelle du temps qui s'étend de 0 à 1
+			// on cr√©e une matrice de float qui sert a faire correspondre 
+			// √† chaque point dans l'espace un point dans l'√©chelle du temps qui s'√©tend de 0 √† 1
 			float[] timePosition={0.0f,0.5f,1.0f};
 
 			PositionPathInterpolator interpol=new PositionPathInterpolator(transAlpha,oscil,oscilT,timePosition,chemin);
 			
-			// on définit la zone sur laquelle va s'appliquer le chemin
+			// on d√©finit la zone sur laquelle va s'appliquer le chemin
 			BoundingSphere bounds2=new BoundingSphere();
 			interpol.setSchedulingBounds(bounds2);
 			oscil.addChild( interpol);
 		
 			rayon.addChild(oscil);
-		// -----------fin de création d'oscillation verticale------------------
+		// -----------fin de crÔøΩation d'oscillation verticale------------------
 		
-		// on crée un cube
+		// on crÔøΩe un cube
 		oscil.addChild(new ColorCube(0.2));// de rayon 50 cm
 
 		return objRoot;

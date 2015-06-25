@@ -1,5 +1,5 @@
 package chapitre2;
-/* Chapitre 2: Section 1, création de geometries elementaires
+/* Chapitre 2: Section 1, crï¿½ation de geometries elementaires
  * Auteur    : daboul 
  * Date      : 03/00
  */
@@ -13,7 +13,6 @@ import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import javax.media.j3d.Alpha;
 import javax.media.j3d.AmbientLight;
 import javax.media.j3d.Appearance;
 import javax.media.j3d.BoundingSphere;
@@ -22,11 +21,7 @@ import javax.media.j3d.Canvas3D;
 import javax.media.j3d.Material;
 import javax.media.j3d.PointLight;
 import javax.media.j3d.PolygonAttributes;
-import javax.media.j3d.PositionPathInterpolator;
-import javax.media.j3d.RotationInterpolator;
-import javax.media.j3d.ScaleInterpolator;
 import javax.media.j3d.Shape3D;
-import javax.media.j3d.Transform3D;
 import javax.media.j3d.TransformGroup;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
@@ -39,7 +34,7 @@ class MonTutoPyramide extends Frame implements WindowListener
 
 	MonTutoPyramide()
 	{
-		super("- Chapitre 2 : geometries élementaires -");
+		super("- Chapitre 2 : geometries Ã©lementaires -");
 		addWindowListener(this);
 		setLayout(new BorderLayout());
 		
@@ -110,18 +105,18 @@ class MonTutoPyramide extends Frame implements WindowListener
 //	private TransformGroup getPather(long speedMilli) {
 //		TransformGroup pathTransformGroup=new TransformGroup();
 //		pathTransformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-//		Alpha cadenceAlpha=new Alpha(-1,speedMilli);               // le mouvement est infini et se rŽpte toutes les 4 secondes
-//		Point3f[] chemin=new Point3f[3];        // itinŽraire
-//		chemin[0]=new Point3f(0.8f,0.0f,0.0f);  // itinŽraire point 1
-//		chemin[1]=new Point3f(-0.8f,0.0f,0.0f); // itinŽraire point 2
-//		chemin[2]=new Point3f(0.8f,0.0f,0.0f);  // itinŽraire point 3 on revient au depart ...
-//		float[] timePosition={0.0f,0.50f,1.0f}; // timing pour atteindre chaque point de l'itinŽraire
+//		Alpha cadenceAlpha=new Alpha(-1,speedMilli);               // le mouvement est infini et se rï¿½pï¿½te toutes les 4 secondes
+//		Point3f[] chemin=new Point3f[3];        // itinï¿½raire
+//		chemin[0]=new Point3f(0.8f,0.0f,0.0f);  // itinï¿½raire point 1
+//		chemin[1]=new Point3f(-0.8f,0.0f,0.0f); // itinï¿½raire point 2
+//		chemin[2]=new Point3f(0.8f,0.0f,0.0f);  // itinï¿½raire point 3 on revient au depart ...
+//		float[] timePosition={0.0f,0.50f,1.0f}; // timing pour atteindre chaque point de l'itinï¿½raire
 //
-//		Transform3D trans=new Transform3D(); // necessaire ˆ l'interpolateur
+//		Transform3D trans=new Transform3D(); // necessaire ï¿½ l'interpolateur
 //		PositionPathInterpolator interpol=new PositionPathInterpolator(cadenceAlpha,pathTransformGroup,trans,timePosition,chemin); // interpol de cheminement
 //
 //		BoundingSphere effectAre=new BoundingSphere(); // creation de l'aire d'effet
-//		interpol.setSchedulingBounds(effectAre); // set l'aire d'effet ˆ l'interpolateur de rotation
+//		interpol.setSchedulingBounds(effectAre); // set l'aire d'effet ï¿½ l'interpolateur de rotation
 //		pathTransformGroup.addChild(interpol); // set l'interpolateur au TG
 //		return pathTransformGroup;
 //	}
@@ -129,13 +124,13 @@ class MonTutoPyramide extends Frame implements WindowListener
 //	private TransformGroup getScaler(long speedMilli,float startSize,float stopSize) {
 //		TransformGroup scaleTransformGroup=new TransformGroup();
 //		scaleTransformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-//		Alpha cadenceAlpha=new Alpha(-1,speedMilli);               // le mouvement est infini et se rŽpte toutes les 4 secondes
+//		Alpha cadenceAlpha=new Alpha(-1,speedMilli);               // le mouvement est infini et se rï¿½pï¿½te toutes les 4 secondes
 //
-//		Transform3D trans=new Transform3D(); // necessaire ˆ l'interpolateur
+//		Transform3D trans=new Transform3D(); // necessaire ï¿½ l'interpolateur
 //		ScaleInterpolator interpol=new ScaleInterpolator(cadenceAlpha,scaleTransformGroup, trans,startSize,stopSize);
 //		
 //		BoundingSphere effectAre=new BoundingSphere(); // creation de l'aire d'effet
-//		interpol.setSchedulingBounds(effectAre); // set l'aire d'effet ˆ l'interpolateur de rotation
+//		interpol.setSchedulingBounds(effectAre); // set l'aire d'effet ï¿½ l'interpolateur de rotation
 //		scaleTransformGroup.addChild(interpol); // set l'interpolateur au TG
 //		return scaleTransformGroup;
 //	}
@@ -144,10 +139,10 @@ class MonTutoPyramide extends Frame implements WindowListener
 //	private TransformGroup getRotater(long speedMilli) {
 //		TransformGroup spinTransformGroup=new TransformGroup();
 //		spinTransformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-//		Alpha cadenceAlpha=new Alpha(-1,speedMilli);               // le mouvement est infini et se rŽpte toutes les 4 secondes
-//		RotationInterpolator interpol=new RotationInterpolator(cadenceAlpha,spinTransformGroup); // mouvement de rotation ˆ la cadenceAlpha sur le TG
+//		Alpha cadenceAlpha=new Alpha(-1,speedMilli);               // le mouvement est infini et se rï¿½pï¿½te toutes les 4 secondes
+//		RotationInterpolator interpol=new RotationInterpolator(cadenceAlpha,spinTransformGroup); // mouvement de rotation ï¿½ la cadenceAlpha sur le TG
 //		BoundingSphere effectAre=new BoundingSphere(); // creation de l'aire d'effet
-//		interpol.setSchedulingBounds(effectAre); // set l'aire d'effet ˆ l'interpolateur de rotation
+//		interpol.setSchedulingBounds(effectAre); // set l'aire d'effet ï¿½ l'interpolateur de rotation
 //		spinTransformGroup.addChild(interpol); // set l'interpolateur au TG
 //		return spinTransformGroup;
 //	}
@@ -205,7 +200,7 @@ class MonTutoPyramide extends Frame implements WindowListener
 		PolygonAttributes polyAtt=new PolygonAttributes(PolygonAttributes.POLYGON_FILL,PolygonAttributes.CULL_NONE,0f);
 		app.setPolygonAttributes(polyAtt);
 		
-		//material -> uniquement si il y a des lumières
+		//material -> uniquement si il y a des lumiï¿½res
 		Material mat=new Material(new Color3f(1f,1f,0f),new Color3f(0f,0f,0f),new Color3f(1f,1f,0f),new Color3f(1f,1f,1f),64);
 		app.setMaterial(mat);
 		

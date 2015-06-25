@@ -52,7 +52,7 @@ class Tuto1TextureFormePrimitive extends Frame implements WindowListener
 	{
 		BranchGroup scene=new BranchGroup();
 		
-		//Box texturée
+		//Box texturÃ©e
 		Appearance boxApp=mkAppWithTexture("stripe.gif");
 		Box box=new Box(0.3f,0.4f,0.4f,Box.GENERATE_TEXTURE_COORDS,boxApp);
 		TriangleStripArray tri=(TriangleStripArray)(box.getShape(Box.FRONT).getGeometry());
@@ -61,7 +61,7 @@ class Tuto1TextureFormePrimitive extends Frame implements WindowListener
 		tri.setTextureCoordinate(2,new Point2f(0f,0f));
 		tri.setTextureCoordinate(3,new Point2f(0f,3f));	
 		
-		//Sphere texturée
+		//Sphere texturï¿½e
 		Appearance sphereApp=mkAppWithTexture("rock.gif");
 		Sphere sphere=new Sphere(0.4f,Sphere.GENERATE_TEXTURE_COORDS,sphereApp);	
 				
@@ -98,7 +98,7 @@ class Tuto1TextureFormePrimitive extends Frame implements WindowListener
         	return app;
     	}
     	
-    	//méthode de création d'un TransformGroup pour les translations
+    	//mÃ©thode de crÃ©ation d'un TransformGroup pour les translations
     	private TransformGroup mkTranslation(Vector3f vect)
     	{
     		Transform3D t3d=new Transform3D();
@@ -106,7 +106,7 @@ class Tuto1TextureFormePrimitive extends Frame implements WindowListener
     		return new TransformGroup(t3d);
     	}
     	
-    	//méthode de création d'un TransformGroup pour les rotations
+    	//mÃ©thode de crÃ©ation d'un TransformGroup pour les rotations
     	private TransformGroup mkRotation(double angle)
     	{
     		Transform3D t3d=new Transform3D();

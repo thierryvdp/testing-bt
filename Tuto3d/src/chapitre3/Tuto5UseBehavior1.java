@@ -4,11 +4,11 @@ package chapitre3;
 ecrit par:Roswell
 email:philgauthier_@hotmail.com
 
-Pour ajouter une interaction il faut donc définir le TG à 
-      manipuler comme pouvant être modifiable, puis créer une instance 
-      de votre classe behavior1 référençant (lien par référence) 
-      ce même TG, lui définir une zone d'influence, puis  faire 
-      hériter le TG de ce behavior ( lien parental).
+Pour ajouter une interaction il faut donc dï¿½finir le TG ï¿½ 
+      manipuler comme pouvant ï¿½tre modifiable, puis crï¿½er une instance 
+      de votre classe behavior1 rï¿½fï¿½renï¿½ant (lien par rï¿½fï¿½rence) 
+      ce mï¿½me TG, lui dï¿½finir une zone d'influence, puis  faire 
+      hï¿½riter le TG de ce behavior ( lien parental).
 */
 
 // classes Java standard
@@ -48,11 +48,11 @@ public class Tuto5UseBehavior1 extends Frame implements WindowListener
 	
 	public BranchGroup createSceneGraph()
 	{
-		//on crée le Bg principal
+		//on crÃ©e le Bg principal
 		BranchGroup objRoot=new BranchGroup();
 		
 		//------------ debut creation des apparences ---------------
-			// on crée une apparence de couleur orange
+			// on crÃ©e une apparence de couleur orange
 			Appearance app_orang = new Appearance();
 			ColoringAttributes orang=new ColoringAttributes();
 			orang.setColor(0.8f,0.4f,0.2f);
@@ -61,8 +61,8 @@ public class Tuto5UseBehavior1 extends Frame implements WindowListener
 			
 		//------------ fin creation des apparences -----------------
 
-		//------------ début de creation d'une porte ---------------			
-			// on crée le TG qui servira à la rotation du behavior1
+		//------------ dÃ©but de creation d'une porte ---------------			
+			// on crÃ©e le TG qui servira Ã  la rotation du behavior1
         	TransformGroup TG=new TransformGroup();
         	TG.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         	TG.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);         
@@ -71,18 +71,18 @@ public class Tuto5UseBehavior1 extends Frame implements WindowListener
 			// soit sur le flanc gauche de la porte et ainsi 
 			// simuler son ouverture
 			Transform3D rayon3D=new Transform3D();
-			// on déplace la porte de 20cm à droite car elle  fait 40cm
-			// et est centrée à l'origine
+			// on dÃ©place la porte de 20cm Ã  droite car elle  fait 40cm
+			// et est centrÃ©e Ã  l'origine
 			rayon3D.setTranslation(new Vector3f(0.2f,0.0f,0f));
 			TransformGroup rayon = new TransformGroup(rayon3D);
 			TG.addChild(rayon);
-			// la porte fait 40cm de large, 80cm de haut, 10cm d'épaisseur
+			// la porte fait 40cm de large, 80cm de haut, 10cm d'Ã©paisseur
 			rayon.addChild(new Box(0.2f, 0.4f,0.05f,app_orang));
 			
 			objRoot.addChild(TG);
 		//------------ fin de creation d'une porte -----------------
 			
-		//------- début de ajout de l'interaction ------------------	
+		//------- dÃ©but de ajout de l'interaction ------------------	
 			Tuto5Behavior1 behav=new Tuto5Behavior1(TG);
 			behav.setSchedulingBounds(new BoundingSphere());
 			TG.addChild(behav);

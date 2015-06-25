@@ -1,6 +1,6 @@
 package chapitre2;
 
-/* Chapitre 2: Section 2 création d'une lampe
+/* Chapitre 2: Section 2 crï¿½ation d'une lampe
  * Auteur    : daboul 
  * Date      : 03/00
  */
@@ -25,7 +25,7 @@ class Tuto2UseLamp extends Frame implements WindowListener
 {
 	Tuto2UseLamp()
 	{
-		super("- Chapitre 2 : création de la lampe -");
+		super("- Chapitre 2 : crÃ©ation de la lampe -");
 		this.addWindowListener(this);
 		this.setLayout(new BorderLayout());
 		

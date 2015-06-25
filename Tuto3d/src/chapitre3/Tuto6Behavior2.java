@@ -1,31 +1,31 @@
 package chapitre3;
 
 /*
-écrit par:Roswell
+ï¿½crit par:Roswell
 email:philgauthier_@hotmail.com
 
-Les évenements détectées sont toujours "touche 
-      préssée" représenté par la constante 
-      "KeyEvent.KEY_PRESSED" et la méthode " 
-      initialize()" reste inchangée. La méthode " 
-      processStimulus" détermine les actions en reponse aux 
-      différents stimulis. La méthode "getAWTEvent()" 
-      permet de déterminé quel type de "KeyEvent.KEY_PRESSED" 
-      quelle touche à été enfoncé et nous stoquons 
-      les évenements dans un tableau d'évenements "AWTEvent 
-      events[]". On initialise une matrice à la matrice d'identité 
-      "rot" ( la matrice identité est un facteur 
+Les ï¿½venements dï¿½tectï¿½es sont toujours "touche 
+      prï¿½ssï¿½e" reprï¿½sentï¿½ par la constante 
+      "KeyEvent.KEY_PRESSED" et la mï¿½thode " 
+      initialize()" reste inchangï¿½e. La mï¿½thode " 
+      processStimulus" dï¿½termine les actions en reponse aux 
+      diffï¿½rents stimulis. La mï¿½thode "getAWTEvent()" 
+      permet de dï¿½terminï¿½ quel type de "KeyEvent.KEY_PRESSED" 
+      quelle touche ï¿½ ï¿½tï¿½ enfoncï¿½ et nous stoquons 
+      les ï¿½venements dans un tableau d'ï¿½venements "AWTEvent 
+      events[]". On initialise une matrice ï¿½ la matrice d'identitï¿½ 
+      "rot" ( la matrice identitï¿½ est un facteur 
       neutre pour la multiplication ). Puis on affecte une rotation de 0.1 selon 
       l'axe voulu a cette matrice. La matrice "rot" est 
-      maintenant prete à &ecirc;tre multipliée avec la matrice contenant 
-      l'orientation du TG. On récupere cette derniere à l'aide de 
-      la méthode "getTransform(rotation)" et la 
+      maintenant prete ï¿½ &ecirc;tre multipliï¿½e avec la matrice contenant 
+      l'orientation du TG. On rï¿½cupere cette derniere ï¿½ l'aide de 
+      la mï¿½thode "getTransform(rotation)" et la 
       stoque dans la matrice "rotation", puis on les multiplie 
-      et réaffecte la matrice résultant: "rotation" à 
-      l'aide de la méthode "setTransform(rotation)" 
+      et rï¿½affecte la matrice rï¿½sultant: "rotation" ï¿½ 
+      l'aide de la mï¿½thode "setTransform(rotation)" 
       au TG.
-      Enfin il ne faut pas oublier de réactivé le mode d'attente 
-      d'évenements grâce à la méthode "wakeupOn(keyEvent)". 
+      Enfin il ne faut pas oublier de rï¿½activï¿½ le mode d'attente 
+      d'ï¿½venements grï¿½ce ï¿½ la mï¿½thode "wakeupOn(keyEvent)". 
 */
 
 import java.awt.AWTEvent;
@@ -57,44 +57,43 @@ public class Tuto6Behavior2 extends Behavior
 		
 	public void processStimulus(Enumeration criteria)
 	{
-		// on récupere le tableau d'evenements enregistres
+		// on rÃ©cupere le tableau d'evenements enregistres
 		AWTEvent events[]=keyEvent.getAWTEvent();
-		// on met la matrice à l'identité
+		// on met la matrice a l'identitÃ©
 		rot.setIdentity();
 		// on recupere la matrice d'orientation actuelle du TG;
 		TG.getTransform(rotation);
 		
-		//------ Rotation autour de l'axe Z sens positif assignée à la touche 1 du pavé numérique--------
+		//------ Rotation autour de l'axe Z sens positif assignÃ©e a la touche 1 du pavÃ© numÃ©rique--------
 		if (((KeyEvent)events[0]).getKeyCode()==KeyEvent.VK_A)
 			rot.rotZ(0.1d);
 		else
-		//------ Rotation autour de l'axe Z sens négatif assignée à la touche 3 du pavé numérique--------
+		//------ Rotation autour de l'axe Z sens nÃ©gatif assignÃ©e a la touche 3 du pavÃ© numÃ©rique--------
 		if (((KeyEvent)events[0]).getKeyCode()==KeyEvent.VK_Z)
 			rot.rotZ(-0.1d);
 		else
-		//------ Rotation autour de l'axe X sens positif assignée à la touche 2 du pavé numérique--------
+		//------ Rotation autour de l'axe X sens positif assignÃ©e a la touche 2 du pavÃ© numÃ©rique--------
 		if (((KeyEvent)events[0]).getKeyCode()==KeyEvent.VK_Q)			
 			rot.rotX(0.1d);
 		else
-		//------ Rotation autour de l'axe X sens négatif assignée à la touche 8 du pavé numérique--------
+		//------ Rotation autour de l'axe X sens nÃ©gatif assignÃ©e a la touche 8 du pavÃ© numÃ©rique--------
 		if (((KeyEvent)events[0]).getKeyCode()==KeyEvent.VK_S)
 			rot.rotX(-0.1d);
 		else
-		//------ Rotation autour de l'axe Y sens positif assignée à la touche 6 du pavé numérique--------
+		//------ Rotation autour de l'axe Y sens positif assignÃ©e a la touche 6 du pavÃ© numÃ©rique--------
 		if (((KeyEvent)events[0]).getKeyCode()==KeyEvent.VK_W)
-			
 			rot.rotY(0.1d);
 		else
-		//------ Rotation autour de l'axe Y sens négatif assignée à la touche 4 du pavé numérique--------
+		//------ Rotation autour de l'axe Y sens nÃ©gatif assignÃ©e a la touche 4 du pavÃ© numÃ©rique--------
 		if (((KeyEvent)events[0]).getKeyCode()==KeyEvent.VK_X)
 			rot.rotY(-0.1d);
 		
-		// on applique cette rotation à la matrice courante d'orientation du TG
+		// on applique cette rotation a la matrice courante d'orientation du TG
 		rotation.mul(rot);
 		// on applique la nouvelle matrice au TG que l'on manipule
 		TG.setTransform(rotation);
 		
-		// on se remet en mode d'attente des évenements de keyEvent : touche pressée ?
+		// on se remet en mode d'attente des Ã©venements de keyEvent : touche pressÃ©e ?
 		this.wakeupOn(keyEvent);
 	}
 }
