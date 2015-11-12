@@ -6,7 +6,7 @@ public interface IBrainModel {
 	/**
 	 * 
 	 */
-	public  void addNeurone(INeuronModel  neurone);
+	public  void addNeurone(INeuronData  neurone);
 	
 	public void buildCoreBrain();
 	

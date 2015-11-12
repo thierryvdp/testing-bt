@@ -1,12 +1,12 @@
 package lucie.object;
 
 import lucie.interfaces.IBrainModel;
-import lucie.interfaces.INeuronModel;
+import lucie.interfaces.INeuronData;
 
 public class Brain implements IBrainModel {
 
 	@Override
-	public void addNeurone(INeuronModel neurone) {
+	public void addNeurone(INeuronData neurone) {
 		// TODO Auto-generated method stub
 
 	}

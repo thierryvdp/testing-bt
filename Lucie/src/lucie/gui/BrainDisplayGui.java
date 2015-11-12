@@ -16,16 +16,15 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Point3f;
 
+import com.sun.j3d.utils.universe.SimpleUniverse;
+
 import lucie.gui.tools3d.AppearanceTool;
 import lucie.gui.tools3d.BehaviorCamera;
 import lucie.gui.tools3d.BehaviorMove;
 import lucie.gui.tools3d.D8Factory;
 import lucie.interfaces.IBrainControler;
 import lucie.interfaces.IBrainDisplay;
-import lucie.interfaces.INeuronConnection;
-import lucie.interfaces.INeuronModel;
-
-import com.sun.j3d.utils.universe.SimpleUniverse;
+import lucie.interfaces.INeuronData;
 
 public class BrainDisplayGui extends Frame implements WindowListener, IBrainDisplay {
 	
@@ -74,7 +73,7 @@ public class BrainDisplayGui extends Frame implements WindowListener, IBrainDisp
 	// ----------------------------------------------- IBrainDisplay
 
 	@Override
-	public void addNeuron(INeuronModel _neuron) {
+	public void addNeuron(INeuronData _neuron) {
 		addNeuron(_neuron, true);
 		
 		// neuron shape
@@ -94,46 +93,21 @@ public class BrainDisplayGui extends Frame implements WindowListener, IBrainDisp
 	}
 
 	@Override
-	public void addNeuron(INeuronModel _neuron, boolean show) {
+	public void addNeuron(INeuronData _neuron, boolean show) {
 	}
 
 	@Override
-	public void deleteNeuron(INeuronModel _neuron) {
+	public void deleteNeuron(INeuronData _neuron) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void showNeuron(INeuronModel _neuron) {
+	public void showNeuron(INeuronData _neuron) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void hideNeuron(INeuronModel _neuron) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void addConnection(INeuronConnection _connection) {
-		addConnection(_connection, true);
-	}
-
-	@Override
-	public void addConnection(INeuronConnection _connection, boolean show) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void deleteConnection(INeuronConnection _connection) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void showConnection(INeuronConnection _connection) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void hideConnection(INeuronConnection _connection) {
+	public void hideNeuron(INeuronData _neuron) {
 		// TODO Auto-generated method stub
 	}
 	

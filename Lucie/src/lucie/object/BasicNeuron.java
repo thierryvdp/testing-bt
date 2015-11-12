@@ -3,44 +3,51 @@ package lucie.object;
 import java.util.ArrayList;
 import java.util.List;
 
-import lucie.interfaces.INeuronConnection;
-import lucie.interfaces.INeuronLocation;
-import lucie.interfaces.INeuronModel;
-import lucie.interfaces.INeuronProcessor;
-import lucie.interfaces.INeuronTester;
+import lucie.interfaces.INeuronData;
 
-public class BasicNeuron implements INeuronModel {
+public class BasicNeuron implements INeuronData {
 
-	private INeuronLocation neuronLocation;
-	private INeuronTester neuronTester;
-	private INeuronProcessor neuronProcessor;
-
-	private long neuronId;
+	private long    neuronId;
+	private long    x;
+	private long    y;
+	private long    z;
 	private boolean activated;
-	private long neuronState;
-	private long neuronTrigger;
+	private long    neuronState;
+	private long    neuronTrigger;
 
-	private List<INeuronConnection> connecteds;
+	private List<INeuronData> connectedNeurons;
 
 	public BasicNeuron(long _Id) {
-		neuronLocation=null;
-		neuronTester=null;
-		neuronProcessor=null;
-		neuronId=_Id;
-		neuronState=0;
-		neuronTrigger=0;
-		activated=false;
-		connecteds=new ArrayList<INeuronConnection>();
+		neuronId         = _Id;
+		x                = 0;
+		y                = 0;
+		z                = 0;
+		neuronState      = 0;
+		neuronTrigger    = 0;
+		activated        = false;
+		connectedNeurons = new ArrayList<INeuronData>();
+	}
+
+	// Getters
+
+	@Override
+	public long getNeuronId() {
+		return neuronId;
 	}
 
 	@Override
-	public INeuronLocation getNeuronLocation() {
-		return neuronLocation;
+	public long getX() {
+		return x;
 	}
 
 	@Override
-	public void setNeuronLocation(INeuronLocation _neuronLocation) {
-		neuronLocation = _neuronLocation;
+	public long getY() {
+		return y;
+	}
+
+	@Override
+	public long getZ() {
+		return z;
 	}
 
 	@Override
@@ -49,13 +56,40 @@ public class BasicNeuron implements INeuronModel {
 	}
 
 	@Override
-	public void setNeuronState(long _neuronState) {
-		neuronState = _neuronState;
+	public long getNeuronTrigger() {
+		return neuronTrigger;
 	}
 
 	@Override
-	public long getNeuronTrigger() {
-		return neuronTrigger;
+	public boolean isActivated() {
+		return activated;
+	}
+
+	// Setters
+
+	@Override
+	public void setNeuroneId(long _id) {
+		neuronId=_id;
+	}
+
+	@Override
+	public void setX(long _x) {
+		x=_x;
+	}
+
+	@Override
+	public void setY(long _y) {
+		y=_y;
+	}
+
+	@Override
+	public void setZ(long _z) {
+		z=_z;
+	}
+
+	@Override
+	public void setNeuronState(long _neuronState) {
+		neuronState = _neuronState;
 	}
 
 	@Override
@@ -64,66 +98,38 @@ public class BasicNeuron implements INeuronModel {
 	}
 
 	@Override
-	public boolean isActivated() {
-		return activated;
-	}
-
-	@Override
 	public void setActivated(boolean _activated) {
 		activated = _activated;
 	}
-
-	@Override
-	public long getNeuronId() {
-		return neuronId;
-	}
-
-	@Override
-	public void setNeuroneId(long _id) {
-		neuronId=_id;
-	}
+	
+	// Other
 
 	@Override
 	public void inform(long _value) {
-		if(neuronProcessor==null) return;
-		neuronProcessor.processSignal(this, _value);
-		if(neuronTester==null) return;
-		if(neuronTester.propagateSignal(this)) {
-			for(INeuronConnection neuronConnection:connecteds) {
-				neuronConnection.getNeuronTarget().inform(_value);
-			}
-		}
+		//TODO
 	}
 
 	@Override
-	public void connectMe(INeuronConnection _connection) {
-		connecteds.add(_connection);
+	public void connectMe(INeuronData _neuron) {
+		connectedNeurons.add(_neuron);
 	}
 
 	@Override
-	public void disconnectMe(INeuronConnection _connection) {
-		connecteds.remove(_connection);
+	public void disconnectMe(INeuronData _neuron) {
+		connectedNeurons.remove(_neuron);
 	}
 
 	@Override
-	public void setNeuronProcessor(INeuronProcessor _neuronProcessor) {
-		neuronProcessor=_neuronProcessor;
-
-	}
-
-	@Override
-	public INeuronProcessor getNeuronProcessor() {
-		return neuronProcessor;
-	}
-
-	@Override
-	public void setNeuronTester(INeuronTester _neuronTester) {
-		neuronTester=_neuronTester;
-	}
-
-	@Override
-	public INeuronTester getNeuroneTester() {
-		return neuronTester;
+	public String toString     () {
+		String info="";
+		info+="     neuronId:"+neuronId     +"\n";
+		info+="            x:"+x            +"\n";
+		info+="            y:"+y            +"\n";
+		info+="            z:"+z            +"\n";
+		info+="    activated:"+activated    +"\n";
+		info+="  neuronState:"+neuronState  +"\n";
+		info+="neuronTrigger:"+neuronTrigger+"\n";
+		return info;
 	}
 
 }

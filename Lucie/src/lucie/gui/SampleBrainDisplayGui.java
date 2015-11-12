@@ -5,8 +5,7 @@ import java.awt.TextArea;
 
 import lucie.interfaces.IBrainControler;
 import lucie.interfaces.IBrainDisplay;
-import lucie.interfaces.INeuronConnection;
-import lucie.interfaces.INeuronModel;
+import lucie.interfaces.INeuronData;
 
 public class SampleBrainDisplayGui implements IBrainDisplay {
 	
@@ -31,60 +30,32 @@ public class SampleBrainDisplayGui implements IBrainDisplay {
 	}
 
 	@Override
-	public void addNeuron(INeuronModel _neuron) {
+	public void addNeuron(INeuronData _neuron) {
 		addNeuron(_neuron, true);
 	}
 
 	@Override
-	public void addNeuron(INeuronModel _neuron, boolean show) {
+	public void addNeuron(INeuronData _neuron, boolean show) {
 		message(_neuron, "Adding show:"+show);
 	}
 
 
 	@Override
-	public void deleteNeuron(INeuronModel _neuron) {
+	public void deleteNeuron(INeuronData _neuron) {
 		message(_neuron, "Deleting");
 	}
 
 
 	@Override
-	public void showNeuron(INeuronModel _neuron) {
+	public void showNeuron(INeuronData _neuron) {
 		message(_neuron, "Showing");
 	}
 
 
 	@Override
-	public void hideNeuron(INeuronModel _neuron) {
+	public void hideNeuron(INeuronData _neuron) {
 		message(_neuron, "Hiding");
 	}
 
-
-	@Override
-	public void addConnection(INeuronConnection _connection) {
-		addConnection(_connection,true);
-	}
-
-
-	@Override
-	public void addConnection(INeuronConnection _connection, boolean show) {
-		message(_connection, "Adding");
-	}
-
-
-	@Override
-	public void deleteConnection(INeuronConnection _connection) {
-		message(_connection, "Deleting");
-	}
-
-
-	@Override
-	public void showConnection(INeuronConnection _connection) {
-		message(_connection, "Showing");
-	}
-
-	@Override
-	public void hideConnection(INeuronConnection _connection) {
-		message(_connection, "Hiding");
-	}
 
 }
