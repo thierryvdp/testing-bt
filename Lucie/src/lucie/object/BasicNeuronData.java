@@ -5,7 +5,7 @@ import java.util.List;
 
 import lucie.interfaces.INeuronData;
 
-public class BasicNeuron implements INeuronData {
+public class BasicNeuronData implements INeuronData {
 
 	private long    neuronId;
 	private long    x;
@@ -17,7 +17,7 @@ public class BasicNeuron implements INeuronData {
 
 	private List<INeuronData> connectedNeurons;
 
-	public BasicNeuron(long _Id) {
+	public BasicNeuronData(long _Id) {
 		neuronId         = _Id;
 		x                = 0;
 		y                = 0;
@@ -129,6 +129,7 @@ public class BasicNeuron implements INeuronData {
 		info+="    activated:"+activated    +"\n";
 		info+="  neuronState:"+neuronState  +"\n";
 		info+="neuronTrigger:"+neuronTrigger+"\n";
+		info+="   connecteds:"+connectedNeurons.size()+"\n";
 		return info;
 	}
 

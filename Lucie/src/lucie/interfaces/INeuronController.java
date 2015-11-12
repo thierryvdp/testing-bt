@@ -8,10 +8,12 @@ package lucie.interfaces;
 public interface INeuronController {
 
 	// Getters
-	
+	public INeuronData getNeuroneData();
+	public INeuronGui  getNeuroneGui();
 	
 	// Setters : usualy used when buiding a neuron or restoring from a backup
-
+	public void setNeuroneData(INeuronData _NeuronData);
+	public void setNeuroneGui(INeuronGui _NeuroneGui);
 
 	// Other methods
 	

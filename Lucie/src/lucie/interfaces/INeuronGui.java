@@ -14,5 +14,11 @@ public interface INeuronGui {
 
 
 	// Other methods
+	/**
+	 * this methode is called to update the display of the neuron
+	 * depending on its Datas
+	 * @param INeuronData _NeuronData
+	 */
+	public void updateDisplay(INeuronData _NeuronData);
 	
 }
