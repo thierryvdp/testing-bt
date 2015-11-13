@@ -7,25 +7,23 @@ import lucie.interfaces.INeuronData;
 
 public class BasicNeuronData implements INeuronData {
 
-	private long    neuronId;
-	private long    x;
-	private long    y;
-	private long    z;
-	private boolean activated;
-	private long    neuronState;
-	private long    neuronTrigger;
+	private long         neuronId;
+	private boolean      activated;
+	private long         neuronState;
+	private long         neuronTrigger;
+	private SpatialCoord inputSpatialPos;
+	private SpatialCoord outputSpatialPos;
 
 	private List<INeuronData> connectedNeurons;
 
 	public BasicNeuronData(long _Id) {
 		neuronId         = _Id;
-		x                = 0;
-		y                = 0;
-		z                = 0;
 		neuronState      = 0;
 		neuronTrigger    = 0;
 		activated        = false;
 		connectedNeurons = new ArrayList<INeuronData>();
+		inputSpatialPos    = new SpatialCoord();
+		outputSpatialPos   = new SpatialCoord();
 	}
 
 	// Getters
@@ -33,21 +31,6 @@ public class BasicNeuronData implements INeuronData {
 	@Override
 	public long getNeuronId() {
 		return neuronId;
-	}
-
-	@Override
-	public long getX() {
-		return x;
-	}
-
-	@Override
-	public long getY() {
-		return y;
-	}
-
-	@Override
-	public long getZ() {
-		return z;
 	}
 
 	@Override
@@ -65,26 +48,21 @@ public class BasicNeuronData implements INeuronData {
 		return activated;
 	}
 
+	@Override
+	public SpatialCoord getInputSpatialPos() {
+		return inputSpatialPos;
+	}
+
+	@Override
+	public SpatialCoord getOutputSpatialPos() {
+		return outputSpatialPos;
+	}
+
 	// Setters
 
 	@Override
 	public void setNeuroneId(long _id) {
 		neuronId=_id;
-	}
-
-	@Override
-	public void setX(long _x) {
-		x=_x;
-	}
-
-	@Override
-	public void setY(long _y) {
-		y=_y;
-	}
-
-	@Override
-	public void setZ(long _z) {
-		z=_z;
 	}
 
 	@Override
@@ -101,7 +79,17 @@ public class BasicNeuronData implements INeuronData {
 	public void setActivated(boolean _activated) {
 		activated = _activated;
 	}
-	
+
+	@Override
+	public void setInputSpatialPos(SpatialCoord _inputSpatialPos) {
+		inputSpatialPos = _inputSpatialPos;
+	}
+
+	@Override
+	public void setOutputSpatialPos(SpatialCoord _outputSpatialPos) {
+		outputSpatialPos = _outputSpatialPos;
+	}
+
 	// Other
 
 	@Override
@@ -122,14 +110,13 @@ public class BasicNeuronData implements INeuronData {
 	@Override
 	public String toString     () {
 		String info="";
-		info+="     neuronId:"+neuronId     +"\n";
-		info+="            x:"+x            +"\n";
-		info+="            y:"+y            +"\n";
-		info+="            z:"+z            +"\n";
-		info+="    activated:"+activated    +"\n";
-		info+="  neuronState:"+neuronState  +"\n";
-		info+="neuronTrigger:"+neuronTrigger+"\n";
-		info+="   connecteds:"+connectedNeurons.size()+"\n";
+		info+="        neuronId:"+neuronId     +"\n";
+		info+="       activated:"+activated    +"\n";
+		info+="     neuronState:"+neuronState  +"\n";
+		info+="   neuronTrigger:"+neuronTrigger+"\n";
+		info+="      connecteds:"+connectedNeurons.size()+"\n";
+		info+=" inputSpatialPos:"+inputSpatialPos.toString()+"\n";
+		info+="outputSpatialPos:"+outputSpatialPos.toString()+"\n";
 		return info;
 	}
 

@@ -1,5 +1,7 @@
 package lucie.interfaces;
 
+import lucie.object.SpatialCoord;
+
 /**
  * This interface describe what method are needed to handle a neuron datas
  * @author thierry
@@ -11,27 +13,24 @@ public interface INeuronData {
 	
 	/** @return long               unique id of the neuron */
 	public long                    getNeuronId();
-	/** @return long               x spatial coordinate (right/left) */
-	public long                    getX();
-	/** @return long               y spatial coordinate (up/down) */
-	public long                    getY();
-	/** @return long               z spatial coordinate (forward/backward) */
-	public long                    getZ();
 	/** @return long               neuron state is a combined value result of values received from other neurons */
 	public long                    getNeuronState();
 	/** @return long               neuron trigger value : this value compared to neuron state to know if neuron have to transmit its information */
 	public long                    getNeuronTrigger();
 	/** @return true               neuron is activ */
 	public boolean                 isActivated();
+	/** @return SpatialCoord       the spacial position of the neurone input (dendrite)*/
+	public SpatialCoord            getInputSpatialPos ();
+	/** @return SpatialCoord       the spacial position of the neurone output (axone)*/
+	public SpatialCoord            getOutputSpatialPos ();
 	
 	// Setters : usualy used when buiding a neuron or restoring from a backup
 	public void setNeuroneId       (long _id);
-	public void setX               (long _x);
-	public void setY               (long _y);
-	public void setZ               (long _z);
 	public void setNeuronState     (long _neuronState);
 	public void setNeuronTrigger   (long _neuronTrigger);
 	public void setActivated       (boolean _activate);
+	public void setInputSpatialPos (SpatialCoord _inputSpatialPos);
+	public void setOutputSpatialPos(SpatialCoord _outputSpatialPos);
 
 
 	// Other methods
