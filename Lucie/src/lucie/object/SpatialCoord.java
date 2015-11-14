@@ -40,6 +40,10 @@ public class SpatialCoord {
 		z = _z;
 	}
 	
+	public SpatialCoord getCopy() {
+		return new SpatialCoord(x, y, z);
+	}
+	
 	public String toString() {
 		return "(x,y,z)=("+x+","+y+","+z+")";
 	}
