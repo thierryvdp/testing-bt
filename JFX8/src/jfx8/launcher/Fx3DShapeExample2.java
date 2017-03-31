@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 public class Fx3DShapeExample2 extends Application {
 	
 	// https://examples.javacodegeeks.com/desktop-java/javafx/javafx-3d-shapes-example/
+	// Specifying the Shape Material
 		
 	public static void main(String[] args) 
 	{
@@ -43,7 +44,7 @@ public class Fx3DShapeExample2 extends Application {
 		// Create the Material
 		PhongMaterial textureMaterial = new PhongMaterial();
 		// Create the Image
-		Image image = new Image("file:/img/core-logo-java.jpg");
+		Image image = new Image("file:/Users/thierry/Downloads/merkabah.jpg"); // chemin absolu sur le disque
 		textureMaterial.setDiffuseColor(Color.BEIGE);
 		textureMaterial.setDiffuseMap(image);
 		// Set the material for the box
