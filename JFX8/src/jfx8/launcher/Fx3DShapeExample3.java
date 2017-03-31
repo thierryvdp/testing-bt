@@ -4,17 +4,22 @@ import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Box;
-import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.DrawMode;
-import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
 
 public class Fx3DShapeExample3 extends Application
 {
 	
 	// https://examples.javacodegeeks.com/desktop-java/javafx/javafx-3d-shapes-example/
-	// Specifying the Draw Mode of Shapes
+	// Specifying the Draw Mode of Shape
+	// Move Shape
+	
+	private double cubX=150;
+	private double cubY=0;
+	private double cubZ=400;
+	private Box box;
 
 	public static void main(String[] args) 
 	{
@@ -25,25 +30,11 @@ public class Fx3DShapeExample3 extends Application
 	public void start(Stage stage) 
 	{
 		// Create a Box
-		Box box = new Box(100, 100, 100);
+		box = new Box(100, 100, 100);
 		box.setDrawMode(DrawMode.LINE);
 		box.setTranslateX(150);
 		box.setTranslateY(0);
 		box.setTranslateZ(400);
-		
-		// Create a Sphere
-		Sphere sphere = new Sphere(50, 20);
-		sphere.setDrawMode(DrawMode.LINE);
-		sphere.setTranslateX(300);
-		sphere.setTranslateY(-5);
-		sphere.setTranslateZ(400);
-		
-		// Create a Cylinder
-		Cylinder cylinder = new Cylinder(40, 120, 5);
-		cylinder.setDrawMode(DrawMode.LINE);
-		cylinder.setTranslateX(500);
-		cylinder.setTranslateY(-25);
-		cylinder.setTranslateZ(600);
 		
 		// Create a Light
 		PointLight light = new PointLight();
@@ -56,14 +47,45 @@ public class Fx3DShapeExample3 extends Application
 		camera.setTranslateX(100);
 		camera.setTranslateY(-50);
 		camera.setTranslateZ(300);
+
 		
 		// Add the Shapes and the Light to the Group
-		Group root = new Group(box, sphere, cylinder, light);
+		Group root = new Group(box, light);
 		
 		// Create a Scene with depth buffer enabled
 		Scene scene = new Scene(root, 400, 200, true);
 		// Add the Camera to the Scene
 		scene.setCamera(camera);
+		
+		scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
+			
+			switch (key.getCode()) {
+			case ENTER:
+		          System.out.println("You pressed enter");
+				break;
+			case UP:
+				cubY=cubY-10;
+				box.setTranslateY(cubY);
+				break;
+			case DOWN:
+				cubY=cubY+10;
+				box.setTranslateY(cubY);
+				break;
+			case LEFT:
+				cubX=cubX-10;
+				box.setTranslateX(cubX);
+				break;
+			case RIGHT:
+				cubX=cubX+10;
+				box.setTranslateX(cubX);
+				break;
+
+			default:
+				break;
+			}
+		      
+		      
+		});
 
 		// Add the Scene to the Stage
 		stage.setScene(scene);
