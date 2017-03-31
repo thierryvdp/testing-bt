@@ -6,6 +6,8 @@ import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.DrawMode;
 import javafx.stage.Stage;
@@ -16,6 +18,7 @@ public class Fx3DShapeExample3 extends Application
 	// https://examples.javacodegeeks.com/desktop-java/javafx/javafx-3d-shapes-example/
 	// Specifying the Draw Mode of Shape
 	// Move Shape
+	// Handle keyboard Mouse
 	
 	private double cubX=150;
 	private double cubY=0;
@@ -88,6 +91,38 @@ public class Fx3DShapeExample3 extends Application
             }
         });
 		
+		EventHandler<MouseEvent> mouseEntered = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				System.out.println("Mouse Enter");
+			}
+		};
+		EventHandler<MouseEvent> mouseExited = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				System.out.println("Mouse Exit");
+			}
+		};
+		EventHandler<MouseEvent> mouseClicked = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				System.out.println("Mouse Click");
+			}
+		};
+		scene.setOnMouseEntered(mouseEntered);
+		scene.setOnMouseExited(mouseExited);
+		scene.setOnMouseClicked(mouseClicked);
+		
+		EventHandler<ScrollEvent> scrollEvent = new EventHandler<ScrollEvent>() {
+			@Override
+			public void handle(ScrollEvent e) {
+				System.out.println("scrolling"+e.toString());
+			}
+		};
+		
+		scene.setOnScroll(scrollEvent);
+		
+        
 		// Add the Scene to the Stage
 		stage.setScene(scene);
 		// Set the Title of the Stage
