@@ -1,5 +1,6 @@
 package jfx8.launcher;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
@@ -57,36 +58,36 @@ public class Fx3DShapeExample3 extends Application
 		// Add the Camera to the Scene
 		scene.setCamera(camera);
 		
-		scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
-			
-			switch (key.getCode()) {
-			case ENTER:
-		          System.out.println("You pressed enter");
-				break;
-			case UP:
-				cubY=cubY-10;
-				box.setTranslateY(cubY);
-				break;
-			case DOWN:
-				cubY=cubY+10;
-				box.setTranslateY(cubY);
-				break;
-			case LEFT:
-				cubX=cubX-10;
-				box.setTranslateX(cubX);
-				break;
-			case RIGHT:
-				cubX=cubX+10;
-				box.setTranslateX(cubX);
-				break;
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+    			switch (event.getCode()) {
+    			case ENTER:
+    		          System.out.println("You pressed enter");
+    				break;
+    			case UP:
+    				cubY=cubY-10;
+    				box.setTranslateY(cubY);
+    				break;
+    			case DOWN:
+    				cubY=cubY+10;
+    				box.setTranslateY(cubY);
+    				break;
+    			case LEFT:
+    				cubX=cubX-10;
+    				box.setTranslateX(cubX);
+    				break;
+    			case RIGHT:
+    				cubX=cubX+10;
+    				box.setTranslateX(cubX);
+    				break;
 
-			default:
-				break;
-			}
-		      
-		      
-		});
-
+    			default:
+    				break;
+    			}
+            }
+        });
+		
 		// Add the Scene to the Stage
 		stage.setScene(scene);
 		// Set the Title of the Stage
