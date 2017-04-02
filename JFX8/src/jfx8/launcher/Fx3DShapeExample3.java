@@ -36,9 +36,9 @@ public class Fx3DShapeExample3 extends Application
 		// Create a Box
 		box = new Box(100, 100, 100);
 		box.setDrawMode(DrawMode.LINE);
-		box.setTranslateX(150);
-		box.setTranslateY(0);
-		box.setTranslateZ(400);
+		box.setTranslateX(cubX);
+		box.setTranslateY(cubY);
+		box.setTranslateZ(cubZ);
 		
 		// Create a Light
 		PointLight light = new PointLight();
@@ -64,27 +64,35 @@ public class Fx3DShapeExample3 extends Application
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
+            	System.out.println("You pressed "+event.getCode());
     			switch (event.getCode()) {
     			case ENTER:
     		          System.out.println("You pressed enter");
     				break;
-    			case UP:
-    				cubY=cubY-10;
-    				box.setTranslateY(cubY);
+    			case W:
+    				cubY=cubY-10;   
+    				box.setTranslateY(cubY); // move up
     				break;
-    			case DOWN:
-    				cubY=cubY+10;
-    				box.setTranslateY(cubY);
+    			case S:
+    				cubY=cubY+10;   
+    				box.setTranslateY(cubY); // move down
     				break;
-    			case LEFT:
+    			case A:
     				cubX=cubX-10;
-    				box.setTranslateX(cubX);
+    				box.setTranslateX(cubX); // move left
     				break;
-    			case RIGHT:
+    			case D:
     				cubX=cubX+10;
-    				box.setTranslateX(cubX);
+    				box.setTranslateX(cubX); // move right
     				break;
-
+    			case C:
+    				cubZ=cubZ-10;
+    				box.setTranslateZ(cubZ); // come in
+    				break;
+    			case SPACE:
+    				cubZ=cubZ+10;
+    				box.setTranslateZ(cubZ); // come out
+    				break;
     			default:
     				break;
     			}
