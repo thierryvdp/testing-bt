@@ -7,7 +7,6 @@ import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
@@ -55,21 +54,14 @@ public class Fx3DShapeExample6 extends Application
 		rt.play();
 		
 		// Create the red Front Light
-		PointLight redLight = new PointLight();
-		redLight.setColor(Color.RED);
-		redLight.setTranslateX(250);
-		redLight.setTranslateY(150);
-		redLight.setTranslateZ(300);
+		PointLight light = new PointLight();
+		light.setTranslateX(250);
+		light.setTranslateY(150);
+		light.setTranslateZ(300);
 
-		// Create the green Back Light
-		PointLight greenLight = new PointLight();
-		greenLight.setColor(Color.GREEN);
-		greenLight.setTranslateX(200);
-		greenLight.setTranslateY(150);
-		greenLight.setTranslateZ(450);
 		
 		// Add the Shapes and the Light to the Group		
-		Group root = new Group(meshView, redLight, greenLight);
+		Group root = new Group(meshView, light);
 		// Rotate the triangle with its lights to 90 degrees
 		root.setRotationAxis(Rotate.Y_AXIS);
 		root.setRotate(90);

@@ -1,4 +1,5 @@
 package jfx8.launcher;
+import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -10,7 +11,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.DrawMode;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Fx3DShapeExample3 extends Application
 {
@@ -24,6 +27,7 @@ public class Fx3DShapeExample3 extends Application
 	private double cubY=0;
 	private double cubZ=400;
 	private Box box;
+	private double angle=0;
 
 	public static void main(String[] args) 
 	{
@@ -51,7 +55,6 @@ public class Fx3DShapeExample3 extends Application
 		camera.setTranslateX(100);
 		camera.setTranslateY(-50);
 		camera.setTranslateZ(300);
-
 		
 		// Add the Shapes and the Light to the Group
 		Group root = new Group(box, light);
@@ -92,6 +95,25 @@ public class Fx3DShapeExample3 extends Application
     			case SPACE:
     				cubZ=cubZ+10;
     				box.setTranslateZ(cubZ); // come out
+    				break;
+    				
+    			case I:
+    				// rotation
+    				RotateTransition rotation = new RotateTransition(Duration.seconds(2), camera);
+    				rotation.setCycleCount(1);
+    				rotation.setFromAngle(angle);
+    				rotation.setToAngle(angle+10);
+    				rotation.setAutoReverse(false);
+    				rotation.setAxis(Rotate.X_AXIS);
+    				rotation.play();
+    				angle=angle+10;
+    				if(angle==360) angle=0;
+    				break;
+    			case K:
+    				break;
+    			case J:
+    				break;
+    			case L:
     				break;
     			default:
     				break;
