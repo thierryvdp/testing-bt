@@ -6,7 +6,9 @@ import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
 import javafx.scene.transform.Rotate;
@@ -87,26 +89,9 @@ public class Fx3DShapeExample6 extends Application
 	
 	public MeshView createMeshView() 
 	{
-//		float[] points = 
-//		{	
-//			50, 0, 0,
-//			45, 10, 0,
-//			55, 10, 0
-//		};
-//		
-//		float[] texCoords = 
-//		{ 	
-//			0.5f, 0.5f,
-//			0.0f, 1.0f,
-//			1.0f, 1.0f
-//		};
-//		
-//		int[] faces = 
-//		{
-//			0, 0, 2, 2, 1, 1,
-//			0, 0, 1, 1, 2, 2
-//		};
 
+		// http://stackoverflow.com/questions/26831871/coloring-individual-triangles-in-a-triangle-mesh-on-javafx
+			
 		float[] points = {
 			-10, 10,-10, // A  0
 			 10, 10, 10, // B  1
@@ -120,38 +105,18 @@ public class Fx3DShapeExample6 extends Application
 
 		float[] texCoords = 
 		{ 	
-//			0.5f, 0.5f,
-//			0.0f, 1.0f,
-//			1.0f, 1.0f
-			0.1f, 0.5f, // 0 red
-	        0.3f, 0.5f, // 1 green
-	        0.5f, 0.5f, // 2 blue
-	        0.7f, 0.5f, // 3 yellow
-	        0.9f, 0.5f  // 4 orange
+			0.1f, 0.5f, // 0 red     ?
+	        0.3f, 0.5f, // 1 green   ?
+	        0.5f, 0.5f, // 2 blue    ?
+	        0.7f, 0.5f, // 3 yellow  ?
+	        0.9f, 0.5f  // 4 orange  ?
 	        };
 		
 		// ?
 
 		int[] faces = 
 		{
-//			0, 0, 1, 1, 6, 2
-//			,
-//			0, 0, 1, 1, 7, 2
-//			,
-//			0, 0, 7, 2, 6, 1
-//			,
-//			1, 0, 7, 2, 6, 1
-//
-//			,
-//			
-//			2, 0, 5, 1, 4, 2
-//			,
-//			3, 0, 5, 1, 4, 2
-//			,
-//			2, 0, 3, 1, 4, 2
-//			,
-//			2, 0, 3, 1, 5, 2
-				
+	
 				0, 0, 1, 0, 6, 0
 				,
 				0, 1, 1, 1, 7, 1
@@ -181,6 +146,10 @@ public class Fx3DShapeExample6 extends Application
 		// Create a NeshView
 		MeshView meshView = new MeshView();
 		meshView.setMesh(mesh);
+		
+	    PhongMaterial mat = new PhongMaterial();
+	    mat.setDiffuseMap(new Image("file:/Users/thierry/Downloads/colors.png"));
+	    meshView.setMaterial(mat);
 		
 		return meshView;
 	}
