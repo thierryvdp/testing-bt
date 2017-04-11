@@ -1,6 +1,4 @@
 package jfx8.launcher;
-import javafx.animation.Animation;
-import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
@@ -10,9 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
-import javafx.util.Duration;
+import jfx8.utils.UserInputEvent;
 
 public class Fx3DShapeExample6 extends Application
 {
@@ -23,6 +20,8 @@ public class Fx3DShapeExample6 extends Application
 	{
 		Application.launch(args);
 	}
+
+	private UserInputEvent eventHandler;
 	
 	@Override
 	public void start(Stage stage) 
@@ -44,16 +43,7 @@ public class Fx3DShapeExample6 extends Application
 		camera.setTranslateY(-50);
 		camera.setTranslateZ(300);
 		
-		// Add a Rotation Animation to the Camera
-		RotateTransition rt = new RotateTransition(Duration.seconds(2), camera);
-		rt.setCycleCount(Animation.INDEFINITE);
-		rt.setFromAngle(-30);
-		rt.setToAngle(30);
-		rt.setAutoReverse(true);
-		rt.setAxis(Rotate.Y_AXIS);
-		rt.play();
-		
-		// Create the red Front Light
+		// Create Light
 		PointLight light = new PointLight();
 		light.setTranslateX(250);
 		light.setTranslateY(150);
@@ -62,9 +52,6 @@ public class Fx3DShapeExample6 extends Application
 		
 		// Add the Shapes and the Light to the Group		
 		Group root = new Group(meshView, light);
-		// Rotate the triangle with its lights to 90 degrees
-		root.setRotationAxis(Rotate.Y_AXIS);
-		root.setRotate(90);
 		
 		// Create a Scene with depth buffer enabled
 		Scene scene = new Scene(root, 400, 300, true);
@@ -75,6 +62,9 @@ public class Fx3DShapeExample6 extends Application
 		stage.setScene(scene);
 		// Set the Title of the Stage
 		stage.setTitle("An Example using a TriangleMesh");
+		
+		eventHandler = new UserInputEvent(scene, camera, meshView);
+		
 		// Display the Stage
 		stage.show();
 	}
