@@ -4,8 +4,7 @@ import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.CullFace;
 import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
 import javafx.stage.Stage;
@@ -73,7 +72,12 @@ public class Fx3DShapeExample6 extends Application
 	{
 
 		// http://stackoverflow.com/questions/26831871/coloring-individual-triangles-in-a-triangle-mesh-on-javafx
-			
+		
+//		3D point (x, y, z)
+//		X-axis pointing to the right
+//		Y-axis pointing down
+//		Z-axis pointing away from the viewer or into the screen
+				
 		float[] points = {
 			-10, 10,-10, // A  0
 			 10, 10, 10, // B  1
@@ -84,38 +88,43 @@ public class Fx3DShapeExample6 extends Application
 			 10,-10,-10, // C' 6
 			-10,-10, 10  // D' 7
 		};
+		
+//		Start with the texture coordinate collection, 
+//		because you can pretty much ignore it for this simple pyramid. 
+//		Texture coordinates are useful when you’re using a material that contains an image 
+//		that should be stretched in a specific way over the framework of the mesh. 
+//		They allow you to associate a specific x-, y-coordinate in the image with each corner of each face.
+//
+//		Unfortunately, you can’t simply leave out the texture coordinates 
+//		even if you don’t need them, so you must load at least one coordinate. 
+//		Do that with this line of code:
 
 		float[] texCoords = 
-		{ 	
-			0.1f, 0.5f, // 0 red     ?
-	        0.3f, 0.5f, // 1 green   ?
-	        0.5f, 0.5f, // 2 blue    ?
-	        0.7f, 0.5f, // 3 yellow  ?
-	        0.9f, 0.5f  // 4 orange  ?
-	        };
+		{ 0f, 0f };
 		
 		// ?
 
+		// rendered face : counter-clockwise : sens inverse des aiguilles
 		int[] faces = 
 		{
 	
 				0, 0, 1, 0, 6, 0
 				,
-				0, 1, 1, 1, 7, 1
+				0, 0, 1, 0, 7, 0
 				,
-				0, 2, 7, 2, 6, 2
+				0, 0, 7, 0, 6, 0
 				,
-				1, 3, 7, 3, 6, 3
+				1, 0, 7, 0, 6, 0
 
 				,
 				
 				2, 0, 5, 0, 4, 0
 				,
-				3, 1, 5, 1, 4, 1
+				3, 0, 5, 0, 4, 0
 				,
-				2, 2, 3, 2, 4, 2
+				2, 0, 3, 0, 4, 0
 				,
-				2, 3, 3, 3, 5, 3
+				2, 0, 3, 0, 5, 0
 
 		};
 
@@ -124,15 +133,15 @@ public class Fx3DShapeExample6 extends Application
 		mesh.getPoints().addAll(points);
 		mesh.getTexCoords().addAll(texCoords);
 		mesh.getFaces().addAll(faces);
-		
-		// Create a NeshView
+
+		// CullFace.NONE option Then the back faces are black
+
+		// Create a MeshView
 		MeshView meshView = new MeshView();
 		meshView.setMesh(mesh);
-		
-	    PhongMaterial mat = new PhongMaterial();
-	    mat.setDiffuseMap(new Image("file:/Users/thierry/Downloads/colors.png"));
-	    meshView.setMaterial(mat);
+		meshView.setCullFace(CullFace.NONE);
 		
 		return meshView;
+		
 	}
 }
