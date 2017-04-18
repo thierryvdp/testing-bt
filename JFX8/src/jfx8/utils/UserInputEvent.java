@@ -14,13 +14,14 @@ public class UserInputEvent {
 
 	private PerspectiveCamera camera;
 	private Shape3D shape;
+	private boolean mouseclick;
 
 	public UserInputEvent(Scene _scene,PerspectiveCamera _camera,Shape3D _shape) {
 		camera=_camera;
 		shape=_shape;
 		register(_scene);
 	}
-	
+
 	public void setShape(Shape3D _shape) {
 		shape=_shape;
 	}
@@ -30,59 +31,88 @@ public class UserInputEvent {
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-				System.out.println("You pressed "+event.getCode());
+				RotateTransition rotation = null;
+				double work=0;
+				double rot=0;
 				if(shape!=null) {
-					double work=0;
-					switch (event.getCode()) {
-					case ENTER:
-						System.out.println("You pressed enter");
-						break;
-					case W:
-						work=shape.getTranslateY()-10;   
-						shape.setTranslateY(work); // move up
-						break;
-					case S:
-						work=shape.getTranslateY()+10;   
-						shape.setTranslateY(work); // move down
-						break;
-					case A:
-						work=shape.getTranslateX()-10;
-						shape.setTranslateX(work); // move left
-						break;
-					case D:
-						work=shape.getTranslateX()+10;
-						shape.setTranslateX(work); // move right
-						break;
-					case C:
-						work=shape.getTranslateZ()-10;
-						shape.setTranslateZ(work); // come in
-						break;
-					case SPACE:
-						work=shape.getTranslateZ()+10;
-						shape.setTranslateZ(work); // come out
-						break;
-
-					case I:
-						// rotation
+					if(mouseclick) {
 						work=camera.getRotate();
-						if(work==360) work=0;
-						RotateTransition rotation = new RotateTransition(Duration.seconds(2), camera);
+						rotation = new RotateTransition(Duration.seconds(2), camera);
 						rotation.setCycleCount(1);
-						rotation.setFromAngle(work);
-						rotation.setToAngle(work+10);
 						rotation.setAutoReverse(false);
 						rotation.setAxis(Rotate.X_AXIS);
-						rotation.play();
+					}
+					switch (event.getCode()) {
+					case W:
+						if(mouseclick) {
+							rot=work+10;
+							rotation.setAxis(Rotate.X_AXIS);
+						}
+						else {
+							work=shape.getTranslateY()-10;   
+							shape.setTranslateY(work); // move up
+						}
 						break;
-					case K:
+					case S:
+						if(mouseclick) {
+							rot=work-10;
+							rotation.setAxis(Rotate.X_AXIS);
+						}
+						else {
+							work=shape.getTranslateY()+10;   
+							shape.setTranslateY(work); // move down
+						}
 						break;
-					case J:
+					case A:
+						if(mouseclick) {
+							rot=work+10;
+							rotation.setAxis(Rotate.Y_AXIS);
+						}
+						else {
+							work=shape.getTranslateX()-10;
+							shape.setTranslateX(work); // move left
+						}
 						break;
-					case L:
+					case D:
+						if(mouseclick) {
+							rot=work-10;
+							rotation.setAxis(Rotate.Y_AXIS);
+						}
+						else {
+							work=shape.getTranslateX()+10;
+							shape.setTranslateX(work); // move right
+						}
 						break;
-					default:
+					case C:
+						if(mouseclick) {
+							rot=work+10;
+							rotation.setAxis(Rotate.Z_AXIS);
+						}
+						else {
+							work=shape.getTranslateZ()-10;
+							shape.setTranslateZ(work); // come in
+						}
+						break;
+					case SPACE:
+						if(mouseclick) {
+							rot=work-10;
+							rotation.setAxis(Rotate.Z_AXIS);
+						}
+						else {
+							work=shape.getTranslateZ()+10;
+							shape.setTranslateZ(work); // come out
+						}
 						break;
 					}
+					
+					if(mouseclick) {
+//						work=work ^ 360;
+//						rot=rot ^ 360;
+						rotation.setFromAngle(work);
+						rotation.setToAngle(rot);
+						rotation.play();
+					}
+					
 				}
 			}
 		});
@@ -103,11 +133,13 @@ public class UserInputEvent {
 			@Override
 			public void handle(MouseEvent e) {
 				System.out.println("Mouse Click");
+				mouseclick=!mouseclick;
 			}
 		};
 		scene.setOnMouseEntered(mouseEntered);
 		scene.setOnMouseExited(mouseExited);
 		scene.setOnMouseClicked(mouseClicked);
+
 
 		EventHandler<ScrollEvent> scrollEvent = new EventHandler<ScrollEvent>() {
 			@Override

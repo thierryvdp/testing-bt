@@ -4,7 +4,8 @@ import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
 import javafx.scene.Scene;
-import javafx.scene.shape.CullFace;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.DrawMode;
 import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
 import javafx.stage.Stage;
@@ -47,6 +48,8 @@ public class Fx3DShapeExample6 extends Application
 		light.setTranslateX(250);
 		light.setTranslateY(150);
 		light.setTranslateZ(300);
+		light.setColor(Color.GREEN);
+
 
 		
 		// Add the Shapes and the Light to the Group		
@@ -79,14 +82,14 @@ public class Fx3DShapeExample6 extends Application
 //		Z-axis pointing away from the viewer or into the screen
 				
 		float[] points = {
-			-10, 10,-10, // A  0
-			 10, 10, 10, // B  1
-			 10, 10,-10, // C  2
-			-10, 10, 10, // D  3
-			-10,-10,-10, // A' 4
-			 10,-10, 10, // B' 5
-			 10,-10,-10, // C' 6
-			-10,-10, 10  // D' 7
+			-10,-10, 10, // A  0   B  A  D'  107
+			 10,-10,-10, // B  1   A  B  C'  016
+			 10,-10, 10, // C  2   D' C' B   761
+			-10,-10,-10, // D  3   C' D' A   670
+			-10, 10, 10, // A' 4   C  D  B'  235
+			 10, 10,-10, // B' 5   D  C  A'  324
+			 10, 10, 10, // C' 6   B' A' C   542
+			-10, 10,-10  // D' 7   A' B' D   453
 		};
 		
 //		Start with the texture coordinate collection, 
@@ -107,25 +110,21 @@ public class Fx3DShapeExample6 extends Application
 		// rendered face : counter-clockwise : sens inverse des aiguilles
 		int[] faces = 
 		{
-	
+				1, 0, 0, 0, 7, 0
+				,
 				0, 0, 1, 0, 6, 0
 				,
-				0, 0, 1, 0, 7, 0
+				7, 0, 6, 0, 1, 0
 				,
-				0, 0, 7, 0, 6, 0
-				,
-				1, 0, 7, 0, 6, 0
-
-				,
-				
-				2, 0, 5, 0, 4, 0
-				,
-				3, 0, 5, 0, 4, 0
-				,
-				2, 0, 3, 0, 4, 0
+				6, 0, 7, 0, 0, 0
 				,
 				2, 0, 3, 0, 5, 0
-
+				,
+				3, 0, 2, 0, 4, 0
+				,
+				5, 0, 4, 0, 2, 0
+				,
+				4, 0, 5, 0, 3, 0
 		};
 
 		// Create a TriangleMesh
@@ -139,7 +138,8 @@ public class Fx3DShapeExample6 extends Application
 		// Create a MeshView
 		MeshView meshView = new MeshView();
 		meshView.setMesh(mesh);
-		meshView.setCullFace(CullFace.NONE);
+//		meshView.setCullFace(CullFace.NONE);
+		meshView.setDrawMode(DrawMode.LINE);
 		
 		return meshView;
 		
