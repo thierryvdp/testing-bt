@@ -34,6 +34,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_MA8bQHiFEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.toolbar.0">
         <children xsi:type="menu:DirectToolItem" xmi:id="_NseI8HiFEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.directtoolitem.save" label="Save" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.SaveAllHandler"/>
         <children xsi:type="menu:DirectToolItem" xmi:id="_ruqxQHiFEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.directtoolitem.exit" label="Exit" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.ExitHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_HVH00HuEEeiyPLXAYyOQSw" elementId="com.example.e4.rcp.todo.directtoolitem.test" label="Test" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.TestHandler"/>
       </children>
     </trimBars>
   </children>
@@ -45,6 +46,7 @@
   <bindingTables xmi:id="_q1vd0HiIEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.bindingtable.0" bindingContext="_RwIrUHiIEeisvLgKjKepIw">
     <bindings xmi:id="_tJC9MHiIEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.keybinding.save" keySequence="M1+S" command="_fU4_4Hh_EeisvLgKjKepIw"/>
     <bindings xmi:id="_zyNpkHiIEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.keybinding.exit" keySequence="M1+X" command="_ombcsHh_EeisvLgKjKepIw"/>
+    <bindings xmi:id="_7jdkoHuDEeiyPLXAYyOQSw" elementId="com.example.e4.rcp.todo.keybinding.0" keySequence="M1+T" command="_ww_qYHh_EeisvLgKjKepIw"/>
   </bindingTables>
   <rootContext xmi:id="_RwIrUHiIEeisvLgKjKepIw" elementId="org.eclipse.ui.contexts.dialogAndWindows" name="Windows and Dialogs">
     <children xmi:id="_dEi-0HiIEeisvLgKjKepIw" elementId="org.eclipse.ui.contexts.window" name="Windows"/>
