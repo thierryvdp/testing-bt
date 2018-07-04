@@ -1,4 +1,4 @@
-package com.vdp.rest.wss.service;
+package com.vdp.rest.wss.mongo;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;

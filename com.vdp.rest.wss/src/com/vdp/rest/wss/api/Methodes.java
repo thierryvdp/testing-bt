@@ -1,4 +1,4 @@
-package com.vdp.rest.api.interfaces;
+package com.vdp.rest.wss.api;
 
 public enum Methodes {
 

@@ -12,7 +12,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vdp.rest.wss.api.FieldValue;
+import com.vdp.rest.wss.api.Methodes;
+import com.vdp.rest.wss.api.WssRequest;
 
 @Path("/")
 public class RestService {
@@ -22,25 +25,45 @@ public class RestService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response crunchifyREST(InputStream incomingData) {
-		StringBuilder jsonString = new StringBuilder();
+		WssRequest requete = null;
+		WssRequest reponse = null;
+		ObjectMapper mapper = new ObjectMapper();
+
 		try {
+			StringBuilder jsonString = new StringBuilder();
 			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
 			String line = null;
 			while ((line = in.readLine()) != null) {
 				jsonString.append(line);
 			}
 
-			JSONObject json = new JSONObject(jsonString.toString());
+			System.out.println(jsonString.toString());
 
+			requete = mapper.readValue(jsonString.toString(), WssRequest.class);
+			reponse = requete;
+			FieldValue reponseField = new FieldValue();
+
+			if (requete.getMethodName().equals(Methodes.LOGIN.toString())) {
+				reponse.setPasswordToken("SUPERTOKENDELESPACE");
+				reponseField.setFieldId("reponse");
+				reponseField.setFieldValue("OK");
+			}
+			else {
+				reponse.setPasswordToken("");
+				reponseField.setFieldId("reponse");
+				reponseField.setFieldValue("ERROR");
+			}
+			reponse.setParam(reponseField);
+			String reponseString = mapper.writeValueAsString(reponse);
+			System.out.println(reponseString);
+			return Response.status(201).entity(reponseString).build();
 		} catch (Exception e) {
 			System.out.println("Error Parsing: - ");
 		}
-		System.out.println("Data Received: " + jsonString.toString());
 
 		// return HTTP response 200 in case of success
 		//		return Response.status(200).entity(crunchifyBuilder.toString()).build();
-		String result = "Json saved";
-		return Response.status(201).entity(result).build();
+		return Response.status(404).entity(null).build();
 	}
 
 	// http://192.168.2.171:8080/com.vdp.rest.wss/api/verify
