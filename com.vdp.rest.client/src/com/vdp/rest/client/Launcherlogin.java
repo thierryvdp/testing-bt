@@ -7,10 +7,10 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vdp.rest.api.interfaces.Methodes;
-import com.vdp.rest.api.json.WssRequest;
+import com.vdp.rest.wss.api.Methodes;
+import com.vdp.rest.wss.api.WssRequest;
 
-public class Launcher2 {
+public class Launcherlogin {
 
 	public static void main(String[] args) {
 

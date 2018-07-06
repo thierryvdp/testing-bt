@@ -25,11 +25,6 @@
 			<artifactId>jersey-json</artifactId>
 			<version>1.8</version>
 		</dependency>
-		<dependency>
-			<groupId>com.vdp.rest.api</groupId>
-			<artifactId>com.vdp.rest.api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
