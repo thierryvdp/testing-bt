@@ -1,6 +1,6 @@
-package com.vdp.rest.api.interfaces;
+package com.vdp.rest.wss.api;
 
-public enum Methodes {
+public enum CompuDocId {
 
 	/**
 	 * on peut faire aussi
@@ -10,6 +10,8 @@ public enum Methodes {
 	 */
 
 	LOGIN,
-	GETDOCUMENT;
+	GETDOCUMENT,
+	SETDOCUMENT,
+	RESPONSE;
 
 }

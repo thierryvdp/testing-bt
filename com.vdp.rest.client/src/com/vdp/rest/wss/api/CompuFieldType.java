@@ -1,6 +1,6 @@
 package com.vdp.rest.wss.api;
 
-public enum Methodes {
+public enum CompuFieldType {
 
 	/**
 	 * on peut faire aussi
@@ -9,8 +9,11 @@ public enum Methodes {
 	 * Methodes.LOGIN.toString() pour la chaine correspondante au login
 	 */
 
-	LOGIN,
-	GETDOCUMENT,
-	SETDOCUMENT;
+	STRING,
+	INTEGER,
+	DOUBLE,
+	BOOLEAN,
+	ERROR,
+	SUCCESS;
 
 }

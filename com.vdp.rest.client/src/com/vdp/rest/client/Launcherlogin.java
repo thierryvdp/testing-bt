@@ -7,23 +7,22 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vdp.rest.wss.api.Methodes;
-import com.vdp.rest.wss.api.WssRequest;
+import com.vdp.rest.wss.api.CompuWssRequest;
 
 public class Launcherlogin {
 
 	public static void main(String[] args) {
 
-		WssRequest requete = null;
-		WssRequest reponse = null;
+		CompuWssRequest requete = null;
+		CompuWssRequest reponse = null;
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
 
-			requete = new WssRequest();
-			requete.setMethodName(Methodes.LOGIN.toString());
-			requete.setLogin("thierry");
-			requete.setPasswordToken("rgjlvdp");
+			requete = new CompuWssRequest();
+			//			requete.setMethodName(Methodes.LOGIN.toString());
+			//			requete.setLogin("thierry");
+			//			requete.setPasswordToken("rgjlvdp");
 
 			// Now pass JSONString Data to REST Service
 			try {
@@ -48,8 +47,8 @@ public class Launcherlogin {
 				}
 
 				System.out.println(jsonString);
-				reponse = mapper.readValue(jsonString.toString(), WssRequest.class);
-				System.out.println(reponse.getPasswordToken());
+				reponse = mapper.readValue(jsonString.toString(), CompuWssRequest.class);
+				//				System.out.println(reponse.getPasswordToken());
 
 				in.close();
 			} catch (Exception e) {

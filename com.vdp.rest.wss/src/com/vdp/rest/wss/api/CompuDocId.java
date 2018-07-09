@@ -1,6 +1,6 @@
 package com.vdp.rest.wss.api;
 
-public enum FieldType {
+public enum CompuDocId {
 
 	/**
 	 * on peut faire aussi
@@ -9,8 +9,9 @@ public enum FieldType {
 	 * Methodes.LOGIN.toString() pour la chaine correspondante au login
 	 */
 
-	STRING,
-	INTEGER,
-	DOUBLE;
+	LOGIN,
+	GETDOCUMENT,
+	SETDOCUMENT,
+	RESPONSE;
 
 }

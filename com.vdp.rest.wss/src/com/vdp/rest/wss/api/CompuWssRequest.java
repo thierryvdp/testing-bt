@@ -1,14 +1,14 @@
 package com.vdp.rest.wss.api;
 
-public class WssRequest {
+public class CompuWssRequest {
 
-	private String		methodName;
+	private String		id;
 	private String		login;
 	private String		passwordToken;
-	private FieldValue	param;
+	private CompuDoc	document;
 
-	public String getMethodName() {
-		return methodName;
+	public String getId() {
+		return id;
 	}
 
 	public String getLogin() {
@@ -19,12 +19,12 @@ public class WssRequest {
 		return passwordToken;
 	}
 
-	public FieldValue getParam() {
-		return param;
+	public CompuDoc getDocument() {
+		return document;
 	}
 
-	public void setMethodName(String methodName) {
-		this.methodName = methodName;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public void setLogin(String login) {
@@ -35,8 +35,8 @@ public class WssRequest {
 		this.passwordToken = passwordToken;
 	}
 
-	public void setParam(FieldValue param) {
-		this.param = param;
+	public void setDocument(CompuDoc document) {
+		this.document = document;
 	}
 
 }

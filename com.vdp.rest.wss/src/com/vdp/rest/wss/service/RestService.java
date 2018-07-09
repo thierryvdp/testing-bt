@@ -3,6 +3,8 @@ package com.vdp.rest.wss.service;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -13,9 +15,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vdp.rest.wss.api.FieldValue;
-import com.vdp.rest.wss.api.Methodes;
-import com.vdp.rest.wss.api.WssRequest;
+import com.vdp.rest.wss.api.CompuDoc;
+import com.vdp.rest.wss.api.CompuDocId;
+import com.vdp.rest.wss.api.CompuFieldType;
+import com.vdp.rest.wss.api.CompuFieldValue;
+import com.vdp.rest.wss.api.CompuWssRequest;
 
 @Path("/")
 public class RestService {
@@ -25,8 +29,8 @@ public class RestService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response crunchifyREST(InputStream incomingData) {
-		WssRequest requete = null;
-		WssRequest reponse = null;
+		CompuWssRequest requete = null;
+		CompuWssRequest reponse = null;
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
@@ -39,22 +43,28 @@ public class RestService {
 
 			System.out.println(jsonString.toString());
 
-			requete = mapper.readValue(jsonString.toString(), WssRequest.class);
+			requete = mapper.readValue(jsonString.toString(), CompuWssRequest.class);
 			reponse = requete;
-			FieldValue reponseField = new FieldValue();
+			CompuDoc docReponse = new CompuDoc();
+			docReponse.setId(CompuDocId.RESPONSE.toString());
+			docReponse.setDocuments(new ArrayList<>());
+			List<CompuFieldValue> fields = new ArrayList();
+			CompuFieldValue field = new CompuFieldValue();
+			fields.add(field);
+			docReponse.setFields(fields);
 
-			if (requete.getMethodName().equals(Methodes.LOGIN.toString())) {
+			if (requete.getDocument().getId().equals(CompuDocId.LOGIN.toString())) {
 				reponse.setPasswordToken("SUPERTOKENDELESPACE");
-				reponseField.setFieldId("reponse");
-				reponseField.setFieldValue("OK");
+				field.setId("");
+				field.setFieldType(CompuFieldType.SUCCESS);
+				field.setFieldStringValue("");
 			}
 			else {
-				reponse.setPasswordToken("");
-				reponseField.setFieldId("reponse");
-				reponseField.setFieldValue("ERROR");
+				field.setId("");
+				field.setFieldType(CompuFieldType.ERROR);
+				field.setFieldStringValue("");
 			}
-			reponse.setParam(reponseField);
-			String reponseString = mapper.writeValueAsString(reponse);
+			String reponseString = mapper.writeValueAsString(requete);
 			System.out.println(reponseString);
 			return Response.status(201).entity(reponseString).build();
 		} catch (Exception e) {
