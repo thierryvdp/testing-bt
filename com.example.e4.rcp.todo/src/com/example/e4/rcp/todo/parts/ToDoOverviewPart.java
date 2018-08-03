@@ -7,6 +7,8 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
+import com.example.e4.rcp.todo.model.ITodoService;
+
 public class ToDoOverviewPart {
 
 	public ToDoOverviewPart() {
@@ -14,8 +16,8 @@ public class ToDoOverviewPart {
 	}
 
 	@PostConstruct
-	public void createControls(Composite _parent, EMenuService _menuservice) {
-		System.out.println(this.getClass().getSimpleName() + " @PostConstruct method called.");
+	public void createControls(Composite _parent, EMenuService _menuservice, ITodoService todoService) {
+		System.out.println("nombre de todos:" + todoService.getTodos().size());
 		TableViewer viewer = new TableViewer(_parent, SWT.FULL_SELECTION);
 		_menuservice.registerContextMenu(viewer.getControl(), "com.example.e4.rcp.todo.popupmenu.tablemenu");
 	}

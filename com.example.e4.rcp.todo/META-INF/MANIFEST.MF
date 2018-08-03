@@ -15,4 +15,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.workbench.swt,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.ui.services,
- org.eclipse.jface
+ org.eclipse.jface,
+ com.example.e4.rcp.todo.model;bundle-version="1.0.0",
+ com.example.e4.rcp.todo.services;bundle-version="1.0.0"
