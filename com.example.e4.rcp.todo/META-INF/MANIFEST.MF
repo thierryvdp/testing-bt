@@ -17,4 +17,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.services,
  org.eclipse.jface,
  com.example.e4.rcp.todo.model;bundle-version="1.0.0",
- com.example.e4.rcp.todo.services;bundle-version="1.0.0"
+ com.example.e4.rcp.todo.services;bundle-version="1.0.0",
+ com.example.e4.bundleresourceloader;bundle-version="1.0.0"
