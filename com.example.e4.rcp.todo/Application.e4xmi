@@ -15,6 +15,7 @@
         </children>
         <children xsi:type="basic:PartStack" xmi:id="_0g6o0HhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.partstack.2">
           <children xsi:type="basic:Part" xmi:id="_42ErMHhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.part.playground" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.PlaygroundPart" label="Playground"/>
+          <children xsi:type="basic:Part" xmi:id="_Jp7SUJl7EeiHT_iSv7DuMg" elementId="com.example.e4.rcp.todo.part.Delete" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.ToDoDeletePart" label="Delete"/>
         </children>
       </children>
     </children>
