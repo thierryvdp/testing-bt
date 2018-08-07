@@ -151,7 +151,6 @@ public class ToDoOverviewPart {
 
 		dataLbl.setText("Total Todos:" + todoService.getTodos().size());
 		viewer.setInput(todoService.getTodos());
-		//		_menuservice.registerContextMenu(viewer.getControl(), "com.example.e4.rcp.todo.popupmenu.tablemenu");
 
 		viewer.addFilter(new ViewerFilter() {
 			@Override
@@ -169,6 +168,8 @@ public class ToDoOverviewPart {
 			}
 		});
 		;
+
+		_menuservice.registerContextMenu(viewer.getControl(), "com.example.e4.rcp.todo.popupmenu.tablemenu");
 
 	}
 

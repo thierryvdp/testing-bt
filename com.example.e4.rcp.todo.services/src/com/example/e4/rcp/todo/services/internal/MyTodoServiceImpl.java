@@ -41,7 +41,7 @@ public class MyTodoServiceImpl implements ITodoService {
 			todos.add(updateTodo);
 		}
 		updateTodo.setSummary(newTodo.getSummary());
-		updateTodo.setDescription(newTodo.getSummary());
+		updateTodo.setDescription(newTodo.getDescription());
 		updateTodo.setDone(newTodo.isDone());
 		updateTodo.setDueDate(newTodo.getDueDate());
 		return true;

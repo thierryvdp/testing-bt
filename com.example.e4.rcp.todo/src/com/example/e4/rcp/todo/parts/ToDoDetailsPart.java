@@ -8,6 +8,8 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -64,6 +66,24 @@ public class ToDoDetailsPart {
 		standardPositionField(_parent, "Due Date", dueDT, sumTxt, -1, 0);
 		standardPositionField(_parent, "Done", done, dueDT, -1, 0);
 		standardPositionField(_parent, "Description", descTxt, done, -1, -1);
+
+		sumTxt.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				if (todo != null) {
+					todo.setSummary(sumTxt.getText());
+				}
+			}
+		});
+
+		descTxt.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				if (todo != null) {
+					todo.setDescription(descTxt.getText());
+				}
+			}
+		});
 
 	}
 
