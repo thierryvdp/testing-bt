@@ -29,6 +29,10 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Gn1I4HiCEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.handledmenuitem.newtodo" label="New Todo" command="_rKyP0Hh_EeisvLgKjKepIw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_KPPUcHiCEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.handledmenuitem.removetodo" label="Remove Todo" command="_ukevgHh_EeisvLgKjKepIw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NPmuIHiCEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.handledmenuitem.testing" label="Testing" command="_ww_qYHh_EeisvLgKjKepIw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_f0EpIJpTEeiHT_iSv7DuMg" elementId="com.example.e4.rcp.todo.menuseparator.1"/>
+        <children xsi:type="menu:Menu" xmi:id="_h21yIJpTEeiHT_iSv7DuMg" elementId="com.example.e4.rcp.todo.menu.dynamique" label="Dynamique...">
+          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_TXOG4JpTEeiHT_iSv7DuMg" elementId="com.example.e4.rcp.todo.dynamicmenucontribution.0" label="DynamicMenu" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.menu.DynamicMenuEntries"/>
+        </children>
       </children>
     </mainMenu>
     <trimBars xmi:id="_AS0nQHiFEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.trimbar.0">
@@ -36,6 +40,7 @@
         <children xsi:type="menu:DirectToolItem" xmi:id="_NseI8HiFEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.directtoolitem.save" label="Save" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.SaveAllHandler"/>
         <children xsi:type="menu:DirectToolItem" xmi:id="_ruqxQHiFEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.directtoolitem.exit" label="Exit" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.ExitHandler"/>
         <children xsi:type="menu:DirectToolItem" xmi:id="_HVH00HuEEeiyPLXAYyOQSw" elementId="com.example.e4.rcp.todo.directtoolitem.test" label="Test" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.TestHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_UF-IcJpBEeiHT_iSv7DuMg" elementId="com.example.e4.rcp.todo.directtoolitem.addtodo" label="AddTodo" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.NewTodoHandler"/>
       </children>
     </trimBars>
   </children>

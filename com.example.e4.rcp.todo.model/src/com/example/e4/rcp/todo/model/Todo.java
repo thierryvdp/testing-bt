@@ -1,14 +1,24 @@
 package com.example.e4.rcp.todo.model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Date;
 
 public class Todo {
 
-	private final long	id;
-	private String		summary		= "";
-	private String		description	= "";
-	private boolean		done		= false;
-	private Date		dueDate;
+	private PropertyChangeSupport	changes				= new PropertyChangeSupport(this);
+
+	public static final String		FIELD_ID			= "id";
+	public static final String		FIELD_SUMMARY		= "summary";
+	public static final String		FIELD_DESCRIPTION	= "description";
+	public static final String		FIELD_DONE			= "done";
+	public static final String		FIELD_DUEDATE		= "dueDate";
+
+	private final long				id;
+	private String					summary				= "";
+	private String					description			= "";
+	private boolean					done				= false;
+	private Date					dueDate;
 
 	public Todo(long id) {
 		super();
@@ -28,24 +38,24 @@ public class Todo {
 		return summary;
 	}
 
-	public void setSummary(String summary) {
-		this.summary = summary;
+	public void setSummary(String _summary) {
+		changes.firePropertyChange(FIELD_SUMMARY, this.summary, this.summary = _summary);
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String _description) {
+		changes.firePropertyChange(FIELD_DESCRIPTION, this.description, this.description = _description);
 	}
 
 	public boolean isDone() {
 		return done;
 	}
 
-	public void setDone(boolean done) {
-		this.done = done;
+	public void setDone(boolean _done) {
+		changes.firePropertyChange(FIELD_DESCRIPTION, this.done, this.done = _done);
 	}
 
 	public Date getDueDate() {
@@ -53,7 +63,7 @@ public class Todo {
 	}
 
 	public void setDueDate(Date _dueDate) {
-		this.dueDate = new Date(_dueDate.getTime());
+		changes.firePropertyChange(FIELD_DUEDATE, this.dueDate, this.dueDate = _dueDate);
 	}
 
 	public long getId() {
@@ -113,6 +123,14 @@ public class Todo {
 
 	public Todo copy() {
 		return new Todo(id, summary, description, done, dueDate);
+	}
+
+	public void addPropertyChangeListener(PropertyChangeListener l) {
+		changes.addPropertyChangeListener(l);
+	}
+
+	public void removePropertyChangeListener(PropertyChangeListener l) {
+		changes.removePropertyChangeListener(l);
 	}
 
 }

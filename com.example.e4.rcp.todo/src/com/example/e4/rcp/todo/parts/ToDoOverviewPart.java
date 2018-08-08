@@ -1,11 +1,19 @@
 package com.example.e4.rcp.todo.parts;
 
-import javax.annotation.PostConstruct;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
+import org.eclipse.core.databinding.beans.BeanProperties;
+import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.services.EMenuService;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
+import org.eclipse.jface.databinding.viewers.ViewerSupport;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.Viewer;
@@ -30,9 +38,19 @@ import com.example.e4.rcp.todo.model.Todo;
 
 public class ToDoOverviewPart {
 
-	private int			spacing;
-	private TableViewer	viewer;
-	private String		searchString	= "";
+	@Inject
+	ITodoService			todoService;
+	@Inject
+	ESelectionService		selectionService;
+
+	private int				spacing;
+	private TableViewer		viewer;
+	private String			searchString	= "";
+	private Button			dataBtn;
+
+	private WritableList	writableList;
+
+	private Label			dataLbl;
 
 	public ToDoOverviewPart() {
 		System.out.println("Constructor Overview");
@@ -60,47 +78,43 @@ public class ToDoOverviewPart {
 		_parent.setLayoutData(fd_composite);
 
 		// bouton
-		Button dataBtn = new Button(_parent, SWT.PUSH);
+		dataBtn = new Button(_parent, SWT.PUSH);
 		dataBtn.setText("Load Data");
 		final FormData fd_btn = new FormData();
 		fd_btn.top = new FormAttachment(0, 0);
 		fd_btn.left = new FormAttachment(0, 0);
-		//		fd_btn.right = new FormAttachment(100, 0);
-		//		fd_btn.bottom = new FormAttachment(100, 0);
 		dataBtn.setLayoutData(fd_btn);
-
-		// label
-		Label dataLbl = new Label(_parent, SWT.NORMAL);
-		dataLbl.setText("Data Not Available");
-		final FormData fd_lbl = new FormData();
-		fd_lbl.top = new FormAttachment(dataBtn, 0, SWT.CENTER);
-		fd_lbl.left = new FormAttachment(dataBtn, 0, SWT.RIGHT);
-		fd_lbl.right = new FormAttachment(100, 0);
-		//		fd_lbl.bottom = new FormAttachment(100, 0);
-		dataLbl.setLayoutData(fd_lbl);
-
-		// listener
 		dataBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				dataLbl.setText("Total Todos:" + todoService.getTodos().size());
-				viewer.setInput(todoService.getTodos());
+				updateViewer(todoService.getTodos());
 			}
 		});
 
+		// label
+		dataLbl = new Label(_parent, SWT.NORMAL);
+		dataLbl.setText("Total Todos:" + todoService.getTodos().size());
+		final FormData fd_lbl = new FormData();
+		fd_lbl.top = new FormAttachment(dataBtn, 0, SWT.CENTER);
+		fd_lbl.left = new FormAttachment(dataBtn, 0, SWT.RIGHT);
+		fd_lbl.right = new FormAttachment(100, 0);
+		dataLbl.setLayoutData(fd_lbl);
+
+		// search
 		Text search = new Text(_parent, SWT.SEARCH | SWT.CANCEL | SWT.ICON_SEARCH);
 		search.setMessage("Filter");
 		final FormData fd_search = new FormData();
 		fd_search.top = new FormAttachment(dataBtn, 0, SWT.BOTTOM);
 		fd_search.left = new FormAttachment(dataBtn, 0, SWT.LEFT);
 		fd_search.right = new FormAttachment(100, 0);
-		//		fd_lbl.bottom = new FormAttachment(100, 0);
 		search.setLayoutData(fd_search);
 		search.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				Text source = (Text) e.getSource();
 				searchString = source.getText();
+				System.out.println("Filtering on:" + searchString);
 			}
 		});
 		search.addSelectionListener(new SelectionAdapter() {
@@ -113,7 +127,8 @@ public class ToDoOverviewPart {
 			}
 		});
 
-		viewer = new TableViewer(_parent, SWT.FULL_SELECTION);
+		// viewer
+		viewer = new TableViewer(_parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION);
 		Table table = viewer.getTable();
 		final FormData fd_table = new FormData();
 		fd_table.top = new FormAttachment(search, 0, SWT.BOTTOM);
@@ -123,35 +138,34 @@ public class ToDoOverviewPart {
 		table.setLayoutData(fd_table);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		viewer.setContentProvider(ArrayContentProvider.getInstance());
+
+		//		viewer.setContentProvider(ArrayContentProvider.getInstance());
 
 		// colonne Summary
 		TableViewerColumn colSum = new TableViewerColumn(viewer, SWT.NONE);
-		colSum.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				Todo todo = (Todo) element;
-				return todo.getSummary();
-			}
-		});
+		//		colSum.setLabelProvider(new ColumnLabelProvider() {
+		//			@Override
+		//			public String getText(Object element) {
+		//				Todo todo = (Todo) element;
+		//				return todo.getSummary();
+		//			}
+		//		});
 		colSum.getColumn().setWidth(100);
 		colSum.getColumn().setText("Summary");
 
 		// colonne Descriptio
 		TableViewerColumn colDes = new TableViewerColumn(viewer, SWT.NONE);
-		colDes.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				Todo todo = (Todo) element;
-				return todo.getDescription();
-			}
-		});
+		//		colDes.setLabelProvider(new ColumnLabelProvider() {
+		//			@Override
+		//			public String getText(Object element) {
+		//				Todo todo = (Todo) element;
+		//				return todo.getDescription();
+		//			}
+		//		});
 		colDes.getColumn().setWidth(200);
 		colDes.getColumn().setText("Description");
 
-		dataLbl.setText("Total Todos:" + todoService.getTodos().size());
-		viewer.setInput(todoService.getTodos());
-
+		// marche plus avec le binding
 		viewer.addFilter(new ViewerFilter() {
 			@Override
 			public boolean select(Viewer viewer, Object parentElement, Object element) {
@@ -160,6 +174,7 @@ public class ToDoOverviewPart {
 			}
 		});
 
+		// marche plus avec le binding
 		viewer.setComparator(new ViewerComparator() {
 			@Override
 			public int compare(Viewer viewer, Object e1, Object e2) {
@@ -167,15 +182,35 @@ public class ToDoOverviewPart {
 				return ((Todo) e1).getSummary().compareTo(((Todo) e2).getSummary());
 			}
 		});
-		;
+
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				IStructuredSelection selection = (IStructuredSelection) viewer.getSelection();
+				selectionService.setSelection(selection.getFirstElement());
+			}
+		});
+
+		//		viewer.setInput(todoService.getTodos());
+
+		// dataBinding
+		writableList = new WritableList(todoService.getTodos(), Todo.class);
+		ViewerSupport.bind(viewer, writableList, BeanProperties.values(new String[] { Todo.FIELD_SUMMARY, Todo.FIELD_DESCRIPTION }));
 
 		_menuservice.registerContextMenu(viewer.getControl(), "com.example.e4.rcp.todo.popupmenu.tablemenu");
 
 	}
 
+	public void updateViewer(List<Todo> list) {
+		if (viewer != null) {
+			writableList.clear();
+			writableList.addAll(list);
+		}
+	}
+
 	@Focus
 	public void setFocus() {
-		viewer.getControl().setFocus();
+		dataBtn.setFocus();
 	}
 
 }
