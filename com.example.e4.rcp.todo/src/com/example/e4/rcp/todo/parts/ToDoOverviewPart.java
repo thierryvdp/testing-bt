@@ -7,7 +7,12 @@ import javax.inject.Inject;
 
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.list.WritableList;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.di.UISynchronize;
 import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.databinding.viewers.ViewerSupport;
@@ -42,6 +47,8 @@ public class ToDoOverviewPart {
 	ITodoService			todoService;
 	@Inject
 	ESelectionService		selectionService;
+	@Inject
+	UISynchronize			sync;
 
 	private int				spacing;
 	private TableViewer		viewer;
@@ -87,8 +94,24 @@ public class ToDoOverviewPart {
 		dataBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				dataLbl.setText("Total Todos:" + todoService.getTodos().size());
-				updateViewer(todoService.getTodos());
+
+				dataLbl.setText("Loading ...");
+				Job job = new Job("Loading") {
+
+					@Override
+					protected IStatus run(IProgressMonitor monitor) {
+						final List<Todo> list = todoService.getTodos();
+						sync.asyncExec(new Runnable() {
+							@Override
+							public void run() {
+								dataLbl.setText("Total Todos:" + todoService.getTodos().size());
+								updateViewer(list);
+							}
+						});
+						return Status.OK_STATUS;
+					}
+				};
+				job.schedule();
 			}
 		});
 

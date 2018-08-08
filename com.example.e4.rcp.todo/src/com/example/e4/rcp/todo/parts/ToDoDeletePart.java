@@ -5,7 +5,17 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.core.commands.ParameterizedCommand;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.e4.core.commands.ECommandService;
+import org.eclipse.e4.core.commands.EHandlerService;
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.di.UISynchronize;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.ISelection;
@@ -26,6 +36,17 @@ public class ToDoDeletePart {
 
 	@Inject
 	ITodoService		todoService;
+	@Inject
+	ESelectionService	selectionService;
+	@Inject
+	EHandlerService		handlerService;
+	@Inject
+	ECommandService		commandService;
+	@Inject
+	IEclipseContext		eclipseContext;
+	@Inject
+	UISynchronize		sync;
+
 	private ComboViewer	viewer;
 
 	public ToDoDeletePart() {
@@ -44,8 +65,8 @@ public class ToDoDeletePart {
 			}
 		});
 		viewer.setContentProvider(ArrayContentProvider.getInstance());
-		List<Todo> todos = todoService.getTodos();
-		updateViewer(todos);
+		//		List<Todo> todos = todoService.getTodos();
+		updateViewer();
 
 		Button button = new Button(_parent, SWT.PUSH);
 		button.setText("Delete Selected");
@@ -55,9 +76,21 @@ public class ToDoDeletePart {
 				ISelection selection = viewer.getSelection();
 				IStructuredSelection sel = (IStructuredSelection) selection;
 				if (sel.size() > 0) {
-					Todo firstElement = (Todo) sel.getFirstElement();
-					todoService.deleteTodo(firstElement.getId());
-					updateViewer(todoService.getTodos());
+					// l'action a besoin d'un todo selectionné
+					selectionService.setSelection(sel.getFirstElement());
+					// verif que dans e4xmi l'ID de la commande pour virer un todo est bien com.example.e4.rcp.todo.command.remove
+					ParameterizedCommand cmd = commandService.createCommand("com.example.e4.rcp.todo.command.remove", null);
+					handlerService.executeHandler(cmd, eclipseContext);
+
+					// mettre à jour le viewer ...
+					//					List<Todo> todos = todoService.getTodos();
+					updateViewer();
+					// plus besoin d'avoir le todo Selectionné, on l'a delete ...
+					selectionService.setSelection(null);
+
+					//					Todo firstElement = (Todo) sel.getFirstElement();
+					//					todoService.deleteTodo(firstElement.getId());
+					//					updateViewer(todoService.getTodos());
 				}
 			}
 		});
@@ -69,11 +102,26 @@ public class ToDoDeletePart {
 		viewer.getControl().setFocus();
 	}
 
-	private void updateViewer(List<Todo> todos) {
-		viewer.setInput(todos);
-		if (todos.size() > 0) {
-			viewer.setSelection(new StructuredSelection(todos.get(0)));
-		}
+	private void updateViewer() {
+
+		Job job = new Job("Loading") {
+
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				final List<Todo> list = todoService.getTodos();
+				sync.asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						viewer.setInput(list);
+						if (list.size() > 0) {
+							viewer.setSelection(new StructuredSelection(list.get(0)));
+						}
+					}
+				});
+				return Status.OK_STATUS;
+			}
+		};
+		job.schedule();
 	}
 
 }
