@@ -2,9 +2,16 @@ package com.example.e4.rcp.todo.services.internal;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+
+import org.eclipse.e4.core.services.events.IEventBroker;
+
+import com.example.e4.rcp.todo.events.MyEventConstants;
 import com.example.e4.rcp.todo.model.ITodoService;
 import com.example.e4.rcp.todo.model.Todo;
 
@@ -17,8 +24,11 @@ import com.example.e4.rcp.todo.model.Todo;
  */
 public class MyTodoServiceImpl implements ITodoService {
 
-	private static int	current	= 1;
-	private List<Todo>	todos;
+	private static int		current	= 1;
+	private List<Todo>		todos;
+
+	@Inject
+	private IEventBroker	broker;
 
 	public MyTodoServiceImpl() {
 		todos = createInitialModel();
@@ -35,9 +45,11 @@ public class MyTodoServiceImpl implements ITodoService {
 
 	// create a new or update an existing Todo object
 	@Override
-	public boolean saveTodo(Todo newTodo) {
+	public synchronized boolean saveTodo(Todo newTodo) {
+		boolean created = false;
 		Todo updateTodo = findById(newTodo.getId());
 		if (updateTodo == null) {
+			created = true;
 			updateTodo = new Todo(current++);
 			todos.add(updateTodo);
 		}
@@ -45,14 +57,27 @@ public class MyTodoServiceImpl implements ITodoService {
 		updateTodo.setDescription(newTodo.getDescription());
 		updateTodo.setDone(newTodo.isDone());
 		updateTodo.setDueDate(newTodo.getDueDate());
+
+		// CONFIG EVENT
+		// send out
+		if (created) {
+			broker.post(MyEventConstants.TOPIC_TODO_NEW, createEventData(MyEventConstants.TOPIC_TODO_NEW, String.valueOf(updateTodo.getId())));
+		}
+		else {
+			broker.post(MyEventConstants.TOPIC_TODO_UPDATE, createEventData(MyEventConstants.TOPIC_TODO_UPDATE, String.valueOf(updateTodo.getId())));
+		}
+
 		return true;
 	}
 
 	@Override
 	public boolean deleteTodo(long id) {
-		Todo todo = findById(id);
-		if (todo != null) {
-			todos.remove(todo);
+		Todo deleteTodo = findById(id);
+		if (deleteTodo != null) {
+			todos.remove(deleteTodo);
+			// CONFIG EVENT
+			// send out
+			broker.post(MyEventConstants.TOPIC_TODO_DELETE, createEventData(MyEventConstants.TOPIC_TODO_DELETE, String.valueOf(deleteTodo.getId())));
 			return true;
 		}
 		return false;
@@ -105,4 +130,12 @@ public class MyTodoServiceImpl implements ITodoService {
 		return list;
 	}
 
+	private Map<String, String> createEventData(String topic, String todoId) {
+		Map<String, String> map = new HashMap<String, String>();
+		// si le receiver veut tester le topic
+		map.put(MyEventConstants.TOPIC_TODO, topic);
+		// identifier le todo qui change
+		map.put(Todo.FIELD_ID, todoId);
+		return map;
+	}
 }
