@@ -1,6 +1,8 @@
 package com.example.e4.rcp.todo.parts;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -11,7 +13,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.di.UISynchronize;
 import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
@@ -38,6 +42,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
+import com.example.e4.rcp.todo.events.MyEventConstants;
 import com.example.e4.rcp.todo.model.ITodoService;
 import com.example.e4.rcp.todo.model.Todo;
 
@@ -94,30 +99,12 @@ public class ToDoOverviewPart {
 		dataBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-
-				dataLbl.setText("Loading ...");
-				Job job = new Job("Loading") {
-
-					@Override
-					protected IStatus run(IProgressMonitor monitor) {
-						final List<Todo> list = todoService.getTodos();
-						sync.asyncExec(new Runnable() {
-							@Override
-							public void run() {
-								dataLbl.setText("Total Todos:" + todoService.getTodos().size());
-								updateViewer(list);
-							}
-						});
-						return Status.OK_STATUS;
-					}
-				};
-				job.schedule();
+				asyncLoadTodos();
 			}
 		});
 
 		// label
 		dataLbl = new Label(_parent, SWT.NORMAL);
-		dataLbl.setText("Total Todos:" + todoService.getTodos().size());
 		final FormData fd_lbl = new FormData();
 		fd_lbl.top = new FormAttachment(dataBtn, 0, SWT.CENTER);
 		fd_lbl.left = new FormAttachment(dataBtn, 0, SWT.RIGHT);
@@ -138,6 +125,7 @@ public class ToDoOverviewPart {
 				Text source = (Text) e.getSource();
 				searchString = source.getText();
 				System.out.println("Filtering on:" + searchString);
+				viewer.refresh();
 			}
 		});
 		search.addSelectionListener(new SelectionAdapter() {
@@ -188,7 +176,6 @@ public class ToDoOverviewPart {
 		colDes.getColumn().setWidth(200);
 		colDes.getColumn().setText("Description");
 
-		// marche plus avec le binding
 		viewer.addFilter(new ViewerFilter() {
 			@Override
 			public boolean select(Viewer viewer, Object parentElement, Object element) {
@@ -197,12 +184,11 @@ public class ToDoOverviewPart {
 			}
 		});
 
-		// marche plus avec le binding
 		viewer.setComparator(new ViewerComparator() {
 			@Override
 			public int compare(Viewer viewer, Object e1, Object e2) {
 				// TODO Auto-generated method stub
-				return ((Todo) e1).getSummary().compareTo(((Todo) e2).getSummary());
+				return ((Todo) e1).getSummary().toUpperCase().compareTo(((Todo) e2).getSummary().toUpperCase());
 			}
 		});
 
@@ -217,23 +203,52 @@ public class ToDoOverviewPart {
 		//		viewer.setInput(todoService.getTodos());
 
 		// dataBinding
-		writableList = new WritableList(todoService.getTodos(), Todo.class);
+		writableList = new WritableList(new ArrayList<>(), Todo.class);
 		ViewerSupport.bind(viewer, writableList, BeanProperties.values(new String[] { Todo.FIELD_SUMMARY, Todo.FIELD_DESCRIPTION }));
 
 		_menuservice.registerContextMenu(viewer.getControl(), "com.example.e4.rcp.todo.popupmenu.tablemenu");
 
+		asyncLoadTodos();
+
+	}
+
+	private void asyncLoadTodos() {
+		dataLbl.setText("Loading ...");
+		Job job = new Job("Loading") {
+
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				final List<Todo> list = todoService.getTodos();
+				sync.asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						dataLbl.setText("Total Todos:" + list.size());
+						updateViewer(list);
+					}
+				});
+				return Status.OK_STATUS;
+			}
+		};
+		job.schedule();
 	}
 
 	public void updateViewer(List<Todo> list) {
 		if (viewer != null) {
 			writableList.clear();
 			writableList.addAll(list);
+			viewer.refresh();
 		}
 	}
 
 	@Focus
 	public void setFocus() {
 		dataBtn.setFocus();
+	}
+
+	@Inject
+	@Optional
+	private void subscribeTopicTodoAllTopics(@UIEventTopic(MyEventConstants.TOPIC_TODO_ALLTOPICS) Map<String, String> event) {
+		asyncLoadTodos();
 	}
 
 }

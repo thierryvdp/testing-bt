@@ -65,7 +65,7 @@ public class MyTodoServiceImpl implements ITodoService {
 		System.out.println("loading todos");
 		// on a un serveur qui rame un peu ..
 		try {
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(1);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

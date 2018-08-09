@@ -120,11 +120,13 @@ public class ToDoDetailsPart {
 
 	@Inject
 	public void setTodo(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Todo _todo) {
-		if (!dirty.isDirty() || (dirty.isDirty() && MessageDialog.openConfirm(Display.getCurrent().getActiveShell(), "Confirm", "Current todo is not saved.\nPress Ok to loose changes and display new Todo"))) {
-			if (_todo != null) {
-				todo = _todo;
+		if (dirty != null) {
+			if (!dirty.isDirty() || (dirty.isDirty() && MessageDialog.openConfirm(Display.getCurrent().getActiveShell(), "Confirm", "Current todo is not saved.\nPress Ok to loose changes and display new Todo"))) {
+				dirty.setDirty(false);
+				updateUserInterface(_todo);
 			}
-			dirty.setDirty(false);
+		}
+		else { // dialog
 			updateUserInterface(_todo);
 		}
 	}
