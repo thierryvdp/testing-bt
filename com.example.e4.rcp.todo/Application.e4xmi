@@ -6,6 +6,7 @@
         <children xsi:type="basic:PartSashContainer" xmi:id="_YNJRMHhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.partsashcontainer.main" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_llVaUHhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.partstack.left">
             <children xsi:type="basic:Part" xmi:id="_oPzcgHhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.part.todooverview" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.ToDoOverviewPart" label="Overview">
+              <tags>NoMove</tags>
               <menus xsi:type="menu:PopupMenu" xmi:id="_1ZWOMHiCEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.popupmenu.tablemenu" label="Table Menu">
                 <children xsi:type="menu:HandledMenuItem" xmi:id="_7voa0HiCEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.handledmenuitem.remove" label="Remove" command="_ukevgHh_EeisvLgKjKepIw"/>
                 <children xsi:type="menu:HandledMenuItem" xmi:id="_awbpsJsPEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.handledmenuitem.openeditor" label="Open Editor" command="_Abk10JsPEeiIn7Y_-kW4Cw"/>
@@ -14,11 +15,19 @@
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_gkYB4HhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.partsashcontainer.right">
             <children xsi:type="basic:PartStack" xmi:id="_z1QcsHhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.partstack.top">
-              <children xsi:type="basic:Part" xmi:id="_1RWnQHhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.part.details" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.ToDoDetailsPart" label="Details"/>
+              <tags>NoAutoCollapse</tags>
+              <children xsi:type="basic:Part" xmi:id="_1RWnQHhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.part.details" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.ToDoDetailsPart" label="Details" closeable="true">
+                <tags>NoMove</tags>
+              </children>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_0g6o0HhrEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.partstack.bottom">
-              <children xsi:type="basic:Part" xmi:id="_Jp7SUJl7EeiHT_iSv7DuMg" elementId="com.example.e4.rcp.todo.part.Delete" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.ToDoDeletePart" label="Delete"/>
-              <children xsi:type="advanced:Placeholder" xmi:id="_e79lEJsGEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.placeholder.0" ref="_7M4ScJsFEeiIn7Y_-kW4Cw"/>
+              <tags>NoAutoCollapse</tags>
+              <children xsi:type="basic:Part" xmi:id="_Jp7SUJl7EeiHT_iSv7DuMg" elementId="com.example.e4.rcp.todo.part.Delete" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.ToDoDeletePart" label="Delete" closeable="true">
+                <tags>NoMove</tags>
+              </children>
+              <children xsi:type="advanced:Placeholder" xmi:id="_e79lEJsGEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.placeholder.0" ref="_7M4ScJsFEeiIn7Y_-kW4Cw" closeable="true">
+                <tags>NoMove</tags>
+              </children>
             </children>
           </children>
         </children>
