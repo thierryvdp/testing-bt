@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.services.nls.Translation;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.di.UISynchronize;
@@ -43,26 +44,29 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
 import com.example.e4.rcp.todo.events.MyEventConstants;
+import com.example.e4.rcp.todo.il8n.Messages;
 import com.example.e4.rcp.todo.model.ITodoService;
 import com.example.e4.rcp.todo.model.Todo;
 
 public class ToDoOverviewPart {
 
 	@Inject
-	ITodoService			todoService;
+	ITodoService				todoService;
 	@Inject
-	ESelectionService		selectionService;
+	ESelectionService			selectionService;
 	@Inject
-	UISynchronize			sync;
+	UISynchronize				sync;
 
-	private int				spacing;
-	private TableViewer		viewer;
-	private String			searchString	= "";
-	private Button			dataBtn;
+	private int					spacing;
+	private TableViewer			viewer;
+	private String				searchString	= "";
+	private Button				dataBtn;
 
-	private WritableList	writableList;
+	private WritableList		writableList;
 
-	private Label			dataLbl;
+	private Label				dataLbl;
+	private TableViewerColumn	colSum;
+	private TableViewerColumn	colDes;
 
 	public ToDoOverviewPart() {
 		System.out.println("Constructor Overview");
@@ -70,7 +74,7 @@ public class ToDoOverviewPart {
 	}
 
 	@PostConstruct
-	public void createControls(Composite _parent, EMenuService _menuservice, ITodoService todoService) {
+	public void createControls(Composite _parent, EMenuService _menuservice, ITodoService todoService, @Translation Messages message) {
 
 		// parent composite
 		final FormLayout formLayout = new FormLayout();
@@ -153,7 +157,7 @@ public class ToDoOverviewPart {
 		//		viewer.setContentProvider(ArrayContentProvider.getInstance());
 
 		// colonne Summary
-		TableViewerColumn colSum = new TableViewerColumn(viewer, SWT.NONE);
+		colSum = new TableViewerColumn(viewer, SWT.NONE);
 		//		colSum.setLabelProvider(new ColumnLabelProvider() {
 		//			@Override
 		//			public String getText(Object element) {
@@ -165,7 +169,7 @@ public class ToDoOverviewPart {
 		colSum.getColumn().setText("Summary");
 
 		// colonne Descriptio
-		TableViewerColumn colDes = new TableViewerColumn(viewer, SWT.NONE);
+		colDes = new TableViewerColumn(viewer, SWT.NONE);
 		//		colDes.setLabelProvider(new ColumnLabelProvider() {
 		//			@Override
 		//			public String getText(Object element) {
@@ -208,6 +212,8 @@ public class ToDoOverviewPart {
 
 		_menuservice.registerContextMenu(viewer.getControl(), "com.example.e4.rcp.todo.popupmenu.tablemenu");
 
+		translateTable(message);
+
 		asyncLoadTodos();
 
 	}
@@ -249,6 +255,14 @@ public class ToDoOverviewPart {
 	@Optional
 	private void subscribeTopicTodoAllTopics(@UIEventTopic(MyEventConstants.TOPIC_TODO_ALLTOPICS) Map<String, String> event) {
 		asyncLoadTodos();
+	}
+
+	@Inject
+	public void translateTable(@Translation Messages message) {
+		if (viewer != null) {
+			colSum.getColumn().setText(message.txtSummary);
+			colDes.getColumn().setText(message.txtDescription);
+		}
 	}
 
 }

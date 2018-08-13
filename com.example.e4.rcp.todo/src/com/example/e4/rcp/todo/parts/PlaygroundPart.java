@@ -4,7 +4,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.di.extensions.Preference;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
@@ -29,6 +32,12 @@ public class PlaygroundPart {
 
 	public PlaygroundPart() {
 		System.out.println("Constructor Playground");
+	}
+
+	@Inject
+	@Optional
+	public void trackUserSettings(@Preference(value = "user") String user) {
+		System.out.println("user:" + user);
 	}
 
 	@PostConstruct
