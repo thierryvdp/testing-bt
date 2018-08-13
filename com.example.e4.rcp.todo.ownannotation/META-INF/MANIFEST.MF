@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ownannotation
+Bundle-SymbolicName: com.example.e4.rcp.todo.ownannotation
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: EXAMPLE
+Automatic-Module-Name: com.example.e4.rcp.todo.ownannotation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.e4.core.di;bundle-version="1.6.100",
+ com.example.e4.rcp.todo.model;bundle-version="1.0.0",
+ javax.inject;bundle-version="1.0.0",
+ org.eclipse.osgi.services;bundle-version="3.6.0"
+Service-Component: OSGI-INF/service.xml
