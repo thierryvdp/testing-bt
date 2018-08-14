@@ -3,7 +3,10 @@ package com.example.e4.rcp.todo.lifecycle;
 import javax.inject.Inject;
 
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.extensions.Preference;
+import org.eclipse.e4.ui.internal.workbench.E4Workbench;
+import org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.jface.window.Window;
@@ -24,7 +27,8 @@ public class Manager {
 	private String user;
 
 	@PostContextCreate
-	void postContextCreate(@Preference IEclipsePreferences prefs, IApplicationContext appContext, Display display) {
+	void postContextCreate(@Preference IEclipsePreferences prefs, IApplicationContext appContext, Display display, IEclipseContext context) {
+
 		final Shell shell = new Shell(SWT.SHELL_TRIM);
 		PasswordDialog dialog = new PasswordDialog(shell);
 		if (user != null) {
@@ -36,6 +40,10 @@ public class Manager {
 
 		// position shell
 		setLocation(display, shell);
+
+		String cssURI = "platform:/plugin/com.example.e4.rcp.todo/css/rainbow.css";
+		context.set(E4Workbench.CSS_URI_ARG, cssURI);
+		PartRenderingEngine.initializeStyling(shell.getDisplay(), context);
 
 		if (dialog.open() != Window.OK) {
 			// close application
