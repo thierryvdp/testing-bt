@@ -259,7 +259,7 @@ public class ToDoOverviewPart {
 
 	@Inject
 	public void translateTable(@Translation Messages message) {
-		if (viewer != null) {
+		if (viewer != null && !viewer.getTable().isDisposed()) {
 			colSum.getColumn().setText(message.txtSummary);
 			colDes.getColumn().setText(message.txtDescription);
 		}

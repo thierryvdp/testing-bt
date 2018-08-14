@@ -24,6 +24,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import com.example.e4.bundleresourceloader.IBundleResourceLoader;
+import com.example.e4.rcp.todo.model.Todo;
+import com.example.e4.rcp.todo.ownannotation.UniqueTodo;
 
 public class PlaygroundPart {
 
@@ -80,6 +82,17 @@ public class PlaygroundPart {
 		browser = new Browser(parent, SWT.NONE);
 		browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
+	}
+
+	@Inject
+	public void setTodo(@UniqueTodo Todo todo) {
+		if (todo != null) {
+			System.out.println("Injected Todo");
+			System.out.println("Id         :" + todo.getId());
+			System.out.println("Summary    :" + todo.getSummary());
+			System.out.println("Description:" + todo.getDescription());
+			System.out.println("DueDate    :" + todo.getDueDate());
+		}
 	}
 
 }

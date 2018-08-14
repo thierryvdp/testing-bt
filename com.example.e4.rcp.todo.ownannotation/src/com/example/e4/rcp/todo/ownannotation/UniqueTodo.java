@@ -12,14 +12,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueTodo {
 
-	/**
-	 * An id parameter can be passed to the DirectTodo, in order to inject a
-	 * java.util.Optional<Todo> with a given id.<br/>
-	 * <br/>
-	 * Without parameter the injected Todo is an absent java.util.Optional, because Todo ids begin
-	 * with 1 and the default is 0 (see ITodoService).
-	 * 
-	 * @return the id, which is passed to the DirectTodo annotation or 0, if no parameter is passed
-	 */
-	long id() default 0;
 }
