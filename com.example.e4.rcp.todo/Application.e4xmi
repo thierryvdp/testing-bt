@@ -64,6 +64,7 @@
         </children>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_73o38JsLEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.handledmenuitem.dynamicpartaddition" label="DynamicPartAddition" command="_xIRLMJsLEeiIn7Y_-kW4Cw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_sufQwJ7rEei5DpmXO1OmpQ" elementId="com.example.e4.rcp.todo.handledmenuitem.login" label="Login" command="_jBiDQJ7rEei5DpmXO1OmpQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2IuI8J_PEei82Zcs8UA-Dw" elementId="com.example.e4.rcp.todo.handledmenuitem.switchtheme" label="Switch Theme" command="_pZVFMJ_PEei82Zcs8UA-Dw"/>
       </children>
     </mainMenu>
     <sharedElements xsi:type="basic:Part" xmi:id="_7M4ScJsFEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.part.lazytable" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.parts.PlaygroundPart" label="LazyTable"/>
@@ -85,6 +86,7 @@
   <handlers xmi:id="_vmEYoJsLEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.handler.1" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.DynamicPartHandler" command="_xIRLMJsLEeiIn7Y_-kW4Cw"/>
   <handlers xmi:id="__GuiwJsOEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.handler.2" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.OpenEditorHandler" command="_Abk10JsPEeiIn7Y_-kW4Cw"/>
   <handlers xmi:id="_lgsNUJ7rEei5DpmXO1OmpQ" elementId="com.example.e4.rcp.todo.handler.3" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.EnterCredentialHandler" command="_jBiDQJ7rEei5DpmXO1OmpQ"/>
+  <handlers xmi:id="_sGSasJ_PEei82Zcs8UA-Dw" elementId="com.example.e4.rcp.todo.handler.4" contributionURI="bundleclass://com.example.e4.rcp.todo/com.example.e4.rcp.todo.handlers.ThemeSwitchHandler" command="_pZVFMJ_PEei82Zcs8UA-Dw"/>
   <bindingTables xmi:id="_q1vd0HiIEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.bindingtable.0" bindingContext="_RwIrUHiIEeisvLgKjKepIw">
     <bindings xmi:id="_tJC9MHiIEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.keybinding.save" keySequence="M1+S" command="_fU4_4Hh_EeisvLgKjKepIw"/>
     <bindings xmi:id="_zyNpkHiIEeisvLgKjKepIw" elementId="com.example.e4.rcp.todo.keybinding.exit" keySequence="M1+X" command="_ombcsHh_EeisvLgKjKepIw"/>
@@ -106,6 +108,7 @@
   <commands xmi:id="_xIRLMJsLEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.command.dynamicpartaddition" commandName="DynamicPartAddition"/>
   <commands xmi:id="_Abk10JsPEeiIn7Y_-kW4Cw" elementId="com.example.e4.rcp.todo.command.openeditor" commandName="OpenEditor"/>
   <commands xmi:id="_jBiDQJ7rEei5DpmXO1OmpQ" elementId="com.example.e4.rcp.todo.command.login" commandName="Login"/>
+  <commands xmi:id="_pZVFMJ_PEei82Zcs8UA-Dw" elementId="com.example.e4.rcp.todo.command.switchtheme" commandName="Switch Theme"/>
   <addons xmi:id="_R0DwkXhdEeisvLgKjKepIw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_R0DwknhdEeisvLgKjKepIw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_R0Dwk3hdEeisvLgKjKepIw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
