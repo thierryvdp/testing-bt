@@ -33,7 +33,7 @@ public class Launcher {
 
 			// HttpPost Request
 			HttpPost postRequest = new HttpPost("https://api.insee.fr/token");
-			String encodedBytes = Base64.getEncoder().encodeToString(("consumer-key:consumer-secret").getBytes());
+			String encodedBytes = Base64.getEncoder().encodeToString(("6_ttyuk3QfleC7fj64IUF05hVUMa:IUqxBiG3mLhsG4wrd1ewCwYeFRka").getBytes());
 			postRequest.addHeader("Authorization", "Basic " + encodedBytes);
 			postRequest.setEntity(new StringEntity("grant_type=client_credentials", StandardCharsets.UTF_8));
 			HttpResponse httpPostResponse = httpClient.execute(postRequest);
