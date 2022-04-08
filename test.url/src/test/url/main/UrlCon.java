@@ -27,10 +27,6 @@ public class UrlCon {
 			}
 
 			/**
-			 * fake modif
-			 */
-
-			/**
 			 * Talking to peers
 			Once I had the address of a working peer, the next step was to send my transaction into the peer-to-peer network.[8] Using the peer-to-peer protocol is pretty straightforward. I opened a TCP connection to an arbitrary peer on port 8333, started sending messages, and received messages in turn. The Bitcoin peer-to-peer protocol is pretty forgiving; peers would keep communicating even if I totally messed up requests.
 			Important note: as a few people pointed out, if you want to experiment you should use the Bitcoin Testnet, which lets you experiment with "fake" bitcoins, since it's easy to lose your valuable bitcoins if you mess up on the real network. (For example, if you forget the change address in a transaction, excess bitcoins will go to the miners as a fee.) But I figured I would use the real Bitcoin network and risk my $1.00 worth of bitcoins.
