@@ -17,11 +17,12 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class FileUtil {
 
-	private final static Logger logger = Logger.getLogger(FileUtil.class);
+	private final static Logger logger = LogManager.getLogger(FileUtil.class);
 
 	public static void closeAll(Closeable... closables) {
 		for (Closeable closeable : closables) {

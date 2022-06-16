@@ -12,11 +12,12 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContexts;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Launcher {
 
-	private static final Logger logger = Logger.getLogger(Launcher.class);
+	private final static Logger logger = LogManager.getLogger(Launcher.class);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
