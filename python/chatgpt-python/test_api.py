@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 
 # Configurer une clé d'API valide
-OpenAI.api_key = os.envoronment['OPENAI_API_KEY']
+OpenAI.api_key = os.environ['OPENAI_API_KEY']
 client = OpenAI(
   organization='org-9CiK5hsQrnIMFCHC74N00MbR',
 )
