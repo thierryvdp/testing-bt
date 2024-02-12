@@ -1,10 +1,11 @@
-import openai
+from openai import OpenAI
 import speech_recognition as sr
 import pyttsx3
+import os
 
 # Configurer une clé d'API valide
-openai.api_key = "tacleapi-xxxxxXXXX1111222abc"
-
+OpenAI.api_key = os.environ['OPENAI_API_KEY']
+client = OpenAI()
 
 # Initialiser le recognizer
 r = sr.Recognizer()
@@ -32,16 +33,18 @@ while True:
         continue
 
     # Envoyer une requête à l'API de GPT
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=2048,
-        n=1,
-        stop=None,
-        temperature=0.5,
-    )
+    stream = client.chat.completions.create(model="gpt-3.5-turbo-0613", messages=[{"role": "user", "content": prompt}], stream=True, )
+    response=''
+    for chunk in stream:
+        if chunk.choices[0].delta.content is not None:
+            response = response + chunk.choices[0].delta.content
+            # print(chunk.choices[0].delta.content, end="")
+
+    
 
     # Afficher la réponse
-    print(response["choices"][0]["text"])
-    engine.say(response["choices"][0]["text"])
+    # print(response["choices"][0]["text"])
+    print(response)
+    # engine.say(response["choices"][0]["text"])
+    engine.say(response)
     engine.runAndWait()
