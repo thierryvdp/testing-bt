@@ -2,6 +2,7 @@ from openai import OpenAI
 import speech_recognition as sr
 import pyttsx3
 import os
+from datetime import datetime
 
 # Configurer une clé d'API valide
 OpenAI.api_key = os.environ['OPENAI_API_KEY']
@@ -31,6 +32,10 @@ while True:
     except sr.RequestError as e:
         print("Erreur de service; {0}".format(e))
         continue
+    with open('voice.log', 'a') as fichier:
+        # Ajoute du texte à la fin du fichier
+        fichier.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S")+" Humain:\n")
+        fichier.write(prompt+"\n")
 
     # Envoyer une requête à l'API de GPT
     stream = client.chat.completions.create(model="gpt-3.5-turbo-0613", messages=[{"role": "user", "content": prompt}], stream=True, )
@@ -38,13 +43,12 @@ while True:
     for chunk in stream:
         if chunk.choices[0].delta.content is not None:
             response = response + chunk.choices[0].delta.content
-            # print(chunk.choices[0].delta.content, end="")
-
-    
 
     # Afficher la réponse
-    # print(response["choices"][0]["text"])
     print(response)
-    # engine.say(response["choices"][0]["text"])
+    with open('voice.log', 'a') as fichier:
+        # Ajoute du texte à la fin du fichier
+        fichier.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S")+" IA:\n")
+        fichier.write(response+"\n")
     engine.say(response)
     engine.runAndWait()
