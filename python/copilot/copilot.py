@@ -1,0 +1,3 @@
+# api doc https://www.copilot.com/guide/api-docimentation
+# api end point https://api-beta.copilot.com
+# attention 14 days trial ...
