@@ -19,19 +19,3 @@ for chunk in stream:
     if chunk.choices[0].delta.content is not None:
         print(chunk.choices[0].delta.content, end="")
         
-
-# Envoyer une requête à l'API de GPT
-
-#response = openai.Completion.create(
-#    engine="text-davinci-003",
-#    prompt=prompt,
-#    max_tokens=2048,
-#    n=1,
-#    stop=None,
-#    temperature=0.5,
-#)
-
-# Afficher la réponse
-#print(response)
-#
-#print(response["choices"][0]["text"])
