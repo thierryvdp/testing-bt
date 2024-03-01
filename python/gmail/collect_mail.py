@@ -3,6 +3,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import os, pickle, base64
+from bs4 import BeautifulSoup
 
 # Définir les scopes (permissions)
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
@@ -75,8 +76,18 @@ def process_content(id,content):
         print(f"Contenu de l'email ID {id}:")
         print(content)
         # Ici, vous pouvez effectuer un traitement supplémentaire sur le contenu de l'email
-        with open('d:/tmp/log/mail_'+str(id)+'.txt', 'a') as fichier:
-             fichier.write(content)
+         
+        # Créer un objet BeautifulSoup pour le parsing du contenu HTML
+        soup = BeautifulSoup(content, 'html.parser')
+        # Trouver tous les éléments <a> et extraire le href et le texte pour ceux qui commencent par "http://offre.pole-emploi.fr"
+        links_and_text = [(a['href'], a.get_text()) for a in soup.find_all('a', href=True) if a['href'].startswith("http://offre.pole-emploi.fr")]
+
+        with open('d:/tmp/log/mail_'+str(id)+'.txt', 'w') as fichier:
+             fichier.write(content+"\n")
+             # `links_and_text` est maintenant une liste de tuples, où chaque tuple contient le href et le texte d'une balise <a>
+             for href, text in links_and_text:
+                 print(f"URL: {href}, Text: {text}")
+                 fichier.write(f"URL: {href}, Text: {text}"+"\n")
 
 
 def search_emails(service, query):
