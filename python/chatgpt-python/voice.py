@@ -32,7 +32,7 @@ while True:
     except sr.RequestError as e:
         print("Erreur de service; {0}".format(e))
         continue
-    with open('voice.log', 'a') as fichier:
+    with open('d:/tmp/log/voice.log', 'a') as fichier:
         # Ajoute du texte à la fin du fichier
         fichier.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S")+" Humain:\n")
         fichier.write(prompt+"\n")
