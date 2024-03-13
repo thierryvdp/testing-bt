@@ -5,14 +5,14 @@ from torchvision.transforms import ToTensor, Lambda
 import matplotlib.pyplot as plt
 
 training_data = datasets.FashionMNIST(
-    root="data",
+    root="d:/cache/data",
     train=True,
     download=True,
     transform=ToTensor()
 )
 
 test_data = datasets.FashionMNIST(
-    root="data",
+    root="d:/cache/data",
     train=False,
     download=True,
     transform=ToTensor()
