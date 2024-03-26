@@ -26,6 +26,14 @@ while True:
         print("Tu as dit: " + prompt)
         if prompt == "exit":
             break
+        if prompt == "quitter":
+            break
+        if prompt == "sortir":
+            break
+        if prompt == "terminer":
+            break
+        if prompt == "fin":
+            break
     except sr.UnknownValueError:
         print("Je n'ai pas compris")
         continue

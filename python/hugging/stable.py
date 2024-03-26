@@ -48,3 +48,5 @@ image_in.save(chemin_image)
 image_out = Image.open(chemin_image)
 print('show image')
 image_out.show()
+
+
