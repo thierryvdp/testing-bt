@@ -4,11 +4,11 @@ import numpy as np
 
 
 def load_data():
-    train_dataset = h5py.File('D:/dev-tools/gitlab-wrk/testing-bt/python/deeplearning/datasets/trainset.hdf5', "r")
+    train_dataset = h5py.File('deeplearning/datasets/trainset.hdf5', "r")
     X_train = np.array(train_dataset["X_train"][:]) # your train set features
     y_train = np.array(train_dataset["Y_train"][:]) # your train set labels
 
-    test_dataset = h5py.File('D:/dev-tools/gitlab-wrk/testing-bt/python/deeplearning/datasets/testset.hdf5', "r")
+    test_dataset = h5py.File('deeplearning/datasets/testset.hdf5', "r")
     X_test = np.array(test_dataset["X_test"][:]) # your train set features
     y_test = np.array(test_dataset["Y_test"][:]) # your train set labels
     
@@ -44,8 +44,8 @@ def artificial_neuron(x_dataset, y_dataset, learning_rate = 0.1, n_iter = 100):
     for i in range(n_iter):
         activation= model(x_dataset, poids, biais)
         dW, db = gradients(activation, x_dataset, y_dataset)
-        W, b = update(dW, db, poids, biais, learning_rate)
-    return poids,b 
+        poids, biais = update(dW, db, poids, biais, learning_rate)
+    return poids, biais
 
 def predict(x_dataset, poids, biais):
     proba_activation = model(x_dataset, poids, biais)
