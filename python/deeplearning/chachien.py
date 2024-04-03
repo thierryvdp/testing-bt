@@ -1,4 +1,4 @@
-
+import matplotlib.pyplot as plt
 import utilities as ut
 import os
 
@@ -30,9 +30,12 @@ X_train = norm_aplati(X_train)
 X_test = norm_aplati(X_test)
 
 # 3. entrainement (peut être utiliser sklearn au lieu de notre log_loss)
-poids, biais = ut.artificial_neuron(X_train, y_train)
+poids, biais, log_loss = ut.artificial_neuron(X_train, y_train)
 
-# 4. tracer la courbe d'apprentissage
+# 4. tracer la courbe d'apprentissage ; nb si notre log_loss marche mal
+# utiliser celle de sklearn du module metrics
+plt.plot(log_loss)
+plt.show()
 
 # 5. evaluer le modele sur le test
 print(ut.predict(X_test[0], poids, biais))

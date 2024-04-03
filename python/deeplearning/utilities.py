@@ -1,7 +1,7 @@
 #pip install h5py
 import h5py
 import numpy as np
-
+# from sklearn.metrics import log_loss
 
 def load_data():
     train_dataset = h5py.File('deeplearning/datasets/trainset.hdf5', "r")
@@ -25,7 +25,7 @@ def model(x_dataset, poids, biais):
     return proba_activation
 
 def log_loss(activation, y_dataset):
-    return 1 / len(y_dataset) * np.sum( -y_dataset * np.log(activation) - (1 - y_dataset) * np.log(1 - activation))
+   return 1 / len(y_dataset) * np.sum( -y_dataset * np.log(activation) - (1 - y_dataset) * np.log(1 - activation))
 
 def gradients(activation, x_dataset, y_dataset):
     dW = 1 / len(y_dataset) * np.dot(x_dataset.T, activation - y_dataset)
@@ -40,12 +40,14 @@ def update(delta_poids, delta_biais, poids, biais, learning_rate):
 def artificial_neuron(x_dataset, y_dataset, learning_rate = 0.1, n_iter = 100):
     #initialiser W, b
     poids, biais = init_poids_biais(x_dataset)
-    Loss = []
+    # etude du cout qui doit diminuer ...
+    loss_list = []
     for i in range(n_iter):
         activation= model(x_dataset, poids, biais)
+        loss_list.append(log_loss(activation, y_dataset))
         dW, db = gradients(activation, x_dataset, y_dataset)
-        poids, biais = update(dW, db, poids, biais, learning_rate)
-    return poids, biais
+        poids, biais = update(dW, db, poids, biais, learning_rate)   
+    return poids, biais, loss_list
 
 def predict(x_dataset, poids, biais):
     proba_activation = model(x_dataset, poids, biais)
