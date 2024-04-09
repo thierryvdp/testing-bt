@@ -51,7 +51,7 @@ def category_ages(age):
 data2=data['age'].map(category_ages)
 print(data2)
 
-data['sex'].map({'male':0, 'female':1})
-data['sex'].replace(['male', 'female'],[0, 1])
-data['sex'].astype('category').cat.codes
+# data['sex'].map({'male':0, 'female':1})
+# data['sex'].replace(['male', 'female'],[0, 1])
+# data['sex'].astype('category').cat.codes
 
