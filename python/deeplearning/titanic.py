@@ -35,3 +35,5 @@ plt.show()
 # regroupement
 print(data.groupby(['sex']).mean())
 print(data.groupby(['sex','pclass']).mean())
+
+data = data.set_index('name')

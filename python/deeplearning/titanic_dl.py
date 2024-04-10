@@ -34,23 +34,61 @@ model.fit(X,y)
 print('precision du modèle ',model.score(X,y))
 survie(model,pclass=1,sex=0,age=60)
 
-best_neighbor=0
-best_score=0
-neighbors=[]
-scores=[]
+# exercice 1 decouverte du meilleur modele
+# best_neighbor=0
+# best_score=0
+# neighbors=[]
+# scores=[]
 
-for i in range(1,10):
-    model = KNeighborsClassifier(n_neighbors=i)
-    model.fit(X,y)
-    score=model.score(X,y)
-    neighbors.append(i)
-    scores.append(score)
-    if score > best_score :
-        best_score = score
-        best_neighbor = i
+# for i in range(1,10):
+#     model = KNeighborsClassifier(n_neighbors=i)
+#     model.fit(X,y)
+#     score=model.score(X,y)
+#     neighbors.append(i)
+#     scores.append(score)
+#     if score > best_score :
+#         best_score = score
+#         best_neighbor = i
 
-plt.plot(neighbors,scores,label='scores')
+# plt.plot(neighbors,scores,label='scores')
+# plt.show()
+
+# print('best_neighbor ',best_neighbor)
+# print('best_score ',best_score)
+
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import learning_curve
+
+# exercice 2 decouverte du meilleur modele
+# solution avec validation curve
+# crér un train_set et un test set
+# constitution des échantillon de test et de validation
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
+print(X_train.shape)
+print(X_test.shape)
+
+# avec GridSearchCV trouver les meilleurs params n_neighbors metrics weights
+# dictionaire des parametres avec leur variation
+parametres = {'n_neighbors':np.arange(1, 20), 'metric':['euclidean', 'manhattan']}
+# fabrication de la grille et modele de test
+grid = GridSearchCV(KNeighborsClassifier(), param_grid=parametres, cv=5)
+# entrainement du modele
+grid.fit(X_train,y_train)
+# score du meilleur modele
+print(grid.best_score_)
+# parametres du meilleur modele
+print(grid.best_params_)
+# meilleur modele
+model=grid.best_estimator_
+print(model.score(X_test,y_test))
+
+# est-ce que collecter plus de données serait utile ?
+N, train_score, val_score = learning_curve(model, X_train, y_train, train_sizes = np.linspace(0.1, 1, 10), cv=5)
+print(N)
+plt.plot(N, train_score.mean(axis=1), label='train')
+plt.plot(N, val_score.mean(axis=1), label='validation')
+plt.xlabel('train_size')
+plt.legend()
 plt.show()
 
-print('best_neighbor ',best_neighbor)
-print('best_score ',best_score)
