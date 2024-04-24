@@ -28,3 +28,4 @@ for k in K_range:
 plt.plot(K_range, inertia)
 plt.xlabel('nombre de clusters')
 plt.ylabel('Cout du modele (Inertia)')
+

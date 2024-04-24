@@ -1,7 +1,8 @@
 #pip install h5py
 import h5py
 import numpy as np
-# from sklearn.metrics import log_loss
+from sklearn.metrics import log_loss, accuracy_score
+import matplotlib.pyplot as plt
 
 def load_data():
     train_dataset = h5py.File('deeplearning/datasets/trainset.hdf5', "r")
@@ -47,6 +48,10 @@ def artificial_neuron(x_dataset, y_dataset, learning_rate = 0.1, n_iter = 100):
         loss_list.append(log_loss(activation, y_dataset))
         dW, db = gradients(activation, x_dataset, y_dataset)
         poids, biais = update(dW, db, poids, biais, learning_rate)   
+    # y_pred = predict(x_dataset, poids, biais)
+    # print(accuracy_score(y_dataset, y_pred))
+    # plt.plot(loss_list)
+    # plt.show()
     return poids, biais, loss_list
 
 def predict(x_dataset, poids, biais):
