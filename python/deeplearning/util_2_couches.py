@@ -50,11 +50,6 @@ def forward_propagation(x_dataset, parametres):
     }
     return activations
 
-def log_loss(activation, y_dataset):
-    # on ajoute un epsilon pour eviter les 1 et 0 de la matrice d'activation
-   epsilon = 1e-15
-   return 1 / len(y_dataset) * np.sum( -y_dataset * np.log(activation + epsilon) - (1 - y_dataset) * np.log(1 - activation  + epsilon))
-
 def back_propagation(x_dataset, y_dataset, activations, parametres):
     A1=activations['A1']
     A2=activations['A2']
@@ -106,9 +101,12 @@ def predict(x_dataset, parametres):
     A2 = activations['A2']
     return A2 >= 0.5
 
-def neural_network(x_dataset, y_dataset, x_test_dataset, y_test_datatest, learning_rate = 0.1, n_iter = 100):
-    #initialiser W, b
-    poids, biais = init_poids_biais(x_dataset)
+def neural_network(x_dataset, y_dataset, x_test_dataset, y_test_datatest, n1, learning_rate = 0.1, n_iter = 100):
+    #initialiser parametres poids et biais de chaque couche
+    n0 = x_dataset.shape[0] # nombre de lignes
+    # n1 est le nombre de couches !
+    n2 = y_dataset.shape[0] # nombre de lignes
+    parametres = init_poids_biais(n0, n1, n2)
     # etude du cout qui doit diminuer ...
     loss_list = []
     accuracy_list = []
@@ -118,23 +116,24 @@ def neural_network(x_dataset, y_dataset, x_test_dataset, y_test_datatest, learni
     
     for i in tqdm(range(n_iter)):
         # activation
-        activation= model(x_dataset, poids, biais)
+        activations = forward_propagation(x_dataset, parametres)           
+        # mise à jour
+        gradients = back_propagation(x_dataset, y_dataset,activations, parametres)
+        parametres = update(gradients, parametres, learning_rate)
+        
         if i %10 == 0:
             # calcul du cout du trainset
-            loss_list.append(log_loss(activation, y_dataset))
+            loss_list.append(log_loss(y_dataset, activations['A2']))
             # calcul de l'accuracy du trainset
-            y_pred = predict(x_dataset, poids, biais)
-            accuracy_list.append(accuracy_score(y_dataset, y_pred))
+            y_pred = predict(x_dataset, parametres)
+            accuracy_list.append(accuracy_score(y_dataset.flatten(), y_pred.flatten()))
             
             # calcul du cout du testset
-            activationTest= model(x_test_dataset, poids, biais)
-            test_loss.append(log_loss(activationTest, y_test_datatest))
-            # calcul de l'accuracy du testset
-            y_pred = predict(x_test_dataset, poids, biais)
-            test_accuracy.append(accuracy_score(y_test_datatest, y_pred))
-            
-        # mise à jour
-        dW, db = gradients(activation, x_dataset, y_dataset)
-        poids, biais = update(dW, db, poids, biais, learning_rate)
-    return poids, biais, loss_list, accuracy_list, test_loss, test_accuracy
+            # activationTest= model(x_test_dataset, poids, biais)
+            # test_loss.append(log_loss(activationTest, y_test_datatest))
+            # # calcul de l'accuracy du testset
+            # y_pred = predict(x_test_dataset, poids, biais)
+            # test_accuracy.append(accuracy_score(y_test_datatest, y_pred))
+
+    return parametres, loss_list, accuracy_list #, test_loss, test_accuracy
 
