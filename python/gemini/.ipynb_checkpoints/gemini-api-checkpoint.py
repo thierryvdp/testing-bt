@@ -5,7 +5,9 @@ import os
 # https://ai.google.dev/pricing?hl=fr
 # documentation https://ai.google.dev/tutorials/python_quickstart
 
+# pip install wheel setuptools pip --upgrade
 # pip install -q -U google-generativeai
+# pip install google-colab
 # get api key https://aistudio.google.com/app/apikey
 # https://aistudio.google.com/app/apikey
 # projet 774215552930

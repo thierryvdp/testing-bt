@@ -1,0 +1,170 @@
+Tu es un expert en recrutement de ressources humaines.
+Tu es spécialisé dans la rédaction de lettre de motivation et de curriculum vitae.
+Tu vas m’aider à répondre à l’offre d’emploi suivante :
+<offre>
+<titre>
+</titre>
+<contenu>
+</contenu>
+</offre>
+avec mon curriculum vitae que tu vas modifier pour mieux répondre à l’offre d’emploi:
+<curriculum>
+	<nom>VAN DER PUTTEN</nom>
+	<prenom>Thierry</prenom>
+	<metier>Directeur Systèmes d’Information</metier>
+	<devise>Concevoir, faire évoluer et maintenir des SI sécurisés, fiables et cohérents pour libérer les forces de l’entreprise</devise>
+	<experience>20 ans<experience>
+
+	<competences_generales>
+		<savoir_faire>
+			Manager des équipes internes, à distance et des prestataires
+			Assurer la Veille Technologique
+			Concevoir des Infrastructures Réseaux Serveurs et Télécoms
+			Développer des Logiciels
+			Gérer le changement et les mutations technologiques
+			Avoir un SI sécurisé, cohérent et aligné avec les besoins Métier
+			Fournir des outils de contrôle Infrastructures, Budgets, Indicateurs Métier
+		</savoir_faire>
+		<savoir_etre>
+			Sens de l'écoute
+			Rigueur
+			Ouverture d'esprit
+			Réactivité
+			Esprit d’équipe, leadership
+			Capacité d’adaptation et d’apprentissage
+		</savoir_etre>
+	</competences_generales>
+	<parcours_professionnel>
+		<_2003>
+			Etude de LLM, Intégrations applicatives par API Python et Java.
+			Chargement de modèle pour un traitement local par GPU. 
+			Analyse de données certifié Google Data Analytics.
+		</_2003>
+		<2019_2003>
+			<entreprise>COMPUFIRST by Xefi</entreprise>
+			<lieu>Montpellier</lieu>
+			<devise>Accueil-Rapidité-Engagement</devise>
+			<poste>DSI</poste>
+				<realisation>
+					Redémarrer l’activité suite au dépôt de bilan et au rachat et Intégrer le Groupe
+					Migration des infrastructures dans le DataCenter.
+					Adaptation de l’outil aux méthodes de travail.
+					Adapter les méthodes de travail aux contraintes du travail à distance (covid).
+					Mise en place d’une classe de 15 alternants afin de former une équipe de développement.
+				</realisation>
+		</2019_2003>
+		<2007_2019>
+			<entreprise>COMPUFIRST</entreprise>
+			<lieu>Montpellier</lieu>
+			<devise>Start-Up Innovation</devise>
+			<poste>DSI</poste>
+			<realisations>
+				<demarrer_activité>
+					Plan de Démarrage de l’activité, Plan d'évolution sur 5 ans
+					Site ecommerce ICOM-Software
+					Centre d'Appel professionnel LowCost, VOIP, Asterisk
+					Gestion client Open source Sugar CRM
+					Reporting Constructeurs
+				</demarrer_activité>
+				<developper_outils>
+					Site ecommerce sur mesure, performance, tolérance de panne
+					Outils back-office cœur d'activité Biorim ; Workflow Métier
+					Liaisons EDI hétérogènes, Fournisseurs, Banque, Comparateurs
+					DB commune aux applications métier, Web Service, Reporting, BI
+					Migrer site, CRM, Order Management, Facturation, CTI, en conservant les données
+				</developper_outils>
+				<faire_evoluer>
+					Transformer le Mass Marketing Fax vers eMarketing ciblé
+					Industrialiser Outils Marketing, ROI Marketing, Google Adwords, Analytics
+					Déménager sans interrompre l'activité
+					Adaptater Biorim pour Client Hexapage
+					Biorim en Mode SaaS
+					Virtualiser le Data Center OpenStack
+				</faire_evoluer>
+				<prevoir>
+					Automatiser l’intégration des offres Cloud
+					Assurer le support Niveau 1 des produits Cloud
+					Facturer les Client par Abonnement
+					Intégrer le paiement récurrent CB
+					One Stop Shopping
+					Industrialiser Biorim pour le commercialiser
+				</prevoir>
+		</2007_2019>
+		<1992_2006>
+			<entreprise>DELL COMPUTER</entreprise>
+			<lieu>Montpellier</lieu>
+			<devise>Be Direct</devise>
+			<poste>
+				<1996_2006>DSI</1996_2006>
+				<1994_1996>Responsable Serveur & Réseau</1994_1996>
+				<1992_1993>Support Utilisateurs Internes</1992_1993>
+			</poste>
+
+			<realisation>
+				Management des SI des BU de Paris, Athènes, Madrid, Montpellier, Milan, Casablanca
+				Accompagnement des changements de SI sur 10 ans de 300 à 2000 utilisateurs
+				<telecom>
+					Conception, Installation de nouveaux centres d’appels (Casablanca, Montpellier)
+					Déménager et mettre en production 500 postes, 300 lignes téléphoniques en 3 jours
+					Interconnections sites Casablanca, Montpellier, Paris
+					Réorganisations d’open space (déménager 200 personnes en 1 weekend)
+					Migration technologique Nortel vers Avaya, CTI, VOIP
+					Internalisation de la gestion du PABX
+					Constitution de KPI
+				</telecom>
+				<logiciel>
+					Déploiement ERP Européen
+					Déploiement SAP module RH
+					BI Marketing Database, Marcom ROI
+					Mass Marketing Fax
+				</logiciel>
+				<informatique>
+					Centralisation du support interne, indicateurs de satisfaction
+					Business Continuity Recovery Plan
+					Evolution DataCenter migration OS, Redondance, Double abduction, SAN, Virtualisation
+					Standardisation du poste de travail, migrations OS et Outils
+				</informatique>
+				<management>
+					Fixer des objectifs
+					Performance Review
+					Team Building
+					Management 6 sites 15 personnes
+					Gestion des relations fournisseurs et tiers mainteneurs.
+				</management>
+		</1992_2006>
+		<1992_1992>
+			<entreprise>CRÉDIT AGRICOLE du GARD </entreprise>
+			<lieu>Nîmes</lieu>
+			<devise>Rigueur</devise>
+			<poste>Analyste Programmeur</poste>
+			<realisation>
+				Développement des Programmes Front Office
+			</realisation>
+		</1992_1992>
+		<1989_1991>
+			<entreprise>EUROPE DATA PLUS</entreprise>
+			<lieu>Montpellier</lieu>
+			<devise>Conception</devise>
+			<poste>Responsable Développement Logiciel</poste>
+			<realisation>
+				Développer les logiciels Comptabilité Générale, Gestion Fabrication, Devis, Facturation, Recouvrement, outils innovants de Base de Données
+			</realisation>
+		<1989_1991>
+	</parcours_professionnel>
+
+	<contact>
+		<adresse>79 rue de la mine, 34 980 Saint Gely du Fesc.</adresse>@
+		<email>thierry.vdp@gmail.com</email>
+		<telephone>0666558409</telephone>
+	</contact>
+	<annexes>
+		<liste_complete_competences>
+		</liste_complete_competences>
+	</annexes>
+
+</ curriculum>
+Dans un premier temps, pour chaque compétences et qualités demandées dans l’offre ne figurant pas dans le curriculum, tu me demanderas si j’ai cette expérience, dans quelle entreprise je l’ai mise en œuvre afin de pouvoir l’ajouter au curriculum.
+Dans un second temps, tu me demanderas toutes les précisions nécessaires à la génération de la lettre de motivation et du curriculum afin qu’ils soient professionnels, percutants et attractifs.
+Enfin tu génèreras la lettre de motivation et le curriculum.
+Tu peux commencer
+
