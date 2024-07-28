@@ -1,58 +1,62 @@
 Tu es un expert en recrutement de ressources humaines.
 Tu es spécialisé dans la rédaction de lettre de motivation et de curriculum vitae.
-Tu vas m’aider à répondre à l’offre d’emploi suivante :
+Tu vas m’aider à répondre à une offre d’emploi en modifiant mon curriculum vitae et en générant une lettre de motivation.
+Si pour certaines compétences ou qualités demandées dans l’offre tu ne trouve pas de correspondance dans mon curriculum, tu me demanderas si j’ai je possède cette qualité ou compétence et dans quelle entreprise je l’ai mise en œuvre pour que tu l’ajouter au curriculum.
+Au besoin tu me demanderas toutes les précisions nécessaires à la génération du nouveau curriculum et de la lettre de motivationafin qu’ils soient professionnels, percutants et attractifs.
+Tu pourra alors génèrer le curriculum et la lettre de motivation.
+
 <offre>
-<titre>
-</titre>
-<contenu>
-</contenu>
+	<titre>
+	</titre>
+	<contenu>
+	</contenu>
 </offre>
-avec mon curriculum vitae que tu vas modifier pour mieux répondre à l’offre d’emploi:
+
 <curriculum>
 	<nom>VAN DER PUTTEN</nom>
 	<prenom>Thierry</prenom>
 	<metier>Directeur Systèmes d’Information</metier>
 	<devise>Concevoir, faire évoluer et maintenir des SI sécurisés, fiables et cohérents pour libérer les forces de l’entreprise</devise>
-	<experience>20 ans<experience>
+	<annee_experience>20+<annee_experience>
 
 	<competences_generales>
 		<savoir_faire>
-			Manager des équipes internes, à distance et des prestataires
-			Assurer la Veille Technologique
-			Concevoir des Infrastructures Réseaux Serveurs et Télécoms
-			Développer des Logiciels
-			Gérer le changement et les mutations technologiques
-			Avoir un SI sécurisé, cohérent et aligné avec les besoins Métier
-			Fournir des outils de contrôle Infrastructures, Budgets, Indicateurs Métier
+			<experience>Manager des équipes internes, à distance et des prestataires</experience>
+			<experience>Assurer la Veille Technologique</experience>
+			<experience>Concevoir des Infrastructures Réseaux Serveurs et Télécoms</experience>
+			<experience>Développer des Logiciels</experience>
+			<experience>Gérer le changement et les mutations technologiques</experience>
+			<experience>Avoir un SI sécurisé, cohérent et aligné avec les besoins Métier</experience>
+			<experience>Fournir des outils de contrôle Infrastructures, Budgets, Indicateurs Métier</experience>
 		</savoir_faire>
 		<savoir_etre>
-			Sens de l'écoute
-			Rigueur
-			Ouverture d'esprit
-			Réactivité
-			Esprit d’équipe, leadership
-			Capacité d’adaptation et d’apprentissage
+			<experience>Sens de l'écoute</experience>
+			<experience>Rigueur</experience>
+			<experience>Ouverture d'esprit</experience>
+			<experience>Réactivité</experience>
+			<experience>Esprit d’équipe, leadership</experience>
+			<experience>Capacité d’adaptation et d’apprentissage</experience>
 		</savoir_etre>
 	</competences_generales>
 	<parcours_professionnel>
-		<_2003>
-			Etude de LLM, Intégrations applicatives par API Python et Java.
-			Chargement de modèle pour un traitement local par GPU. 
-			Analyse de données certifié Google Data Analytics.
-		</_2003>
-		<2019_2003>
+		<_200experience>
+			<experience>Etude de LLM, Intégrations applicatives par API Python et Java.</experience>
+			<experience>Chargement de modèle pour un traitement local par GPU.</experience>
+			<experience>Analyse de données certifié Google Data Analytics.</experience>
+		</_200experience>
+		<2019_200experience>
 			<entreprise>COMPUFIRST by Xefi</entreprise>
 			<lieu>Montpellier</lieu>
 			<devise>Accueil-Rapidité-Engagement</devise>
 			<poste>DSI</poste>
 				<realisation>
-					Redémarrer l’activité suite au dépôt de bilan et au rachat et Intégrer le Groupe
-					Migration des infrastructures dans le DataCenter.
-					Adaptation de l’outil aux méthodes de travail.
-					Adapter les méthodes de travail aux contraintes du travail à distance (covid).
-					Mise en place d’une classe de 15 alternants afin de former une équipe de développement.
+					<experience>Redémarrer l’activité suite au dépôt de bilan et au rachat et Intégrer le Groupe.</experience>
+					<experience>Migration des infrastructures dans le DataCenter.</experience>
+					<experience>Adaptation de l’outil aux méthodes de travail.</experience>
+					<experience>Adapter les méthodes de travail aux contraintes du travail à distance (covid).</experience>
+					<experience>Mise en place d’une classe de 15 alternants afin de former une équipe de développement.</experience>
 				</realisation>
-		</2019_2003>
+		</2019_200experience>
 		<2007_2019>
 			<entreprise>COMPUFIRST</entreprise>
 			<lieu>Montpellier</lieu>
@@ -60,96 +64,96 @@ avec mon curriculum vitae que tu vas modifier pour mieux répondre à l’offre 
 			<poste>DSI</poste>
 			<realisations>
 				<demarrer_activité>
-					Plan de Démarrage de l’activité, Plan d'évolution sur 5 ans
-					Site ecommerce ICOM-Software
-					Centre d'Appel professionnel LowCost, VOIP, Asterisk
-					Gestion client Open source Sugar CRM
-					Reporting Constructeurs
+					<experience>Plan de Démarrage de l’activité, Plan d'évolution sur 5 ans</experience>
+					<experience>Site ecommerce ICOM-Software</experience>
+					<experience>Centre d'Appel professionnel LowCost, VOIP, Asterisk</experience>
+					<experience>Gestion client Open source Sugar CRM</experience>
+					<experience>Reporting Constructeurs</experience>
 				</demarrer_activité>
 				<developper_outils>
-					Site ecommerce sur mesure, performance, tolérance de panne
-					Outils back-office cœur d'activité Biorim ; Workflow Métier
-					Liaisons EDI hétérogènes, Fournisseurs, Banque, Comparateurs
-					DB commune aux applications métier, Web Service, Reporting, BI
-					Migrer site, CRM, Order Management, Facturation, CTI, en conservant les données
+					<experience>Site ecommerce sur mesure, performance, tolérance de panne</experience>
+					<experience>Outils back-office cœur d'activité Biorim ; Workflow Métier</experience>
+					<experience>Liaisons EDI hétérogènes, Fournisseurs, Banque, Comparateurs</experience>
+					<experience>DB commune aux applications métier, Web Service, Reporting, BI</experience>
+					<experience>Migrer site, CRM, Order Management, Facturation, CTI, en conservant les données</experience>
 				</developper_outils>
 				<faire_evoluer>
-					Transformer le Mass Marketing Fax vers eMarketing ciblé
-					Industrialiser Outils Marketing, ROI Marketing, Google Adwords, Analytics
-					Déménager sans interrompre l'activité
-					Adaptater Biorim pour Client Hexapage
-					Biorim en Mode SaaS
-					Virtualiser le Data Center OpenStack
+					<experience>Transformer le Mass Marketing Fax vers eMarketing ciblé</experience>
+					<experience>Industrialiser Outils Marketing, ROI Marketing, Google Adwords, Analytics</experience>
+					<experience>Déménager sans interrompre l'activité</experience>
+					<experience>Adaptater Biorim pour Client Hexapage</experience>
+					<experience>Biorim en Mode SaaS</experience>
+					<experience>Virtualiser le Data Center OpenStack</experience>
 				</faire_evoluer>
 				<prevoir>
-					Automatiser l’intégration des offres Cloud
-					Assurer le support Niveau 1 des produits Cloud
-					Facturer les Client par Abonnement
-					Intégrer le paiement récurrent CB
-					One Stop Shopping
-					Industrialiser Biorim pour le commercialiser
+					<experience>Automatiser l’intégration des offres Cloud</experience>
+					<experience>Assurer le support Niveau 1 des produits Cloud</experience>
+					<experience>Facturer les Client par Abonnement</experience>
+					<experience>Intégrer le paiement récurrent CB</experience>
+					<experience>One Stop Shopping</experience>
+					<experience>Industrialiser Biorim pour le commercialiser</experience>
 				</prevoir>
 		</2007_2019>
-		<1992_2006>
+		<1992_200experience>
 			<entreprise>DELL COMPUTER</entreprise>
 			<lieu>Montpellier</lieu>
 			<devise>Be Direct</devise>
 			<poste>
-				<1996_2006>DSI</1996_2006>
-				<1994_1996>Responsable Serveur & Réseau</1994_1996>
-				<1992_1993>Support Utilisateurs Internes</1992_1993>
+				<1996_200experience>DSI</1996_200experience>
+				<1994_199experience>Responsable Serveur & Réseau</1994_199experience>
+				<1992_199experience>Support Utilisateurs Internes</1992_199experience>
 			</poste>
 
 			<realisation>
-				Management des SI des BU de Paris, Athènes, Madrid, Montpellier, Milan, Casablanca
-				Accompagnement des changements de SI sur 10 ans de 300 à 2000 utilisateurs
 				<telecom>
-					Conception, Installation de nouveaux centres d’appels (Casablanca, Montpellier)
-					Déménager et mettre en production 500 postes, 300 lignes téléphoniques en 3 jours
-					Interconnections sites Casablanca, Montpellier, Paris
-					Réorganisations d’open space (déménager 200 personnes en 1 weekend)
-					Migration technologique Nortel vers Avaya, CTI, VOIP
-					Internalisation de la gestion du PABX
-					Constitution de KPI
+					<experience>Conception, Installation de nouveaux centres d’appels (Casablanca, Montpellier)</experience>
+					<experience>Déménager et mettre en production 500 postes, 300 lignes téléphoniques en 3 jours</experience>
+					<experience>Interconnections sites Casablanca, Montpellier, Paris</experience>
+					<experience>Réorganisations d’open space (déménager 200 personnes en 1 weekend)</experience>
+					<experience>Migration technologique Nortel vers Avaya, CTI, VOIP</experience>
+					<experience>Internalisation de la gestion du PABX</experience>
+					<experience>Constitution de KPI</experience>
 				</telecom>
 				<logiciel>
-					Déploiement ERP Européen
-					Déploiement SAP module RH
-					BI Marketing Database, Marcom ROI
-					Mass Marketing Fax
+					<experience>Déploiement ERP Européen</experience>
+					<experience>Déploiement SAP module RH</experience>
+					<experience>BI Marketing Database, Marcom ROI</experience>
+					<experience>Mass Marketing</experience>
 				</logiciel>
 				<informatique>
-					Centralisation du support interne, indicateurs de satisfaction
-					Business Continuity Recovery Plan
-					Evolution DataCenter migration OS, Redondance, Double abduction, SAN, Virtualisation
-					Standardisation du poste de travail, migrations OS et Outils
+					<experience>Centralisation du support interne, indicateurs de satisfaction</experience>
+					<experience>Business Continuity Recovery Plan</experience>
+					<experience>Evolution DataCenter migration OS, Redondance, Double abduction, SAN, Virtualisation</experience>
+					<experience>Standardisation du poste de travail, migrations OS et Outils</experience>
 				</informatique>
 				<management>
-					Fixer des objectifs
-					Performance Review
-					Team Building
-					Management 6 sites 15 personnes
-					Gestion des relations fournisseurs et tiers mainteneurs.
+					<experience>Management des SI des BU de Paris, Athènes, Madrid, Montpellier, Milan, Casablanca</experience>
+					<experience>Accompagnement des changements de SI sur 10 ans de 300 à 2000 utilisateurs</experience>
+					<experience>Fixer des objectifs</experience>
+					<experience>Revue de performance</experience>
+					<experience>Team Building</experience>
+					<experience>Management 6 sites 15 personnes</experience>
+					<experience>Gestion des relations fournisseurs et tiers mainteneurs.</experience>
 				</management>
-		</1992_2006>
-		<1992_1992>
+		</1992_200experience>
+		<1992_199experience>
 			<entreprise>CRÉDIT AGRICOLE du GARD </entreprise>
 			<lieu>Nîmes</lieu>
 			<devise>Rigueur</devise>
 			<poste>Analyste Programmeur</poste>
 			<realisation>
-				Développement des Programmes Front Office
+				<experience>Développement des Programmes Front Office</experience>
 			</realisation>
-		</1992_1992>
-		<1989_1991>
+		</1992_199experience>
+		<1989_199experience>
 			<entreprise>EUROPE DATA PLUS</entreprise>
 			<lieu>Montpellier</lieu>
 			<devise>Conception</devise>
 			<poste>Responsable Développement Logiciel</poste>
 			<realisation>
-				Développer les logiciels Comptabilité Générale, Gestion Fabrication, Devis, Facturation, Recouvrement, outils innovants de Base de Données
+				<experience>Développer les logiciels Comptabilité Générale, Gestion Fabrication, Devis, Facturation, Recouvrement, outils innovants de Base de Données</experience>
 			</realisation>
-		<1989_1991>
+		<1989_199experience>
 	</parcours_professionnel>
 
 	<contact>
@@ -159,12 +163,246 @@ avec mon curriculum vitae que tu vas modifier pour mieux répondre à l’offre 
 	</contact>
 	<annexes>
 		<liste_complete_competences>
+			<groupe_de_competence>MANAGEMENT EQUIPE
+				<competence>1 TO 1</competence>
+				<competence>AGILE</competence>
+				<competence>BRAINSTORMING</competence>
+				<competence>EQUIPE TÉLÉTRAVAIL</competence>
+				<competence>EQUIPES MULTI SITES</competence>
+				<competence>ETUDE DE CAS</competence>
+				<competence>MANAGEMENT PAR OBJECTIF</competence>
+				<competence>REVUE DE PERFORMANCE</competence>
+				<competence>OBJECTIF SMART</competence>
+				<competence>WEEKLY REVIEW</competence>
+				<competence>WEEKLY REPORT</competence>
+			</groupe_de_competance>
+			<groupe_de_competence>SAVOIR ÊTRE</groupe_de_competence>
+				<competence>ADAPTABILITÉ</competence>
+				<competence>ANTICIPER</competence>
+				<competence>AUTONOMIE</competence>
+				<competence>CURIOSITÉ</competence>
+				<competence>DIRECT</competence>
+				<competence>ECOLOGIQUE</competence>
+				<competence>ECONOME</competence>
+				<competence>EFFICACE</competence>
+				<competence>GESTION DU STRESS</competence>
+				<competence>GESTION DU TEMPS</competence>
+				<competence>HUMAIN</competence>
+				<competence>INITIATIVE</competence>
+				<competence>LEADERSHIP</competence>
+				<competence>ORGANISER</competence>
+				<competence>PERSÉVÉRANT</competence>
+				<competence>PONCTUALITÉ</competence>
+				<competence>POSITIF</competence>
+				<competence>RÉACTIF</competence>
+				<competence>PROBLÈMES COMPLEXES</competence>
+				<competence>RIGOUREUX</competence>
+			<groupe_de_competence>POSTE DE TRAVAIL</groupe_de_competence>
+				<competence>OFFICE 365</competence>
+				<competence>ADWORD</competence>
+				<competence>ANALYTICS</competence>
+				<competence>BIORIM</competence>
+				<competence>BRIA</competence>
+				<competence>BUGZILLA</competence>
+				<competence>CCMAIL</competence>
+				<competence>JIRA</competence>
+				<competence>LINUX</competence>
+				<competence>MACOSX</competence>
+				<competence>MIRO</competence>
+				<competence>OFFICE</competence>
+				<competence>OTRS</competence>
+				<competence>PUTTY</competence>
+				<competence>REMEDY</competence>
+				<competence>SUGAR CRM</competence>
+				<competence>TALEND</competence>
+				<competence>TRELLO</competence>
+				<competence>VIRTUAL BOX</competence>
+				<competence>WINDOWS</competence>
+				<competence>WINSCP</competence>
+			<groupe_de_competence>API</groupe_de_competence>
+				<competence>ACTEBIS</competence>
+				<competence>ADWORD</competence>
+				<competence>ANALYTIC</competence>
+				<competence>CANON</competence>
+				<competence>CHATGPT</competence>
+				<competence>CHORUS</competence>
+				<competence>CNET</competence>
+				<competence>EET</competence>
+				<competence>EPTIMUM</competence>
+				<competence>ICECAT</competence>
+				<competence>INGRAM</competence>
+				<competence>INSEE</competence>
+				<competence>KYOCERA</competence>
+				<competence>MCAD</competence>
+				<competence>OCTANT</competence>
+				<competence>PAYBOX</competence>
+				<competence>RICOH</competence>
+				<competence>SAGE</competence>
+				<competence>TECHDATA</competence>
+			<groupe_de_competence>RÉSEAU</groupe_de_competence>
+				<competence>3COM SUPERSTACK</competence>
+				<competence>AZURE</competence>
+				<competence>CATALYST</competence>
+				<competence>CISCO</competence>
+				<competence>DELL POWERCONNECT</competence>
+				<competence>DMZ</competence>
+				<competence>DNS</competence>
+				<competence>DNS MADE EASY</competence>
+				<competence>DONNÉES</competence>
+				<competence>DOUBLE ABDUCTION</competence>
+				<competence>FIREWALL</competence>
+				<competence>GUEST</competence>
+				<competence>HP</competence>
+				<competence>INVITE</competence>
+				<competence>LOAD BALANCING</competence>
+				<competence>OPEN VPN</competence>
+				<competence>OPENSTACK</competence>
+				<competence>OVH</competence>
+				<competence>PAREFEU</competence>
+				<competence>PFSENSE</competence>
+				<competence>RDP</competence>
+				<competence>ROUTEUR</competence>
+				<competence>SEGMENTATION RESEAU</competence>
+				<competence>TÉLÉTRAVAIL</competence>
+				<competence>TERMINAL SERVEUR</competence>
+				<competence>TRAVAIL À DISTANCE</competence>
+				<competence>VOIE</competence>
+				<competence>VPN</competence>
+				<competence>WIFI</competence>
+				<competence>WIRESHARK</competence>
+			<groupe_de_competence>LOGICIELS & PROGRAMMATION</groupe_de_competence>
+				<competence>A.I.</competence>
+				<competence>ACCESS</competence>
+				<competence>AD</competence>
+				<competence>ANALYSE DE DONNÉES</competence>
+				<competence>ANT</competence>
+				<competence>BASH</competence>
+				<competence>BUSINESS OBJECTS</competence>
+				<competence>C</competence>
+				<competence>CHATGPT</competence>
+				<competence>CITRIX</competence>
+				<competence>CLEAN CODE</competence>
+				<competence>CSS</competence>
+				<competence>CVS</competence>
+				<competence>CYBER SÉCURITÉ</competence>
+				<competence>DATA SCIENCE</competence>
+				<competence>DEEP LEARNING</competence>
+				<competence>DELL OPEN MANAGE</competence>
+				<competence>DEPLOIEMENT</competence>
+				<competence>DEVELOPPEMENT WEB</competence>
+				<competence>ECLIPSE</competence>
+				<competence>ELASTICSEARCH</competence>
+				<competence>EXCEL</competence>
+				<competence>EXCHANGE</competence>
+				<competence>GESTION DE PROJET</competence>
+				<competence>GHOST</competence>
+				<competence>GIT</competence>
+				<competence>GLASSFISH</competence>
+				<competence>HIBERNATE</competence>
+				<competence>HP OPEN VIEW</competence>
+				<competence>HTML</competence>
+				<competence>IA</competence>
+				<competence>JAVA</competence>
+				<competence>JS</competence>
+				<competence>LINUX</competence>
+				<competence>LOAD RUNNER</competence>
+				<competence>LOTUS NOTES</competence>
+				<competence>MAVEN</competence>
+				<competence>MSN</competence>
+				<competence>MYSQL</competence>
+				<competence>ORACLE</competence>
+				<competence>OV4</competence>
+				<competence>PCANYWHERE</competence>
+				<competence>PHP</competence>
+				<competence>POSTMAN</competence>
+				<competence>POWERPOINT</competence>
+				<competence>PROJECT</competence>
+				<competence>PYTHON</competence>
+				<competence>QUICKTEST PRO</competence>
+				<competence>REGRESSION LINÉAIRE</competence>
+				<competence>REMEDY</competence>
+				<competence>RÉSEAUX DE NEURONES</competence>
+				<competence>SEA</competence>
+				<competence>SEO</competence>
+				<competence>SMS</competence>
+				<competence>SOLID</competence>
+				<competence>SPRING</competence>
+				<competence>SQL SERVER</competence>
+				<competence>SVN</competence>
+				<competence>TRELLO</competence>
+				<competence>VB</competence>
+				<competence>VERSIONNING</competence>
+				<competence>VISIO</competence>
+				<competence>VISUAL BASIC</competence>
+				<competence>VISUAL STUDIO</competence>
+				<competence>WEB CRAWLING</competence>
+				<competence>WEB SCRAPING</competence>
+				<competence>WINDOWS</competence>
+				<competence>WINRUNNER</competence>
+				<competence>WORD</competence>
+			<groupe_de_competence>SÉCURITÉ & SERVEURS</groupe_de_competence>
+				<competence>APACHE</competence>
+				<competence>AWS S3</competence>
+				<competence>BCP BUSINESS CONTINUITY PLAN</competence>
+				<competence>CLOUD</competence>
+				<competence>CLUSTER</competence>
+				<competence>DATA CENTER PRIVE</competence>
+				<competence>DLT & LTO</competence>
+				<competence>DOCKER</competence>
+				<competence>EDI</competence>
+				<competence>EXCHANGE</competence>
+				<competence>EXIM</competence>
+				<competence>LETS ENCRYPT</competence>
+				<competence>LINUX</competence>
+				<competence>MICROSOFT</competence>
+				<competence>MISE À JOUR</competence>
+				<competence>MYSQL</competence>
+				<competence>NAGIOS</competence>
+				<competence>NEXEREN</competence>
+				<competence>OPENSTACK</competence>
+				<competence>OVH</competence>
+				<competence>PFSENSE</competence>
+				<competence>PRA PLAN REDÉMARRAGE ACTIVITÉ</competence>
+				<competence>SAN</competence>
+				<competence>SFTP</competence>
+				<competence>SQL</competence>
+				<competence>TOMCAT</competence>
+				<competence>UPDATE</competence>
+				<competence>VEILLE TECHNOLOGIQUE</competence>
+				<competence>VMWARE</competence>
+				<competence>VPS</competence>
+			<groupe_de_competence>TÉLÉPHONIE</groupe_de_competence>
+				<competence>ACD</competence>
+				<competence>ADVOCATE</competence>
+				<competence>ANALYSE DE TRAFIC</competence>
+				<competence>ASTERISK</competence>
+				<competence>AUDIX</competence>
+				<competence>AVAYA</competence>
+				<competence>CALL MODEL</competence>
+				<competence>CENTRE APPEL</competence>
+				<competence>CENTRE VU</competence>
+				<competence>CISCO</competence>
+				<competence>CMS</competence>
+				<competence>CONFERENCE</competence>
+				<competence>CTI</competence>
+				<competence>E1</competence>
+				<competence>HARDPHONE SIP</competence>
+				<competence>IVR</competence>
+				<competence>IVR CONVERSANT</competence>
+				<competence>NORTEL M1</competence>
+				<competence>NORTEL PASSPORT</competence>
+				<competence>OPEN SOURCE</competence>
+				<competence>POLYCOM</competence>
+				<competence>QSIG</competence>
+				<competence>SDA</competence>
+				<competence>SIP</competence>
+				<competence>SOFTPHONE</competence>
+				<competence>T2</competence>
+				<competence>TOIP</competence>
+				<competence>TOLÉRANCE DE PANNE</competence>
+				<competence>VOIP</competence>	
 		</liste_complete_competences>
 	</annexes>
 
 </ curriculum>
-Dans un premier temps, pour chaque compétences et qualités demandées dans l’offre ne figurant pas dans le curriculum, tu me demanderas si j’ai cette expérience, dans quelle entreprise je l’ai mise en œuvre afin de pouvoir l’ajouter au curriculum.
-Dans un second temps, tu me demanderas toutes les précisions nécessaires à la génération de la lettre de motivation et du curriculum afin qu’ils soient professionnels, percutants et attractifs.
-Enfin tu génèreras la lettre de motivation et le curriculum.
-Tu peux commencer
 
