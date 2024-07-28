@@ -13,6 +13,10 @@ import os
 # projet 774215552930
 # https://ai.google.dev/gemini-api/docs/get-started/tutorial?hl=fr&lang=python
 
+#
+# FailedPrecondition: 400 Gemini API free tier is not available in your country.
+# Please enable billing on your project in Google AI Studio.
+
 import google.generativeai as genai
 
 from IPython.display import display
@@ -24,7 +28,7 @@ def to_markdown(text):
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
 # Used to securely store your API key
-from google.colab import userdata
+# from google.colab import userdata
 
 # Or use `os.getenv('GOOGLE_API_KEY')` to fetch an environment variable.
 # GOOGLE_API_KEY=userdata.get('GOOGLE_API_KEY')

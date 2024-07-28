@@ -1,9 +1,10 @@
 # pip install anthropic
 # https://console.anthropic.com/settings/plans
+# et claim free credits
 import anthropic
 import os
 
-apiKey = os.environ['CLAUDE_API_KEY']
+apiKey = os.environ['CLAUDE_KEY']
 print(apiKey)
 
 client = anthropic.Anthropic(
