@@ -1,0 +1,239 @@
+Pour répondre à l'offre d'emploi de Responsable SI chez LEA Recrutement, nous allons procéder en plusieurs étapes pour mettre à jour votre CV et rédiger une lettre de motivation adaptée.
+
+### Analyse de l'Offre et Adaptation du CV
+
+**1. Correspondance des missions et compétences :**
+
+- **Diriger les projets de développement et d'intégration informatique :**
+  - Vos compétences en "Concevoir des Infrastructures Réseaux Serveurs et Télécoms" et "Développer des Logiciels" sont pertinentes.
+  - Expérience avec les API Python et Java (étude LLM, intégrations applicatives).
+
+- **Assurer le bon fonctionnement des applications en production, en particulier avec l'ERP :**
+  - Expériences en "Déploiement ERP Européen" chez Dell et "Déploiement SAP module RH".
+  - Gestion des applications métiers chez COMPUFIRST.
+
+- **Concevoir des solutions de tableau de bord pour les équipements et les processus automatisés :**
+  - Expérience avec "Reporting Constructeurs" et outils BI (Business Intelligence).
+
+- **Encadrer une équipe pluridisciplinaire :**
+  - Management de grandes équipes et projets multisites (par exemple chez Dell et COMPUFIRST).
+
+**2. Expériences manquantes :**
+
+- **Développement en Python, Node JS :**
+  - Vous avez mentionné Python, mais il n'y a pas de mention de Node JS. Est-ce une compétence que vous possédez ?
+
+- **Digitalisation industrielle :**
+  - Votre CV mentionne beaucoup de compétences liées à l'informatique d'entreprise, mais pouvez-vous fournir des exemples spécifiques de projets de digitalisation industrielle que vous avez menés ?
+
+**3. Profil recherché :**
+
+- **Diplôme supérieur en informatique, génie industriel ou autre :**
+  - Quel est votre diplôme et de quelle institution provient-il ?
+
+- **Compétences en communication et collaboration avec différents services :**
+  - Vos compétences en "Leadership" et "Esprit d’équipe" couvrent cela. 
+
+- **Aisance relationnelle, expertise technique, pragmatisme et sens de l'organisation :**
+  - Ces compétences sont couvertes par vos savoir-être tels que "Rigueur", "Réactivité", et "Capacité d’adaptation".
+
+- **Anglais technique :**
+  - Pouvez-vous confirmer votre niveau d'anglais écrit et oral, ainsi que des exemples de projets où cette compétence a été utilisée ?
+
+### Lettre de Motivation
+
+Pour rédiger une lettre de motivation percutante, nous aurons besoin de quelques précisions supplémentaires :
+
+1. **Pourquoi souhaitez-vous postuler à ce poste de Responsable SI chez LEA Recrutement ?**
+2. **Quelles sont vos motivations à travailler dans le secteur des objets connectés pour la santé et la gestion de l'eau ?**
+3. **Pouvez-vous donner un ou deux exemples concrets de projets ou réalisations qui correspondent particulièrement bien aux missions de l'offre ?**
+
+### Action
+
+Pour commencer, pourriez-vous répondre aux questions suivantes :
+
+1. Possédez-vous des compétences en Node JS ?
+2. Pouvez-vous fournir des exemples spécifiques de projets de digitalisation industrielle que vous avez menés ?
+3. Quel est votre diplôme et de quelle institution provient-il ?
+4. Pouvez-vous confirmer votre niveau d'anglais écrit et oral, ainsi que des exemples de projets où cette compétence a été utilisée ?
+5. Pourquoi souhaitez-vous postuler à ce poste de Responsable SI chez LEA Recrutement ?
+6. Quelles sont vos motivations à travailler dans le secteur des objets connectés pour la santé et la gestion de l'eau ?
+7. Pouvez-vous donner un ou deux exemples concrets de projets ou réalisations qui correspondent particulièrement bien aux missions de l'offre ?
+
+Une fois ces informations recueillies, nous pourrons procéder à la mise à jour de votre CV et à la rédaction de la lettre de motivation.
+
+->
+1 le site web developpé chez COMPUFIRST possédaient certaines fonctionalités programmées en javascript. En particulier le tunnel de commande.
+
+2 Chez Dell j'ai developpé des affichage temps réel des appels téléphonique en attente. Il a fallu developper le pilote et l'api pour cet écran et faire un programme pour l'interfacer avec l'Autocommutateur.
+
+3 En 1988 j'ai obtenue une Maitrise d'informatique appliquée à la gestion MIAGe à l'Université de Nancy
+
+4 Je parle et j'écris l'anglais courament. C'est la langue utilisé dans toutes les communications chez Dell. Chez Dell et Compufirst, toutes les documentations techniques étaient rédigées en Anglais.
+
+5 car je crois que mon expérience et ma capacité à trouver des solutions et à construire des systèmes fiables sera très utile
+
+6 je pense que l'utilisation des objets connectés peut avoir un impact positif pour l’Homme et la Planète, cela me motive beaucoup, et le monde en a bien besoin.
+
+7 le developpement de Biorim chez compufirst qui est à la fois un ERP un CRM, un CMS et un outil de BI demontre mes compétances dans tous les domaines de l'informatique. Mes points forts sont la gestion et la conception de bases de données, l'interconnection de systèmes à travers des API hétérogènes, le pilotage de systèmes temps réels tels l'autocommutateur et ses interconnections.
+->
+
+
+**1. Développement de fonctionnalités en JavaScript chez COMPUFIRST**
+
+Au sein de COMPUFIRST, j'ai joué un rôle clé dans le développement du site web de l'entreprise, en particulier en programmant certaines fonctionnalités cruciales en JavaScript. Parmi celles-ci, le tunnel de commande a été une réalisation majeure, permettant une expérience utilisateur fluide et efficace.
+
+**2. Développement d'affichages en temps réel chez Dell**
+
+Lors de mon passage chez Dell, j'ai développé des affichages en temps réel pour les appels téléphoniques en attente. Ce projet comprenait le développement du pilote et de l'API pour l'écran, ainsi que la création d'un programme pour interfacer cet écran avec l'autocommutateur, assurant ainsi une gestion optimale des communications téléphoniques.
+
+**3. Formation académique en informatique appliquée à la gestion**
+
+En 1988, j'ai obtenu une Maîtrise d'Informatique Appliquée à la Gestion (MIAGE) de l'Université de Nancy. Cette formation m'a fourni une solide base théorique et pratique en informatique, appliquée spécifiquement aux besoins de gestion des entreprises.
+
+**4. Compétence linguistique en anglais**
+
+Je parle et écris couramment l'anglais, une compétence essentielle dans mes expériences professionnelles chez Dell et COMPUFIRST où l'anglais était la langue de communication utilisée pour toutes les documentations techniques et les interactions professionnelles.
+
+**5. Expérience et capacité à trouver des solutions fiables**
+
+Je suis convaincu que mon expérience et ma capacité à trouver des solutions innovantes et à construire des systèmes fiables seront très bénéfiques pour votre entreprise. Mon parcours démontre une aptitude à aborder et résoudre des défis complexes en informatique.
+
+**6. Motivation pour les objets connectés et leur impact**
+
+Je suis passionné par l'utilisation des objets connectés et leur potentiel impact positif sur l'homme et la planète. Cette motivation est renforcée par ma conviction que le monde a grand besoin de solutions technologiques durables et innovantes.
+
+**7. Développement de Biorim chez COMPUFIRST**
+
+Chez COMPUFIRST, j'ai participé au développement de Biorim, une solution intégrée combinant ERP, CRM, CMS et outils de BI. Ce projet illustre mes compétences polyvalentes en informatique, notamment en gestion et conception de bases de données, interconnexion de systèmes via des API hétérogènes, et pilotage de systèmes temps réels tels que l'autocommutateur et ses interconnexions.
+
+
+
+<- lettre de motivation ->
+Bien sûr, voici une proposition de lettre de motivation :
+
+---
+
+[Votre Nom]  
+[Votre Adresse]  
+[Code Postal, Ville]  
+[Votre Email]  
+[Votre Téléphone]  
+
+[Nom du Destinataire]  
+[Poste du Destinataire]  
+[Nom de l'Entreprise]  
+[Adresse de l'Entreprise]  
+[Code Postal, Ville]  
+
+Date : [Date]
+
+Objet : Candidature pour le poste de [Nom du poste]
+
+Madame, Monsieur,
+
+C'est avec un grand intérêt que je vous adresse ma candidature pour le poste de [Nom du poste] au sein de votre entreprise. Fort de plusieurs années d'expérience dans le développement informatique et de compétences avérées dans divers domaines techniques, je suis convaincu que mon profil peut répondre aux exigences et aux défis de ce poste.
+
+Au cours de mon expérience chez COMPUFIRST, j'ai contribué au développement de leur site web en programmant des fonctionnalités cruciales en JavaScript, notamment le tunnel de commande, améliorant ainsi significativement l'expérience utilisateur. Mon passage chez Dell m'a permis de développer des affichages en temps réel pour les appels téléphoniques en attente, un projet complexe qui nécessitait la création d'un pilote, d'une API et d'un programme pour interfacer avec l'autocommutateur.
+
+Titulaire d'une Maîtrise d'Informatique Appliquée à la Gestion (MIAGE) obtenue à l'Université de Nancy en 1988, j'ai acquis une solide formation académique que j'ai pu mettre en pratique avec succès tout au long de ma carrière. De plus, mon aptitude à parler et écrire couramment l'anglais a été un atout indispensable chez Dell et COMPUFIRST, où la langue anglaise était omniprésente dans les communications et les documentations techniques.
+
+Je suis particulièrement motivé par le potentiel des objets connectés et leur impact positif sur l'Homme et la planète. Je crois fermement que votre entreprise, par ses innovations et ses projets, contribue de manière significative à ce domaine, et c'est une perspective qui m'enthousiasme profondément.
+
+Mon expérience chez COMPUFIRST, où j'ai développé Biorim, un outil intégrant ERP, CRM, CMS et BI, démontre mes compétences variées en informatique. Ce projet m'a permis de mettre en œuvre mes compétences en gestion et conception de bases de données, interconnexion de systèmes via des API hétérogènes et pilotage de systèmes temps réels.
+
+Je suis convaincu que mon expérience, ma capacité à trouver des solutions innovantes et ma rigueur dans la construction de systèmes fiables seront des atouts précieux pour votre équipe. Je serais ravi de pouvoir discuter plus en détail de ma candidature lors d'un entretien à votre convenance.
+
+Je vous remercie par avance de l'attention portée à ma candidature et vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+
+[Votre Nom]  
+[Signature (si lettre envoyée par courrier)]  
+
+---
+
+N'hésitez pas à personnaliser cette lettre en fonction du poste spécifique et de l'entreprise à laquelle vous postulez. Bonne chance dans votre recherche d'emploi !
+
+<- CV ->
+Bien sûr, voici une proposition de CV à jour :
+
+---
+
+**[Votre Nom]**  
+[Votre Adresse]  
+[Code Postal, Ville]  
+[Votre Email]  
+[Votre Téléphone]  
+
+---
+
+### **Profil**
+
+Développeur informatique expérimenté avec une forte expertise dans le développement de sites web, les systèmes temps réels et les interconnexions de systèmes via des API hétérogènes. Passionné par les nouvelles technologies et leur impact positif sur l'Homme et la planète, je suis motivé par la création de solutions innovantes et fiables.
+
+---
+
+### **Expérience Professionnelle**
+
+**Développeur Informatique**  
+*COMPUFIRST* - [Ville]  
+*Dates : [Mois/Année] - [Mois/Année]*
+
+- Développement du site web de l'entreprise avec des fonctionnalités en JavaScript, incluant le tunnel de commande.
+- Conception et développement de Biorim, un outil intégrant ERP, CRM, CMS et BI.
+- Gestion et conception de bases de données.
+- Interconnexion de systèmes via des API hétérogènes.
+- Pilotage de systèmes temps réels.
+
+**Développeur de Systèmes Temps Réels**  
+*Dell* - [Ville]  
+*Dates : [Mois/Année] - [Mois/Année]*
+
+- Développement d'affichages en temps réel pour les appels téléphoniques en attente.
+- Création d'un pilote et d'une API pour interfacer l'écran avec l'autocommutateur.
+- Rédaction de documentation technique en anglais.
+
+---
+
+### **Formation**
+
+**Maîtrise d'Informatique Appliquée à la Gestion (MIAGE)**  
+*Université de Nancy* - Nancy, France  
+*Date d'obtention : 1988*
+
+---
+
+### **Compétences**
+
+- **Langages de Programmation** : JavaScript, [Autres langages pertinents]
+- **Développement Web** : HTML, CSS, JavaScript
+- **Systèmes Temps Réels** : Développement de pilotes, API
+- **Base de Données** : Conception et gestion
+- **Interconnexion de Systèmes** : API hétérogènes
+- **Langues** : Français (natif), Anglais (courant)
+
+---
+
+### **Langues**
+
+- Français : Natif
+- Anglais : Courant (utilisé dans toutes les communications et documentations techniques chez Dell et COMPUFIRST)
+
+---
+
+### **Centres d'Intérêt**
+
+- Nouvelles technologies et objets connectés
+- Impact des technologies sur l'Homme et la planète
+- Innovation technologique
+
+---
+
+### **Références**
+
+- Disponibles sur demande
+
+---
+
+Assurez-vous de compléter les informations manquantes comme les dates précises et les villes, et n'hésitez pas à ajouter toute autre expérience ou compétence pertinente.
+
+

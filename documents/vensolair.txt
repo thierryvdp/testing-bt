@@ -6,47 +6,61 @@ Au besoin tu me demanderas toutes les précisions nécessaires à la génératio
 Tu pourra alors génèrer le curriculum et la lettre de motivation.
 
 <offre>
-	<titre>Responsable Si H/F</titre>
+	<titre>Responsable Système d'Information F/H</titre>
 	<contenu>
-	Les missions du poste
-	Intégrez le leader français en solutions connectées pour la santé et la gestion de l'eau !
+About the job
+Vensolair est un acteur et expert historique de l’énergie éolienne et solaire photovoltaïque regroupant près de 75 collaboratrices et collaborateurs sur 7 sites (Montpellier, Rennes, Rouen , Bordeaux, Paris, Strasbourg et Lyon)
 
-	LEA Recrutement présente, pour le compte de notre partenaire, une nouvelle offre d'emploi.
+Filiale à 100% de CNR (Compagnie Nationale du Rhône) depuis 2019, nous concevons, développons et construisons des centrales éoliennes, solaires photovoltaïques, batteries et hydrogène sur le territoire français métropolitain en partenariat avec les acteurs locaux de la transition écologique.
 
-	Nous sommes ravis de l'aider dans sa recherche et nous espérons vous mettre bientôt en relation avec lui !
+Nous avons pour ambition d’installer plus de 900 MW de nouvelles capacités solaires et éoliennes d’ici 2030 et de développer 200 MW d’actifs de stockage batteries et hydrogène.
 
-	Poste de Responsable SI H/F en CDI à Montpellier au sein d'une entreprise leader du marché français dans le secteur des objets connectés dans les secteurs de la santé et de l'hydrologie.
+Vensolair est tournée vers l’action, avec l’agilité d’une PME et les capacités techniques et financières d’un grand groupe positionné sur la chaine de valeur : du sourcing d’énergie renouvelable jusqu’à la commercialisation.
 
-	La confidentialité de votre candidature est assurée.
+Vensolair, c’est une équipe à taille humaine avec cette dimension territoriale si importante à la réussite de nos projets, et un haut niveau d’expertise pour concevoir des actifs performants.
 
-	Vous occupez un rôle de leader à la fois sur le plan technologique et managérial au sein d'une équipe polyvalente chargée du développement des applications du système d'information.
+Depuis 2019, Vensolair a mis en service 124MW de projet EnR et 36MW sont en cours de construction. Vensolair supervise 1GW de projets éoliens et photovoltaïques.
 
-	Vos missions :
+Le contexte 
 
-	* Diriger les projets de développement et d'intégration informatique du système d'information, incluant la conception d'API, la gestion de bases de données, le développement en Python, node JS, etc.
-	* Assurer le bon fonctionnement des applications en production, en particulier avec l'ERP.
-	* Concevoir des solutions de tableau de bord pour les équipements et les processus automatisés.
-	* Encadrer une équipe pluridisciplinaire composée d'ingénieurs et de techniciens.
+En tant que Responsable du Système d'Information, vous serez rattaché-e au Sécrétaire Général de la société et rejoindrez un environnement multi-sites (siège social et agences).
 
-	Vos avantages :
+Vous jouerez un rôle central dans la gestion, l'administration et la cybersécurité du Système d'Information de Vensolair.
 
-	* Statut Cadre
-	* Salaire fixe + primes
-	* Epargne salariale
-	* RTT
-	* Mutuelle 100% prise en charge
-	* et bien plus...
+Votre rôle chez Vensolair
 
-	Le profil recherché
-	Votre profil :
+Gestion de l'infrastructure et support :
 
-	* Vous êtes titulaire d'un diplôme supérieur en informatique, génie industriel ou autre.
-	* Vous possédez une solide expérience dans le domaine de la digitalisation industrielle.
-	* Grâce à vos compétences en communication, vous êtes capable de collaborer efficacement avec différents services et de mener vos projets à bien.
-	* Vous êtes passionné par les nouvelles technologies.
-	* Votre aisance relationnelle, votre expertise technique, votre pragmatisme et votre sens de l'organisation seront des atouts essentiels pour réussir dans ce poste.
-	* Vous êtes capable de communiquer en anglais, à l'écrit comme à l'oral, sur des sujets techniques.
-	</contenu>
+Superviser la gestion des postes de travail et de l'infrastructure réseau multi-sites ;
+Assurer la sécurité informatique, notamment via la solution Fortinet ;
+Administrer les solutions cloud, en particulier Office 365 (SharePoint, Teams, etc.) ;
+Gérer le support technique aux utilisateurs (niveaux 1 et 2) ;
+Veiller à la continuité de service et gérer les sauvegardes ;
+Participer activement aux opérations de dépannage complexes ;
+Effectuer des configurations avancées sur les systèmes et réseaux.
+
+Gestion de projets et stratégie :
+
+Piloter les projets d'évolution du SI, qu'ils soient applicatifs ou techniques ;
+Analyser les besoins des utilisateurs et proposer des solutions adaptées ;
+Gérer le cycle de vie des applications métiers ;
+Participer à l'élaboration de la stratégie SI en collaboration avec notre prestataire externe ;
+Assurer une veille technologique constante.
+
+Coordination multi-sites :
+
+Assurer la cohérence et l'homogénéité des systèmes d'information sur l'ensemble des sites ;
+Optimiser les ressources IT entre les sites pour une meilleure efficacité globale.
+
+Votre Profil 
+
+Vous êtes diplomé-e dans le domaine de l’informatique (min. BAC+ 3) ;
+Vous justifiez d’une expérience significative sur un poste similaire ;
+Vous savez travailler en mode projet et possédez d’excellentes aptitudes en communication ;
+Vous avez idéalement les certifications : PMP, Microsoft et Fortinet ;
+Vous détenez des connaissances solides en systèmes d’exploitation Windows et réseaux ;
+Vous maîtrisez la suite Office 365, en particulier SharePoint et Teams ;
+Vous êtes reconnu-e pour votre esprit d’analyse et votre capacité à résoudre des problèmes.	</contenu>
 </offre>
 
 <curriculum>
@@ -134,14 +148,14 @@ Tu pourra alors génèrer le curriculum et la lettre de motivation.
 					<experience>Industrialiser Biorim pour le commercialiser</experience>
 				</prevoir>
 		</2007_2019>
-		<1992_200experience>
+		<1992_2007>
 			<entreprise>DELL COMPUTER</entreprise>
 			<lieu>Montpellier</lieu>
 			<devise>Be Direct</devise>
 			<poste>
-				<1996_200experience>DSI</1996_200experience>
-				<1994_199experience>Responsable Serveur & Réseau</1994_199experience>
-				<1992_199experience>Support Utilisateurs Internes</1992_199experience>
+				<1996_2007>DSI</1996_2007>
+				<1994_1996>Responsable Serveur & Réseau</1994_1996>
+				<1992_1994>Support Utilisateurs Internes</1992_1994>
 			</poste>
 
 			<realisation>
@@ -445,4 +459,119 @@ Tu pourra alors génèrer le curriculum et la lettre de motivation.
 	</annexes>
 
 </ curriculum>
+
+---------------------------------------------------------------------
+réponse :
+---------------------------------------------------------------------
+Pour vous aider à adapter votre CV et créer une lettre de motivation répondant à l'offre de Responsable Système d'Information chez Vensolair, j'ai besoin de quelques précisions supplémentaires concernant certaines compétences et expériences demandées par l'offre. Voici les domaines où j'aurais besoin de votre input :
+
+Cybersécurité et Fortinet :
+
+L'offre mentionne l'importance de la cybersécurité et cite spécifiquement la solution Fortinet. Pouvez-vous me dire si vous avez une expérience particulière avec Fortinet ou des solutions similaires en matière de sécurité ?
+
+Administration Cloud et Office 365 :
+
+Vous avez mentionné des compétences en administration et développement logiciel, mais je voudrais savoir si vous avez une expérience directe avec l'administration de solutions Cloud, en particulier avec Office 365 (SharePoint, Teams, etc.) ?
+Gestion de Projets SI :
+
+L'offre mentionne la gestion de projets d'évolution du SI, aussi bien techniques qu'applicatifs. Pouvez-vous décrire des projets similaires que vous avez menés, en termes de portée, résultats, et outils utilisés ?
+Certifications PMP, Microsoft, Fortinet :
+
+L'annonce exprime une préférence pour des certifications telles que PMP, Microsoft, et Fortinet. Pouvez-vous préciser si vous détenez ou avez travaillé dans un contexte où ces certifications étaient valorisées ?
+Veille Technologique :
+
+L'offre mentionne l'importance de la veille technologique. Vous avez déjà mentionné la veille technologique dans votre CV. Pouvez-vous détailler les domaines spécifiques de la technologie où vous avez mené cette veille ?
+Une fois ces éléments clarifiés, je pourrai ajuster votre CV en conséquence et rédiger une lettre de motivation ciblée et percutante pour cette opportunité.
+
+---------------------------------------------------------------------
+Cybersécurité et Fortinet : je ne connais pas fortinet mais je maitrise les techniques de cybersécurité pour les avoir mis en oeuvre chez Dell et chez Compufirst. En particulier à Compufirst j'ai mis en place des solutions sécusisées open source pour résister à la fois aux attaques et aux pannes. La solution était basé sur Pfsense.
+
+Administration Cloud et Office 365 :
+Chez compufirst j'ai fait migrer l'insfrastructure mail basé sur une solution opensource Exim4 vers Office 365 afin de pouvoir être une vitrine pour nos client et éduquer nos commerciaux à l'utilisation de cette solution afin qu'ils puissent la vendre correctement. De plus en temps que revendeur de la solution, nous assurions le support niveau 1 pour nos clients 365 et Cloud Azure.
+EN ce qui concerne le cloud plus particulierement, nous avons dans un premier temps étudié en interne les solutions Cloud OpenStack et VMWare avant de migrer nos serveurs vers VMWare. Nous avons aussi migré un serveur non critique vers le Cloud OVH. Ensuite après le rachat par le groupe Xefi, toute notre infrastructure a été migrée vers leur Cloud Nexeren.
+
+Gestion de Projets SI :
+J'ai géré de grand projets, depuis l'installation Chez de nouveaux locaux à Paris, Montpellier, Athènes, Casablanca. Ceci inclus l'installation de nouveaux postes utilisateurs, d'infrastructures serveurs, réseaux et téléphonie. Ces projets interconnectait plusieurs sites. Il fallait planifier l'installation de nouvelles personnes (Casablanca) ou le déménagement d'infrastructures et de personnels (Montpellier). En terme d'évolution en 13 ans chez Dell l'évolution des systèmes que j'ai du gérer a été spéctaculaire tant par la monté en puissance et fonctionnalités matérielle et logiciel qu'en nombre de postes de travail. On est passé de 300 à 2000 positions sur le site de Montpellier. On est passé d'un PABX analogique à des connections SIP et du CTI.
+Chez Compufirst on a vécu la révolution du Web, la mise en place d'une BI piloté par les indicateurs de visites et de vente et l'achats de mot clé pour optimiser le retour sur investissement Marketing (BIORIM Business Intelligence On Return Invest Marketing). Ce logiciel entirement développé en interne avec mon équipe, est une solution intégrée combinant ERP, CRM, CMS et outils de BI. Ce projet illustre mes compétences polyvalentes en informatique, notamment en gestion et conception de bases de données, interconnexion de systèmes via des API hétérogènes, et pilotage de systèmes temps réels tels que l'autocommutateur et ses interconnexions.
+
+Certifications PMP, Microsoft, Fortinet :
+je ne suis pas certifié de quoi que ce soit, ce qui m'interresse c'est de batir des solutions inovantes et pas de rentrer dans des moules.
+
+Veille Technologique :
+je fais plus que de la veille technologique, dans toute ma carrière, j'ai plutôt été un "early adopter" dès que je voyais que la technologie était sur le chemin de la maturéité et présenté un interêt décisif. C'est pour cela que l'on a raîdement utilisé les communications SIP et le CTI chez Dell. Que l'on a abandonné le Marketing par Fax Attaque pour du Marketing email et Web chez Compufirst. Et que je m'interresse de très près à l'IA et aux LLM depuis 1 an.
+---------------------------------------------------------------------
+
+
+Merci pour ces détails très précis ! Je vais utiliser ces informations pour créer une lettre de motivation et mettre à jour votre CV. Commençons par la lettre de motivation.
+
+### Lettre de Motivation
+
+---
+
+**[Votre nom]**  
+[Votre adresse]  
+[Code postal, Ville]  
+[Email]  
+[Téléphone]  
+
+**[Nom de l'entreprise]**  
+[Adresse de l'entreprise]  
+[Code postal, Ville]  
+
+**Date :** [Date du jour]
+
+**Objet :** Candidature au poste de Responsable Infrastructure IT et Cybersécurité
+
+Madame, Monsieur,
+
+Fort d'une expérience de plus de 20 ans dans la gestion d'infrastructures IT complexes et la mise en œuvre de solutions innovantes, je souhaite aujourd'hui relever de nouveaux défis au sein de votre entreprise en tant que Responsable Infrastructure IT et Cybersécurité.
+
+Durant mon parcours professionnel, j'ai eu l'opportunité de piloter des projets stratégiques au sein d'entreprises de premier plan telles que Dell et Compufirst. J'ai notamment été responsable de la sécurisation des infrastructures IT, où j'ai su implémenter des solutions robustes et open-source pour résister aux attaques et aux pannes, comme celles basées sur PfSense. Ces expériences m'ont permis de développer une expertise approfondie en cybersécurité, bien que je ne sois pas spécifiquement formé sur Fortinet, je compense largement par ma capacité à maîtriser et intégrer rapidement de nouvelles technologies.
+
+En matière d'administration Cloud, j'ai conduit la migration d'infrastructures critiques vers des solutions comme Office 365, où j'ai également formé et supporté les équipes commerciales pour optimiser la vente de ces solutions. J'ai également une expérience solide dans l'évaluation et la migration d'environnements serveurs vers des clouds publics et privés, notamment OpenStack, VMWare, et OVH.
+
+Mes compétences en gestion de projets IT m'ont permis de mener à bien des initiatives complexes, telles que l'installation de nouvelles infrastructures dans des locaux répartis entre Paris, Montpellier, Athènes, et Casablanca. Ces projets ont impliqué la coordination de multiples équipes et sites, la planification minutieuse des installations matérielles et logicielles, ainsi que la gestion du cycle de vie complet des systèmes d'information, de leur conception à leur déploiement.
+
+Je suis particulièrement intéressé par le développement de solutions innovantes, comme en témoigne mon implication dans la création d'un outil intégré de Business Intelligence chez Compufirst, qui a transformé notre approche du marketing digital. Tout au long de ma carrière, j'ai été un "early adopter", intégrant rapidement des technologies avant-gardistes comme les communications SIP, le CTI, et plus récemment, l'Intelligence Artificielle et les Modèles de Langage (LLM).
+
+Je suis convaincu que mon profil polyvalent, mon sens de l'innovation, et ma capacité à mener des projets IT d'envergure internationale feraient de moi un atout pour votre entreprise. Je serais honoré de pouvoir échanger avec vous sur la manière dont je pourrais contribuer à la réussite de vos projets.
+
+Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+
+Thierry Van Der Putten
+
+NB: cette lettre de motivation a été générée par ChatGpt à l'aide de mes informations personnelles, relu et ajustée par mes soins.
+
+---
+
+### Mise à jour du CV
+
+Je vais maintenant mettre à jour les sections pertinentes de votre CV en intégrant les informations que vous m'avez fournies. Voici un aperçu des sections que je vais ajuster :
+
+**1. Expériences Professionnelles :**
+   - Ajout de vos réalisations en cybersécurité chez Dell et Compufirst, avec un focus sur la mise en place de solutions open-source comme PfSense.
+   - Détails sur la migration vers Office 365 et l'administration Cloud chez Compufirst.
+   - Exemples concrets de projets IT que vous avez pilotés (nouveaux locaux, interconnexions de sites, BIORIM).
+
+**2. Compétences Techniques :**
+   - Cybersécurité : mention de PfSense, OpenStack, VMware, etc.
+   - Administration Cloud : Office 365, Azure, OVH Cloud.
+   - Gestion de projets : exemples de projets multi-sites, installation et migration de systèmes.
+
+**3. Formation et Certifications :**
+   - Mention que vous n'avez pas de certifications spécifiques, mais que votre force réside dans la création de solutions innovantes et la maîtrise rapide de nouvelles technologies.
+
+**4. Veille Technologique :**
+   - Highlight de votre statut d'early adopter et votre intérêt pour les technologies émergentes comme l'IA et les LLM.
+
+Si vous avez des préférences supplémentaires ou des corrections, n'hésitez pas à me le dire avant de finaliser ces documents.
+
+
+https://rocketreach.co/person
+
+christophe olivier	https://www.linkedin.com/in/christophe-olivier-13373a/	christophe.olivier@cabasse.com
+jean michel polit	https://www.linkedin.com/in/jean-michel-polit-b1ab6a3/	jeanmichelpolit@cabasse.com
+lionel vargel		https://www.linkedin.com/in/lionelvargel/				
+
+sacha rosenthal		s.rosenthal@xefi.fr
 
