@@ -7,3 +7,7 @@ do
     pip3 install --upgrade $package
 done
 
+# script end
+echo -e "\n\nAppuyez un touche pour continuer\n"
+# wait for user input to end script
+read -e
