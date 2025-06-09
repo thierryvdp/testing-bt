@@ -46,11 +46,7 @@ for m in genai.list_models():
 # model = genai.GenerativeModel('gemini-pro')
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-response = model.generate_content("What is the meaning of life?")
-to_markdown(response.text)
-response.prompt_feedback
-
 response = model.generate_content("pourquoi le ciel est bleu ?", stream=True)
 for chunk in response:
   print(chunk.text)
-  print("_"*80)
+
